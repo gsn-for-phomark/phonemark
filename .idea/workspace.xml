@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="添加pm-util,domain修改pom增加util依赖">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/config/DruidConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/util/CommonUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/util/CopyUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +32,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,6 +74,9 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -131,6 +129,8 @@
       <workItem from="1606910438521" duration="2166000" />
       <workItem from="1606990510585" duration="4599000" />
       <workItem from="1607049468583" duration="238000" />
+      <workItem from="1607061975241" duration="1001000" />
+      <workItem from="1607063134486" duration="56000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -153,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606992071022</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加pm-util,domain修改pom增加util依赖">
+      <created>1607050735022</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607050735022</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
