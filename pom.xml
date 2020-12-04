@@ -19,6 +19,7 @@
 
         <module>pm-base</module>
         <module>pm-domain</module>
+        <module>pm-util</module>
     </modules>
 
     <properties>
