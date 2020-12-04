@@ -90,6 +90,11 @@
             <artifactId>jboss-logging</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.gsn</groupId>
+            <artifactId>pm-util</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 
