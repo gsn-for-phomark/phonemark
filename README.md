@@ -1,4 +1,4 @@
-PhoneMark：关于数码博客的小组项目
+![https://github.com/SSONNGG/SSONNGG.github.io/blob/master/img/mainicon.png] PhoneMark：关于数码博客的小组项目
 ======================
 ## 关于模块与包名命名请注意：
 >1.微服务基础模块名为microservice-service-xx<br> 
