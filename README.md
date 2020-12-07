@@ -11,5 +11,6 @@ PhoneMark：关于数码博客的小组项目
   再在IDEA中建立自己的分支书写代码<br> 
   代码写完后，merge Change合并代码<br> 
   之后push到github上<br> 
+  <span style="color:red">一定要先在分支中写好代码合并后再push！</span><br>
 -- 如果有更新，请先拉取代码再push<br> 
 -- 如果出现冲突，清先解决冲突再push<br> 
