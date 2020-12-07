@@ -20,6 +20,7 @@
         <module>pm-base</module>
         <module>pm-domain</module>
         <module>pm-util</module>
+        <module>pm-domain-essay</module>
     </modules>
 
     <properties>
