@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Data
 @Table(name= "memberinfo")
-public class Member {
+public class Memberinfo {
 
     /**
      *
