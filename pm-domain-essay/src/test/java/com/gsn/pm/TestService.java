@@ -21,6 +21,9 @@ public class TestService {
     private EssayinfoService essayinfoService;
 
 
+    /**
+     * 微服务测试
+     */
     @Test
     public void testAddEssay(){
         Essayinfo essayinfo=new Essayinfo();

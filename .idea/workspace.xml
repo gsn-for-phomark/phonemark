@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="添加pm-domain-essay">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="添加pm-domain-essay addEssay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonemark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phonemark.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/pm-base.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -139,6 +134,48 @@
       <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestService" />
       <option name="METHOD_NAME" value="testAddEssay" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-git-config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApp2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-git-config2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApp3" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-git-config3" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HystrixDashboardApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-hystrix-dashboard" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.HystrixDashboardApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TurbineApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-hystrix-turbine" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.TurbineApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
