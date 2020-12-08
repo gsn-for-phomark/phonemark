@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-
     <groupId>com.gsn</groupId>
     <artifactId>phonemark</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -11,11 +10,18 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-
         <module>pm-base</module>
         <module>pm-domain</module>
         <module>pm-util</module>
         <module>pm-domain-essay</module>
+        <module>eureka-config</module>
+        <module>base-git-config</module>
+        <module>base-git-config2</module>
+        <module>base-git-config3</module>
+        <module>base-hystrix-dashboard</module>
+        <module>base-hystrix-turbine</module>
+        <module>base-security</module>
+        <module>base-zuul-gateway</module>
     </modules>
 
     <properties>
