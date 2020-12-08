@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/base-git-config/base-git-config.iml" filepath="$PROJECT_DIR$/base-git-config/base-git-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-git-config2/base-git-config2.iml" filepath="$PROJECT_DIR$/base-git-config2/base-git-config2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-git-config3/base-git-config3.iml" filepath="$PROJECT_DIR$/base-git-config3/base-git-config3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-hystrix-dashboard/base-hystrix-dashboard.iml" filepath="$PROJECT_DIR$/base-hystrix-dashboard/base-hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-hystrix-turbine/base-hystrix-turbine.iml" filepath="$PROJECT_DIR$/base-hystrix-turbine/base-hystrix-turbine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-security/base-security.iml" filepath="$PROJECT_DIR$/base-security/base-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-zuul-gateway/base-zuul-gateway.iml" filepath="$PROJECT_DIR$/base-zuul-gateway/base-zuul-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-config/eureka-config.iml" filepath="$PROJECT_DIR$/eureka-config/eureka-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/phonemark.iml" filepath="$PROJECT_DIR$/phonemark.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-base/pm-base.iml" filepath="$PROJECT_DIR$/pm-base/pm-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-domain/pm-domain.iml" filepath="$PROJECT_DIR$/pm-domain/pm-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pm-domain-essay/pm-domain-essay.iml" filepath="$PROJECT_DIR$/pm-domain-essay/pm-domain-essay.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-util/pm-util.iml" filepath="$PROJECT_DIR$/pm-util/pm-util.iml" />
     </modules>
   </component>
