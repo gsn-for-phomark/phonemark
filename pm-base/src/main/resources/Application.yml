@@ -15,7 +15,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 101.200.216.156
+          brokers: 101.200.81.3
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

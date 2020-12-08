@@ -21,8 +21,8 @@ public class TestService {
     private MemberService memberService;
 
     @Test
-    public void testList() {
-        logger.info("调用MemberService");
+    public void testLogin() {
+        logger.info("调用testLogin");
         Memberinfo memberinfo = new Memberinfo();
         memberinfo.setNickName("harswlgb");
         memberinfo.setPwd("a");
@@ -31,12 +31,13 @@ public class TestService {
     }
 
     @Test
-    public void findMember() {
-        logger.info("调用findMember");
+    public void testRegister() {
+        logger.info("调用testRegister");
         Memberinfo memberinfo = new Memberinfo();
-        memberinfo.setNickName("harswlgb");
+        memberinfo.setNickName("三期测试");
         memberinfo.setPwd("a");
-        Memberinfo member = memberService.login(memberinfo);
+        memberinfo.setEmail("harswlgb@123.com");
+        int member = memberService.register(memberinfo);
         System.out.println(member);
     }
 }

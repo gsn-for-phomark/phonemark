@@ -22,7 +22,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public int register(Memberinfo t) {
 
-        return 0;
+        return memberMapper.add(t.getNickName(),t.getPwd(),t.getEmail());
     }
 
     @Transactional(readOnly = true)
