@@ -5,6 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="添加pm-domain-essay">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonemark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phonemark.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/pm-base.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -32,7 +40,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +66,6 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -66,7 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-util/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -78,9 +85,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Jtb\IDE\phonemark\pm-domain-essay\src\main\java" />
       <recent name="D:\Jtb\IDE\phonemark\pm-util\src\main\java" />
       <recent name="D:\IDEAspace\phonemark\pm-domain\src\main\java\com\gsn\pm\util" />
     </key>
@@ -90,7 +99,7 @@
       <recent name="com.gsn.pm.config" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TestService.testAddEssay">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -102,6 +111,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestService.findMember" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pm-domain" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gsn" />
+      <option name="MAIN_CLASS_NAME" value="com.gsn.TestService" />
+      <option name="METHOD_NAME" value="findMember" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestService.testAddEssay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pm-domain-essay" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gsn.pm" />
+      <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestService" />
+      <option name="METHOD_NAME" value="testAddEssay" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestService.testAddEssay" />
+        <item itemvalue="JUnit.TestService.findMember" />
+        <item itemvalue="JUnit.TestService.findMember" />
+        <item itemvalue="JUnit.TestService.testAddEssay" />
+        <item itemvalue="JUnit.TestService.findMember" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -131,6 +181,7 @@
       <workItem from="1607049468583" duration="238000" />
       <workItem from="1607061975241" duration="1001000" />
       <workItem from="1607063134486" duration="56000" />
+      <workItem from="1607422868485" duration="9219000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -160,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607050735022</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加pm-domain-essay">
+      <created>1607345675916</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607345675916</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +241,7 @@
     <MESSAGE value="git测试" />
     <MESSAGE value="git测试2" />
     <MESSAGE value="添加pm-util" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加pm-util" />
+    <MESSAGE value="添加pm-domain-essay" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加pm-domain-essay" />
   </component>
 </project>

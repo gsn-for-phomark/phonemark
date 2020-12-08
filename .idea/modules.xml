@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/phonemark.iml" filepath="$PROJECT_DIR$/phonemark.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-base/pm-base.iml" filepath="$PROJECT_DIR$/pm-base/pm-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-domain/pm-domain.iml" filepath="$PROJECT_DIR$/pm-domain/pm-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pm-domain-essay/pm-domain-essay.iml" filepath="$PROJECT_DIR$/pm-domain-essay/pm-domain-essay.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-util/pm-util.iml" filepath="$PROJECT_DIR$/pm-util/pm-util.iml" />
     </modules>
   </component>

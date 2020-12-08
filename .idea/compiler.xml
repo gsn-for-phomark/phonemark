@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,21 +10,24 @@
         <module name="pm-domain" />
         <module name="pm-util" />
         <module name="pm-base" />
+        <module name="pm-domain-essay" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="phonemark" target="1.8" />
       <module name="pm-base" target="1.8" />
       <module name="pm-domain" target="1.8" />
+      <module name="pm-domain-essay" target="1.8" />
       <module name="pm-util" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="phonemark" options="-parameters" />
-      <module name="pm-base" options="-parameters" />
-      <module name="pm-domain" options="-parameters" />
-      <module name="pm-util" options="-parameters" />
+      <module name="pm-base" options="" />
+      <module name="pm-domain" options="" />
+      <module name="pm-domain-essay" options="" />
+      <module name="pm-util" options="" />
     </option>
   </component>
 </project>
