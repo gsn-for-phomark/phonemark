@@ -1,0 +1,41 @@
+server:
+  port: 7103
+spring:
+  security:
+    user:
+      name: admin
+      password: a
+  cloud:
+    config:
+      server:
+        git:     #git服务器配置
+          uri: https://github.com/gsn-for-phomark/phonemark-config.git
+          label: main
+
+    bus:     # 开启bus消息总线
+      trace:
+        enabled: true
+
+    stream:
+      kafka:
+        binder:
+          brokers: 101.200.81.3
+
+  application:
+    name: base-git-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:a@localhost:7301/eureka
+  instance:
+    prefer-ip-address: true # 在地址栏上使用IP地址进行显示
+    instance-id: base-git-config3
+    lease-expiration-duration-in-seconds: 90  #如果现在超过了5s的时间间隔( default: 90 s )
+    lease-renewal-interval-in-seconds: 30   #设置心跳的时间间隔( default:30s )
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
