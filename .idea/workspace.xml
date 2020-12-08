@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="添加pm-util,domain修改pom增加util依赖">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="添加pm-util,domain修改pom增加util依赖" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +30,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,42 +78,137 @@
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Jtb\IDE\phonemark\pm-util\src\main\java" />
-      <recent name="D:\IDEAspace\phonemark\pm-domain\src\main\java\com\gsn\pm\util" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.gsn.pm.domain" />
       <recent name="com.gsn.pm.dao" />
       <recent name="com.gsn.pm.config" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Jtb\IDE\phonemark\pm-util\src\main\java" />
+      <recent name="D:\IDEAspace\phonemark\pm-domain\src\main\java\com\gsn\pm\util" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+  <component name="RunManager" selected="Spring Boot.EurekaForHaConfig">
+    <configuration name="TestService.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pm-domain" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gsn" />
+      <option name="MAIN_CLASS_NAME" value="com.gsn.TestService" />
+      <option name="METHOD_NAME" value="testAdd" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestService.testList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pm-domain" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gsn" />
+      <option name="MAIN_CLASS_NAME" value="com.gsn.TestService" />
+      <option name="METHOD_NAME" value="testList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.BaseRestApiApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-git-config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApp2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-git-config2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApp3" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-git-config3" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HystrixDashboardApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-hystrix-dashboard" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.HystrixDashboardApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TurbineApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="base-hystrix-turbine" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.TurbineApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BaseRestApiApp" />
+        <item itemvalue="JUnit.TestService.testList" />
+        <item itemvalue="JUnit.TestService.testAdd" />
+        <item itemvalue="Spring Boot.BaseRestApiApp" />
+        <item itemvalue="JUnit.TestService.testList" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Harswlgb\AppData\Roaming\Subversion</configuration>
   </component>
@@ -171,12 +264,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目初始化" />
@@ -184,5 +278,11 @@
     <MESSAGE value="git测试2" />
     <MESSAGE value="添加pm-util" />
     <option name="LAST_COMMIT_MESSAGE" value="添加pm-util" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="530" y="127" key="git4idea.branch.GitSmartOperationDialog" timestamp="1607424254645">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="530" y="127" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1607424254645" />
   </component>
 </project>
