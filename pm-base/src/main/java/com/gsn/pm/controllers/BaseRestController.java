@@ -84,6 +84,24 @@ public class BaseRestController {
 //        //map.put("msg","");
 //        return new Gson().toJson(map);
 //    }
+    @RequestMapping(value = "/check",method = RequestMethod.GET)
+    public CompletableFuture<String> check(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return CompletableFuture.supplyAsync(() -> {
+            Memberinfo member=(Memberinfo) request.getSession().getAttribute("member");
+            logger.info("检查登录");
+            Map<String, Object> map = new HashMap<>();
+            if(member!=null){
+                map.put("code", 1);
+                logger.info("有用户登录1");
+                return new Gson().toJson(map);
+            }else {
+                map.put("code", 0);
+                logger.info("无用户登录0");
+                return new Gson().toJson(map);
+            }
+        });
+    }
+
 
     @RequestMapping(value = "/register")
     public CompletableFuture<String> register(HttpServletRequest request, HttpServletResponse response) throws Exception {

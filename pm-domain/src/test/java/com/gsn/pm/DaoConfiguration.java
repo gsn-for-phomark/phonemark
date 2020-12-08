@@ -1,4 +1,4 @@
-package com.gsn;
+package com.gsn.pm;
 
 import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
