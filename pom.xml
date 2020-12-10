@@ -23,6 +23,9 @@
         <module>base-security</module>
         <module>base-zuul-gateway</module>
         <module>pm-client-base</module>
+        <module>pm-domain-comment</module>
+        <module>pm-restapi-comment</module>
+        <module>pm-client-comment</module>
     </modules>
 
     <properties>
