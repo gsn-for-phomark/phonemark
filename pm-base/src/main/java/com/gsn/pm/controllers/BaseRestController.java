@@ -45,10 +45,11 @@ public class BaseRestController {
                 Memberinfo member=memberService.login(bean);
                 System.out.println(member);
                 HttpSession session = request.getSession();
-                if(uname==""||upass==""){
+                if((uname==""||upass=="")||(uname==null||upass==null)){
                     //账号密码为空
                     logger.info("登录失败,账号密码为空   2");
                     map.put("code", 2);
+                    map.put("msg","登录失败,账号密码为空");
                     map.put("data", member);
                     return new Gson().toJson(map);
 
@@ -56,6 +57,7 @@ public class BaseRestController {
                     //账号密码错误
                     logger.info("登录失败,账号密码错误   0");
                     map.put("code", 0);
+                    map.put("msg","登录失败,账号密码错误");
                     map.put("data", member);
                     return new Gson().toJson(map);
                 }else if(member.getStatus()==0){
@@ -63,6 +65,7 @@ public class BaseRestController {
                     //用户被冻结
                     logger.info("登录失败,用户被冻结   -1");
                     map.put("code", -1);
+                    map.put("msg","登录失败,用户被冻结");
                     map.put("data", member);
                     return new Gson().toJson(map);
                 }else{
@@ -70,6 +73,7 @@ public class BaseRestController {
                     logger.info("登录成功   1");
                     session.setAttribute("member", member);
                     map.put("code", 1);
+                    map.put("msg","登录成功");
                     map.put("data", member);
                     return new Gson().toJson(map);
                 }
@@ -92,10 +96,12 @@ public class BaseRestController {
             Map<String, Object> map = new HashMap<>();
             if(member!=null){
                 map.put("code", 1);
+                map.put("msg","有用户登录");
                 logger.info("有用户登录1");
                 return new Gson().toJson(map);
             }else {
                 map.put("code", 0);
+                map.put("msg","无用户登录");
                 logger.info("无用户登录0");
                 return new Gson().toJson(map);
             }
@@ -119,15 +125,18 @@ public class BaseRestController {
             if(uname==""||upass==""||uemail==""){
                 logger.info("注册失败,必填中项有为空值   2");
                 map.put("code", 2);
+                map.put("msg","注册失败,必填中项有为空值");
                 return new Gson().toJson(map);
             }else if(1==list.size()){
                 logger.info("注册失败,用户名已被注册   3");
                 map.put("code", 3);
+                map.put("msg","注册失败,用户名已被注册");
                 return new Gson().toJson(map);
             }else{
                 int i=memberService.register(bean);
                 logger.info("注册成功   1");
                 map.put("code", 1);
+                map.put("msg","注册成功");
                 map.put("data", bean);
                 return new Gson().toJson(map);
             }

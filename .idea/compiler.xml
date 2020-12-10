@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="base-security" />
-        <module name="pm-util" />
-        <module name="base-git-config2" />
-        <module name="base-git-config3" />
-        <module name="eureka-config" />
-        <module name="pm-base" />
         <module name="base-hystrix-turbine" />
+        <module name="base-git-config3" />
+        <module name="base-git-config2" />
         <module name="base-hystrix-dashboard" />
+        <module name="eureka-config" />
+        <module name="base-security" />
+        <module name="pm-base" />
         <module name="pm-domain-essay" />
         <module name="base-git-config" />
-        <module name="pm-domain" />
+        <module name="pm-util" />
         <module name="base-zuul-gateway" />
+        <module name="pm-client-base" />
+        <module name="pm-domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -32,6 +33,7 @@
       <module name="eureka-config" target="1.8" />
       <module name="phonemark" target="1.8" />
       <module name="pm-base" target="1.8" />
+      <module name="pm-client-base" target="1.8" />
       <module name="pm-domain" target="1.8" />
       <module name="pm-domain-essay" target="1.8" />
       <module name="pm-util" target="1.8" />
