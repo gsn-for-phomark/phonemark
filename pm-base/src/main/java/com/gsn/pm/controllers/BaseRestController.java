@@ -122,7 +122,7 @@ public class BaseRestController {
             bean.setPwd(upass);
             bean.setEmail(uemail);
             List<Memberinfo> list = memberMapper.findByTrem(null,uname,null,null,null);//查找用户名是否被注册
-            if(uname==""||upass==""||uemail==""){
+            if((uname==""||upass==""||uemail=="")||(uname==null||upass==null||uemail==null)){
                 logger.info("注册失败,必填中项有为空值   2");
                 map.put("code", 2);
                 map.put("msg","注册失败,必填中项有为空值");
