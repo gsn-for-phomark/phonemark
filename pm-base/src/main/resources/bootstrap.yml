@@ -3,7 +3,7 @@ spring:
     name: microservice-provider-base   #应用服务名
   cloud:
     config:
-      name: pm-base-restapi     # 定义要读取的资源文件的名称即:    microservice-config-client.yml
+      name: pm-restapi-base     # 定义要读取的资源文件的名称即:    microservice-config-client.yml
       profile: beta                        # 定义profile的 名称
       label: main                         # 定义配置文件所在的分支
       #uri: http://localhost:7101          # SpringCloudConfig的服务地址     注意:  这里不再是访问一台配置中心服务器，而是要通过服务发现到  eureka中通过服务名查找config服务集群
