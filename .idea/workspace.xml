@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/pm-base.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/BaseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/BaseClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/BaseFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/BaseFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/BaseRestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/BaseRestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
