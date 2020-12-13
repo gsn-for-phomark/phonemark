@@ -29,67 +29,56 @@ public class BaseRestController {
     private MemberMapper memberMapper;
 
 
-    @RequestMapping(value = "/Login")
+
+    @RequestMapping(value = "/Login",method = RequestMethod.GET)
     //  @HystrixCommand(fallbackMethod = "errorCallBack")   //模仿没有这个数据时，服务降级
-    public CompletableFuture<String> Login(HttpServletRequest request, HttpServletResponse response) {
-        //非阻塞式异步编程方法。因为在web ui的微服务对rest api的调用中将使用这种高并发的编程方法，所以为了保证与调用端保持同步，这里也使用这种方法. 
+    public CompletableFuture<String> Login(String uname,String upass,HttpSession session) {
+        //非阻塞式异步编程方法。因为在web ui的微服务对rest api的调用中将使用这种高并发的编程方法，所以为了保证与调用端保持同步，这里也使用这种方法.
         return CompletableFuture.supplyAsync(() -> {
 //                Memberinfo bean =parseRequest(request, Memberinfo.class);
-                Memberinfo bean = new Memberinfo();
-                Map<String, Object> map = new HashMap<>();
-                String uname =request.getParameter("uname");
-                String upass =request.getParameter("upass");
-                bean.setNickName(uname);
-                bean.setPwd(upass);
-                System.out.println(bean);
-                Memberinfo member=memberService.login(bean);
-                System.out.println(member);
-                HttpSession session = request.getSession();
-                if((uname==""||upass=="")||(uname==null||upass==null)){
-                    //账号密码为空
-                    logger.info("登录失败,账号密码为空   2");
-                    map.put("code", 2);
-                    map.put("msg","登录失败,账号密码为空");
-                    map.put("data", member);
-                    return new Gson().toJson(map);
+            Memberinfo bean = new Memberinfo();
+            Map<String, Object> map = new HashMap<>();
+            bean.setNickName(uname);
+            bean.setPwd(upass);
+            System.out.println(bean);
+            Memberinfo member=memberService.login(bean);
+            System.out.println(member);
+            if((uname==""||upass=="")||(uname==null||upass==null)){
+                //账号密码为空
+                logger.info("登录失败,账号密码为空   2");
+                map.put("code", 2);
+                map.put("msg","登录失败,账号密码为空");
+                map.put("data", member);
+                return new Gson().toJson(map);
 
-                }else if(null==member){
-                    //账号密码错误
-                    logger.info("登录失败,账号密码错误   0");
-                    map.put("code", 0);
-                    map.put("msg","登录失败,账号密码错误");
-                    map.put("data", member);
-                    return new Gson().toJson(map);
-                }else if(member.getStatus()==0){
+            }else if(null==member){
+                //账号密码错误
+                logger.info("登录失败,账号密码错误   0");
+                map.put("code", 0);
+                map.put("msg","登录失败,账号密码错误");
+                map.put("data", member);
+                return new Gson().toJson(map);
+            }else if(member.getStatus()==0){
 
-                    //用户被冻结
-                    logger.info("登录失败,用户被冻结   -1");
-                    map.put("code", -1);
-                    map.put("msg","登录失败,用户被冻结");
-                    map.put("data", member);
-                    return new Gson().toJson(map);
-                }else{
-                    //存储登录用户
-                    logger.info("登录成功   1");
-                    session.setAttribute("member", member);
-                    map.put("code", 1);
-                    map.put("msg","登录成功");
-                    map.put("data", member);
-                    return new Gson().toJson(map);
-                }
+                //用户被冻结
+                logger.info("登录失败,用户被冻结   -1");
+                map.put("code", -1);
+                map.put("msg","登录失败,用户被冻结");
+                map.put("data", member);
+                return new Gson().toJson(map);
+            }else{
+                //存储登录用户
+                logger.info("登录成功   1");
+                session.setAttribute("member", member);
+                map.put("code", 1);
+                map.put("msg","登录成功");
+                map.put("data", member);
+                return new Gson().toJson(map);
+            }
         });
     }
-
-    //    //指定一个降级的方法
-//    public String errorCallBack(@PathVariable("id") Integer id) {
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("code", 404);
-//        map.put("msg", "查无此图片");
-//        //map.put("msg","");
-//        return new Gson().toJson(map);
-//    }
     @RequestMapping(value = "/check",method = RequestMethod.GET)
-    public CompletableFuture<String> check(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public CompletableFuture<String> check( HttpServletRequest request) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
             Memberinfo member=(Memberinfo) request.getSession().getAttribute("member");
             logger.info("检查登录");
@@ -109,8 +98,8 @@ public class BaseRestController {
     }
 
 
-    @RequestMapping(value = "/register")
-    public CompletableFuture<String> register(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public CompletableFuture<String> register(@RequestBody HttpServletRequest request) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
 //          Memberinfo bean=parseRequest(request, Memberinfo.class);
             Memberinfo bean = new Memberinfo();

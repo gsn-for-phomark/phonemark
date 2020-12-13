@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title >文章标题</title>
+	<link rel="stylesheet" href="css/fontset.css" />
+	<link rel="stylesheet" href="css/essay.css" />
+	<link rel="icon" href="images/icon_main.png" type="image/x-icon" />
+</head>
+
+<body style="overflow:-Scroll;overflow-x:hidden">
+	<div class="header">
+		<!--防止挤占下方元素空间设置的外层div-->
+		<header>
+			<!-- 头部菜单 -->
+			<div class="menu_area01 ">
+				<ul>
+					<li>
+						<a href="index.html">
+							<img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;">
+							PHOMark
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class=" menu_area02 ">
+				<ul>
+					<li><a href="photrix.html">Photrix</a></li>
+					<li><a href="photopic.html">热门文章</a></li>
+					<li><a href="photype.html">PHO专题</a></li>
+					<li><a href="about.html">关于我们</a></li>
+				</ul>
+			</div>
+			<div class=" menu_area03 " id="gsn_publish">
+				<ul>
+					<li><a href="search.html"><img src="  images/icon_search.png "
+								style=" width: 25px; height: 25px; padding-right: 20px; "></a></li>
+					<li><a href="publish.html"><img src="images/icon_post.png"
+								style="width:25px;height: 25px;padding-right: 20px;"></li>
+					<li>
+						<a href="login.html" style=" color:#d81e06;" v-if="outlogin">
+                            登录
+                        </a>
+
+                            <a :href="'user_main.html#'+uid"  v-if="onlogin">
+                            <img :src="uhead" onerror="javascript:this.src='images/img_all.png';"
+                            style="width: 40px; height: 40px ;border-radius:50%;position: absolute; top: 10px;">
+                        </a>
+				</ul>
+			</div>
+		</header>
+	</div>
+
+	<article>
+		<div id="gsn_showEssay">
+			<!--灰色背景-->
+			<div class="bg_box">
+			</div>
+			<!--文章封面-->
+			<div class="gsn_essay_mid_pic ">
+				<img :src="essay.epic"  />
+			</div>
+			<!--文章标题-->
+			<div class="gsn_essay_mid_title ">
+				<p>{{essay.ename}}</p>
+				<!--文章标题-->
+			</div>
+			<!--文章作者和关注等-->
+			<div class="gsn_essay_mid_AuthorAndFollow ">
+				<a :href="'user_main.html#'+essay.mno"><img :src="essay.mpic" onerror="javascript:this.src='images/img_all.png';" id="whp" /> </a>
+				<!--文章作者头像-->
+				<a :href="'user_main.html#'+essay.mno">
+					<p style="color: #000000; " id="wname">{{essay.nickName}}</p>
+				</a>
+				<!--文章作者名字-->
+				<p id="essaydate">{{essay.edate}}</p>
+				<!--文章发表时间-->
+				<div id="followbutton" style="width: 70px">
+					<div v-show="relation[0].status==2"><p style="font-size: small;"><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">互相关注</a></p></div>
+					<div v-show="relation[0].status==1"><p style="font-size: small; "><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">已关注</a></p></div>
+					<div v-show="relation[0].status==0"><p style="font-size: small; "><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">关注</a></p></div>
+				</div>
+			</div>
+			<!--文章内容-->
+			<div class="gsn_essay_mid_desr "  v-html="essay.edser">
+			</div>
+		</div>
+		<div id="gsn_Com">
+		<div class="comment "   id="gsn_countCom">
+			<!--文章评论数和排序方式-->
+			<div class="gsn_essay_mid_CommentNums ">
+				<p id="CommentNums ">全部评论({{countcom.countCom}})</p>
+			</div>
+		</div>	
+			<div id="Youcoment">
+				<!--你的评论   发表自己的评论-->
+				<div class="gsn_essay_mid_YourComment ">
+					<div class="gsn_essay_mid_YourComment_info ">
+						<a :href="'user_main.html#'+uid" ><img :src="uhead" onerror="javascript:this.src='images/img_all.png';" id="mhp" /> </a>
+						<!--用户头像-->
+						<a :href="'user_main.html#'+uid">
+							<p style="color: #000000; " id="mname">{{uname}}</p>
+						</a>
+						<!--用户名字-->
+					</div>
+					<div class="cdesr ">
+						<textarea onclick="ClearTextArea() " id="desr" name="textarea " cols="100 " rows="4 "
+							style="BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; outline:none; resize: none;">请在此发表你的评论</textarea>
+					</div>
+					<div id="upbutton">
+						<p><a style="color:grey;font-size: small; " href="javascript:void(0)" @click="addCom1()">评论</a></p>
+					</div>
+				</div>
+				<!--已有评论-->
+				<div class="gsn_essay_mid_OtherComment " v-for="comment in comments">
+					<div class="comment1">
+						<div class="gsn_essay_mid_OtherComment_info ">
+							<a :href="'user_main.html#'+comment.mno"><img :src="comment.mpic" onerror="javascript:this.src='images/img_all.png';" id="mhp" /> </a>
+							<!--用户头像-->
+							<a :href="'user_main.html#'+comment.mno">
+								<p style="color: #000000; " id="mname"><b>{{comment.nickName}}</b></p>
+							</a>
+							<!--用户名字-->
+							<p class="cdate ">{{comment.cdate}}</p>
+						</div>
+						<div class="cdesr "  >
+							<p  style="word-wrap: break-word;word-break: break-all;overflow: hidden;">{{comment.cdesr}}</p>
+						</div>
+						<div class="cbutton ">
+							<ul>
+								<li>
+									<a href="javascript:void(0) " @click="comment.showandhid=!comment.showandhid;goAnchor('#anchor-'+comment.cno);getCom2(comment.flag,comment.cno,null)">
+										<img src="images/icon_comment.png" />
+									</a>
+									<span>{{comment.countcom1}}</span>
+								</li>
+								<li>
+									<a href="javascript:void(0) " @click="doHeat(comment.cno)">
+										<img src="images/icon_heat.png" />
+									</a>
+									<span>{{comment.heat}}</span>
+								</li>
+								<li>
+									<a href="javascript:void(0) "
+										style="font-size: 15px;font-weight: 100;color: #919191; ">举报</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="comment2"  v-for="comment2and3 in comment.level2com">
+						<div class="gsn_essay_mid_OtherComment_info ">
+							<!--用户头像-->
+							<a :href="'user_main.html#'+comment2and3.mno">
+								<img :src="comment2and3.mpic" onerror="javascript:this.src='images/img_all.png';" id="mhp" />
+							</a>
+							<!--用户名字-->
+							<a :href="'user_main.html#'+comment2and3.mno">
+								<p style="color: #000000; " id="mname">
+									<b>{{comment2and3.nickName}}</b>
+								</p>
+								<a  class="replycomment2" :href="'user_main.html#'+comment2and3.replyid">	
+								<p  v-if=" comment2and3.flag==3 ">    回复    {{comment2and3.replyname}}</p>
+							</a>
+							</a>
+						
+							<p class="cdate ">{{comment2and3.cdate}}</p>
+						</div>
+						<div class="cdesr ">
+							<p style="word-wrap: break-word;word-break: break-all;overflow: hidden;">{{comment2and3.cdesr}}</p>
+						</div>
+						<div class="cbutton ">
+							<ul>
+								<li>
+									<a href="javascript:void(0) " @click="comment.showandhid=!comment.showandhid;goAnchor('#anchor-'+comment.cno);getCom2(comment2and3.flag,comment.cno,comment2and3.cno)">
+										<img src="images/icon_comment.png" />
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0) "  @click="doHeat(comment2and3.cno)">
+										<img src="images/icon_heat.png" />
+									</a>
+									<span>{{comment2and3.heat}}</span>
+								</li>
+								<li>
+									<a href="javascript:void(0) "
+										style="font-size: 15px;font-weight: 100;color: #919191; ">举报</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div :id="'anchor-'+comment.cno"></div>
+					<div v-if="comment.showandhid" >
+						<div class="gsn_essay_mid_YourComment_InOthersCommnet">
+							<div class="gsn_essay_mid_YourComment_info ">
+								<a :href="'user_main.html#'+uid"><img :src="uhead" onerror="javascript:this.src='images/img_all.png';" id="mhp" /> </a>
+								<!--用户头像-->
+								<a :href="'user_main.html#'+uid">
+									<p style="color: #000000; " id="mname">{{uname}}</p>
+								</a>
+								<!--用户名字-->
+							</div>
+							<div class="cdesr ">
+								<textarea :id="'desr2or3'+comment.cno" name="textarea " cols="100 " rows="4 "
+									style="BORDER-BOTTOM: 0px solid; BORDER-LEFT: 0px solid; BORDER-RIGHT: 0px solid; BORDER-TOP: 0px solid; "></textarea>
+							</div>
+							<div id="upbutton">
+								<p><a style="color:grey;font-size: small; " href="javascript:void(0) "  @click="addCom2">评论</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</article>
+	<footer id="footer">
+		<div class="footer_icon ">
+			<ul>
+				<li>
+					<a style="color: white; " href="# "">
+		 					<img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;"> PHOMark
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="bottom_iconbox">
+			<a><img src="images/icon_weibo.png"></a>
+			<a><img src="images/icon_weixin.png"></a>
+			<a><img src="images/icon_qq.png"></a>
+		</div>
+		<div class="footer_link">
+			<div class="bottom_textbox">
+				<a href="">关于我们</a>
+				<a href="">常见问题</a>
+				<a href="">加入我们</a>
+				<a href="">用户协议</a>
+				<a href="">商务合作</a>
+				<a href="">联系我们</a>
+			</div>
+		</div>
+		<span class="gsn_text">
+			© 2020- ∞ 永无BUG
+		</span>
+	</footer>
+
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/axios.js"></script>
+<script type="text/javascript" src="js/qs.js"></script>
+<script type="text/javascript">
+	
+</script>
+<script type="text/javascript">
+
+
+//检查登录
+var app= new Vue({
+	el:'#gsn_publish',
+	data:{
+		uname:'',//用户名
+		uhead:'',//用户头像
+		uid:'',
+		onlogin:false,
+		outlogin:true
+	},
+	methods:{
+		
+	},
+	mounted:function(){
+		//页面加载完成后
+		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
+			if(!fn1.data){
+				//用户未登录
+			}else{
+				this.uname=fn1.data.nickName;
+				this.uhead=fn1.data.mpic;
+				this.uid=fn1.data.mno;
+				this.outlogin=false;
+				this.onlogin=true;
+				console.log("s");
+				console.log(this.uid);
+			}
+		}));
+	}
+});
+
+
+
+
+var bno;
+//文章主体
+
+var hash = window.location.hash;
+var eno = hash.replace("#",'');
+
+var app1= new Vue({
+	el:'#gsn_showEssay',
+	data:{
+		essay:'',
+		relation:''
+	},
+	methods:{
+		doFollow:function(listid,status){
+			if(status==2){
+				axios.post("follow.action",qs.stringify({op:'deleach',mno:listid,status:status}
+				)).then(result=>{							
+					var data= result.data;							
+					if(data>0){
+						alert('取关成功');
+						axios.all([checkLogin(),checkEssayUser()])
+						.then(axios.spread((fn1,fn2)=>{
+							if(!fn1.data){
+								//用户未登录
+								alert("请先登录");
+								window.location.href='login.html';
+							
+							}else{
+								this.relation=fn2.data.relation;
+							}
+						}));
+					}else {
+						alert('取关失败001');
+					}
+				});
+			}else if(status==1){
+				axios.post("follow.action",qs.stringify({op:'delete',bno:listid,status:status}
+				)).then(result=>{
+					var data= result.data;
+					if(data>0){
+						alert('取关成功');
+						axios.all([checkLogin(),checkEssayUser()])
+						.then(axios.spread((fn1,fn2)=>{
+							if(!fn1.data){
+								//用户未登录
+								alert("请先登录");
+								window.location.href='login.html';
+							
+							}else{
+								this.relation=fn2.data.relation;
+							}
+						}));
+					}else {
+						alert('取关失败002');
+					}
+				});
+			}else if(status==0){
+				axios.post("follow.action",qs.stringify({op:'judge',mno:listid}
+				)).then(result=>{
+					var data= result.data;
+					if(data>0){
+						axios.post("follow.action",qs.stringify({op:'addeach',mno:listid}
+						)).then(result=>{
+							var data= result.data;
+							if(data>0){
+								alert('关注成功，修改');
+								axios.all([checkLogin(),checkEssayUser()])
+								.then(axios.spread((fn1,fn2)=>{
+									if(!fn1.data){
+										//用户未登录
+										alert("请先登录");
+										window.location.href='login.html';
+									
+									}else{
+										this.relation=fn2.data.relation;
+									}
+								}));
+							}else {
+								alert('关注失败003');
+							}
+						});
+					}else {
+						axios.post("follow.action",qs.stringify({op:'add',bno:listid}
+						)).then(result=>{
+							var data= result.data;
+							if(data>0){
+								alert('关注成功，添加');
+								axios.all([checkLogin(),checkEssayUser()])
+								.then(axios.spread((fn1,fn2)=>{
+									if(!fn1.data){
+										//用户未登录
+										alert("请先登录");
+										window.location.href='login.html';
+									
+									}else{
+										this.relation=fn2.data.relation;
+									}
+								}));
+							}else {
+								alert('关注失败004');
+							}
+						});
+					}
+				});
+			}
+		}
+	},
+	mounted:function(){
+		axios({
+				url:'essay.action?op=ShowEssay'+"&eno="+eno,
+				method:'get'
+			}).then(result=>{
+				this.essay=result.data.essay[0];
+				essayname=this.essay.ename;
+				console.log(this.essay);
+				bno=this.essay.mno;
+				console.log("bno01="+bno);
+				//页面加载完成后
+				axios.all([checkLogin(),checkEssayUser()]).then(axios.spread((fn1,fn2)=>{
+					if(!fn1.data){
+						//用户未登录
+					}else{
+						this.uname=fn1.data.nickName;
+						this.uhead=fn1.data.mpic;
+						this.uid=fn1.data.mno;
+						this.outlogin=false;
+						this.onlogin=true;
+						this.relation=fn2.data.relation;
+						console.log("s");
+						console.log("ss"+this.uid);
+						console.log(this.relation);
+						console.log(this.relation[0]);
+					}
+				}));
+
+			});
+			
+	}
+});
+
+
+function checkEssayUser(){
+	console.log("bno="+bno);
+	return axios({
+		url:'follow.action?op=checkEssayUser'+"&bno="+bno,
+		method:'get'
+	});
+}
+
+
+
+
+//文章评论
+var flag = true;
+function ClearTextArea() {
+	if (flag == true) {
+		document.getElementById("desr").value = "";
+		flag = false;
+	}
+}
+var vue = new Vue({
+	el: '#gsn_Com',
+	data: {
+		comments:{},
+		countcom:'',
+		uname:'',//用户名
+		uhead:'',//用户头像
+		uid:'',//用户id
+		eno1:'',//文章编号
+		flag2or3:'',//评论级数
+		cdesr2:'',//发表2，3级评论的内容
+		cdesr1:'',//发表一级评论的内容
+		spare1:'',//二级评论回复对象
+		spare2:'',//三级评论回复对象
+		heatcno:'',
+		reply3flag:false
+		//texts:{}
+	},
+	methods:{
+		
+		addCom1:function (){
+			this.eno1=eno;
+			this.cdesr1=document.getElementById("desr").value;
+			//console.log(this.cdesr1);
+			axios.get("comment.action",{params:{op:'add',eno:this.eno1,cdesr:this.cdesr1,mno:this.uid }}).then(result =>{
+				if(data=1){
+					alert('评论成功,数据更新中请耐心等待');
+					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
+						if(!fn1.data){
+							//用户未登录
+						}else{
+							
+							this.uname=fn1.data.nickName;
+							this.uhead=fn1.data.mpic;
+							this.uid=fn1.data.mno;
+							this.countcom=countcom.data;	
+							this.comments=fn3.data.comments;
+
+							console.log(this.comments);
+						}
+					}));
+				}else{
+					alert('评论失败');
+				
+				}
+			});
+		},
+		getCom2:function (flag,reply1,reply2,){//添加2，3级评论
+			this.flag2or3=flag+1 ;
+			this.spare1=reply1 ;
+			this.spare2=reply2 ;
+			if(this.flag2or3==4){
+				this.flag2or3=3;
+			}
+			//console.log(this.flag2or3);
+			//console.log(this.spare1);
+			//console.log(this.spare2);
+			
+		},
+		addCom2:function (){//添加2，3级评论
+			this.eno1=eno;
+			this.cdesr2=document.getElementById('desr2or3'+this.spare1).value;
+			//console.log(this.cdesr2);
+			//console.log(this.eno1);
+			axios.get("comment.action",{params:{op:'add2and3',eno:this.eno1,cdesr:this.cdesr2,mno:this.uid,flag:this.flag2or3,spare1:this.spare1,spare2:this.spare2 }}).then(result =>{
+				if(data=1){
+					alert('评论成功,数据更新中请耐心等待');
+					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
+						if(!fn1.data){
+							//用户未登录
+						}else{
+							
+							this.uname=fn1.data.nickName;
+							this.uhead=fn1.data.mpic;
+							this.uid=fn1.data.mno;
+							this.countcom=countcom.data;	
+							this.comments=fn3.data.comments;
+
+							console.log(this.comments);
+						}
+					}));
+				}else{
+					alert('评论失败');
+					
+				}
+			});
+		},
+		doHeat:function (cno){//添加2，3级评论
+			this.eno1=eno;
+			this.heatcno=cno ;	
+			$("#errormsg").html("ok1").hide(3000);
+			axios.get("comment.action",{params:{op:'heat',eno:this.eno1,cno:this.heatcno,mno:this.uid }}).then(result =>{
+				console.log(result);
+				if(result.data==1){
+					alert('点赞成功,数据更新中请耐心等待');
+					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
+						
+						
+						if(!fn1.data){
+							//用户未登录
+						}else{
+							
+							this.uname=fn1.data.nickName;
+							this.uhead=fn1.data.mpic;
+							this.uid=fn1.data.mno;
+							this.countcom=countcom.data;	
+							this.comments=fn3.data.comments;
+
+							console.log(this.comments);
+						}
+					}));
+				}else if(result.data==2){
+					alert('完成取消点赞操作,数据更新中请耐心等待');
+					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
+						if(!fn1.data){
+							//用户未登录
+						}else{
+							
+							this.uname=fn1.data.nickName;
+							this.uhead=fn1.data.mpic;
+							this.uid=fn1.data.mno;
+							this.countcom=countcom.data;	
+							this.comments=fn3.data.comments;
+
+							console.log(this.comments);
+						}
+					}));
+				}
+			});
+		},
+		goAnchor(selector) {
+		     var anchor = this.$el.querySelector(selector);
+		     document.documentElement.scrollTop = anchor.offsetTop-200;	
+		},
+		freshData:function(){
+			axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
+				if(!fn1.data){
+				
+				}else{
+					
+					this.uname=fn1.data.nickName;
+					this.uhead=fn1.data.mpic;
+					this.uid=fn1.data.mno;
+					this.countcom=countcom.data;	
+					this.comments=fn3.data.comments;
+
+					console.log(this.comments);
+				}
+			}));
+		}
+		
+	},
+	mounted:function(){
+		
+		axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
+			if(!fn1.data){
+				//用户未登录
+				alert("请登录之后再查看文章");
+				window.location.href='login.html';
+			}else{
+				
+				this.uname=fn1.data.nickName;
+				this.uhead=fn1.data.mpic;
+				this.uid=fn1.data.mno;
+				this.countcom=countcom.data;	
+				this.comments=fn3.data.comments;
+
+				console.log(this.comments);
+			}
+		}));
+	}
+
+});
+
+
+function showCom(){
+	return axios({
+		url:'comment.action?op=showCom'+"&eno="+eno,
+		method:'get'
+	});
+}
+
+//文章评论总数
+function countCom(){
+	return axios({
+		url:'comment.action?op=countCom'+"&eno="+eno,
+		method:'get'
+	});
+}
+//检查用户是否登录
+function checkLogin(){
+	return axios.get("member.action?op=check");
+}
+</script>
+
+
+
+</html>

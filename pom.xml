@@ -26,6 +26,7 @@
         <module>pm-domain-comment</module>
         <module>pm-restapi-comment</module>
         <module>pm-client-comment</module>
+        <module>pm-web</module>
     </modules>
 
     <properties>

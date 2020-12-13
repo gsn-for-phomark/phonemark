@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Kirito的动态--PHOMark</title>
+	<link rel="stylesheet" href="css/fontset.css" />
+	<link rel="stylesheet" href=" css/user_main.css" />
+	<link rel="icon" href="images/icon_main.png" type="image/x-icon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div id="user_main">
+	<header>
+		<!-- 头部菜单 -->
+		<div class="menu_area01 ">
+			<ul>
+				<li>
+					<a href="index.html">
+						<img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;">
+						PHOMark
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class=" menu_area02 ">
+			<ul>
+				<li><a href="photrix.html">Photrix</a></li>
+				<li><a href="photopic.html">热门文章</a></li>
+				<li><a href="photype.html">PHO专题</a></li>
+				<li><a href="about.html">关于我们</a></li>
+			</ul>
+		</div>
+		<div class=" menu_area03 ">
+			<ul>
+				<li><a href="search.html"><img src="  images/icon_search.png "
+							style=" width: 25px; height: 25px; padding-right: 20px; "></a></li>
+				<li><a href="publish.html"><img src="images/icon_post.png"
+							style="width:25px;height: 25px;padding-right: 20px;"></li>
+				<li>
+					<a href="login.html" style=" color:#d81e06;" v-if="outlogin">
+						登录
+					</a>
+					<!--登陆成功后显示个人头像-->
+					
+					<a :href="'user_main.html#'+mno" v-if="onlogin">
+						<img  :src="pic" onerror="javascript:this.src='images/img_all.png';"
+						style="width: 50px; height: 50px ;border-radius:50%;position: absolute; top: 6px;">
+					</a>
+	
+				</li>
+			</ul>
+		</div>
+	</header>
+	<div id="gsn_member">
+	<article>
+		<!--左侧用户内容-->
+		<div class="user_content" v-for="u in user">
+			<div class="user_info">
+				<img src="images/img-photo.jpg" v-if="outlogin">
+				<img  :src="u.mpic" onerror="javascript:this.src='images/img_all.png';" v-if="onlogin">
+				<div class="content_info">
+					<div class="info_cont">
+						<div class="info_name">{{u.nickName}}</div>
+						<button style="outline: none;"><a :href="'setting.html#'+mno" style="color: black;">编辑<a></button>
+						<div class="info_intro">{{u.msign}}</div>
+					</div>
+					<div class="info_follow">
+						<a v-for="fnum in fnums">关注 {{fnum}}</a> 
+						<a v-for="bnum in bnums">粉丝{{bnum}}</a>
+					</div>
+				</div>
+			</div>
+
+			<div id="app">
+				<!--实现选项卡切换的div-->
+				<!--文章分类-->
+				<ul class="tab_title">
+					<li @click="cur=0" :class="{active:cur==0}">文章</li>
+					<li @click="cur=1" :class="{active:cur==1}">关注</li>
+				</ul>
+
+				<div class="gsn_main">
+					<!-- 文章区域 -->
+					<div class="essay" v-show="cur==0" >
+						<div v-for="el in elist">
+							<a :href="'essay.html#'+el.eno"><img :src="el.epic"></a>  <!-- 文章封面 -->
+							<div id="main_content">
+								<div id="content_title">
+									<a href="#">{{el.ename}}</a>
+								</div>
+								<div id="content_bottom">
+									<!--卡片下方左侧，用户头像，用户名称，发帖时间-->
+									<div id="bottom_left">
+										<a :href="'essay.html#'+el.eno">
+											<img  :src="el.mpic" onerror="javascript:this.src='images/img_all.png';">
+											<span id="picbox_name">{{el.nickName}}</span>
+										</a>
+										<span id="picbox_time">{{el.edate}}</span>
+									</div>
+									<!--卡片下方右侧，热度数、评论数-->
+									<div id="bottom_right">
+										<table>
+											<tr>
+												<td><img src="images/icon_heat.png" border=0>{{el.eheat}}</td>
+												<td><img src="images/icon_comment.png" border=0>{{el.cnum}}</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+
+					<!--关注列表-->
+					<div class="attention" v-show="cur==1">
+					
+							<!--左侧关注列表-->
+							<div class="attention_left_user">
+								<span class="attention_title">关注</span>
+								<!--列表卡片-->
+								<div class="attention_card" v-for="follow in follows">
+									<a  @click="doMain(follow.follno)"><img :src="follow.mpic" onerror="javascript:this.src='images/img_all.png';"></a>
+									<div class="card_top">
+										<div class="top_name"><a @click="doMain(follow.follno)">{{follow.nickName}}</a></div>
+												<div v-show="follow.relation[0].status==1"><button  @click="doFollow(follow.follno,follow.relation[0].status)" class="my_button" style="background: gray;color: black;outline: none;">已关注</button></div>
+												<div v-show="follow.relation[0].status==2"><button  @click="doFollow(follow.follno,follow.relation[0].status)" class="my_button" style="background: gray;color: black;outline: none;">互相关注</button></div>
+												<div v-show="follow.relation[0].status==0"><button  @click="doFollow(follow.follno,follow.relation[0].status)" class="my_button" style="background: white;color: black;outline: none;">关注</button></div>
+										<div class="card_intro">{{follow.msign}}</div>
+									</div>
+									<div class="attention_follow">
+										<a>关注 {{follow.fnum}}</a> ·
+										<a>粉丝 {{follow.bnum}}</a> ·
+										<a>文章 {{follow.messaynums}}</a>
+									</div>
+								</div>
+
+							</div>
+
+							<!--右侧粉丝列表-->
+							<div class="attention_right_fans">
+								<span class="attention_title">粉丝</span>
+								<!--列表卡片-->
+								<div class="attention_card" v-for="followed in followeds">
+									<a @click="doMain(followed.fansno)"><img :src="followed.mpic" onerror="javascript:this.src='images/img_all.png';"></a>
+									<div class="card_top">
+										<div class="top_name"><a @click="doMain(followed.fansno)">{{followed.nickName}}</a></div>
+												<div v-show="followed.relation[0].status==1"><button  @click="doFollow(followed.fansno,followed.relation[0].status)" class="my_button" style="background: gray;color: black;outline: none;">已关注</button></div>
+												<div v-show="followed.relation[0].status==2"><button  @click="doFollow(followed.fansno,followed.relation[0].status)" class="my_button" style="background: gray;color: black;outline: none;">互相关注</button></div>
+												<div v-show="followed.relation[0].status==0"><button  @click="doFollow(followed.fansno,followed.relation[0].status)" class="my_button" style="background: white;color: black;outline: none;">关注</button></div>
+										<div class="card_intro">{{followed.msign}}</div>
+									</div>
+									<div class="attention_follow">
+										<a>关注 {{followed.fnum}}</a> 
+										<a>粉丝 {{followed.bnum}}</a> 
+										<a>文章 {{followed.messaynums}}</a>
+									</div>
+								</div>
+
+							</div> 
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--右侧文章-->
+
+		<div class="right_control">
+			<!--控制悬浮的div-->
+			<div class="right_side">
+				<div class="side_top" >
+					PhoMark文章：{{essaynums[0].messaynums}}篇
+				</div>
+				<div class="side_item">
+					常用专题：
+					<span  v-for="fav in favorites">#{{fav.tname}}</span>
+				</div>
+			</div>
+		</div>
+	</article>
+	</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/axios.js"></script>
+	<script type="text/javascript" src="js/qs.js"></script>
+	<script type="text/javascript">
+	var mid=0;
+	var hash=window.location.hash;
+	hash=hash.replace('#','');
+	hash=hash.split('&');
+	 mid=hash[0];
+		var app = new Vue({
+			el:'#user_main',
+			data:{
+				mno:'',
+				cur: 0,//默认选中第一个tab
+				nickName:'匿名',
+				messaynums:'',//文章数量
+				pic:'',//头像
+				msign:'',//简介
+				fnums:{},//关注数量
+				bnums:{},//粉丝数量
+				elist:{},//文章列表
+				follows:{},//用户关注列表
+				//followeds:{},//用户粉丝列表
+				favorites:{},//用户常用专题
+				user:{},//用户
+				essaynums:{},
+				onlogin:false,
+				outlogin:true
+			},
+			methods:{
+				doFollow:function(listid,status){
+					if(status==2){
+						axios.post("follow.action",qs.stringify({op:'deleach',mno:listid,status:status}
+						)).then(result=>{							
+							var data= result.data;							
+							if(data>0){
+								alert('取关成功');
+								axios.all([checkLogin(),findFollow(),findBeFollowed()])
+								.then(axios.spread((fn1,fn2,fn3)=>{
+									if(!fn1.data){
+										//用户未登录
+										alert("请先登录");
+										window.location.href='login.html';
+									
+									}else{
+										this.follows=fn2.data.follows;
+										this.followeds=fn3.data.followeds;
+									}
+								}));
+							}else {
+								alert('取关失败001');
+							}
+						});
+					}else if(status==1){
+						axios.post("follow.action",qs.stringify({op:'delete',bno:listid,status:status}
+						)).then(result=>{
+							var data= result.data;
+							if(data>0){
+								alert('取关成功');
+								axios.all([checkLogin(),findFollow(),findBeFollowed()])
+								.then(axios.spread((fn1,fn2,fn3)=>{
+									if(!fn1.data){
+										//用户未登录
+										alert("请先登录");
+										window.location.href='login.html';
+									
+									}else{
+										this.follows=fn2.data.follows;
+										this.followeds=fn3.data.followeds;
+									}
+								}));
+							}else {
+								alert('取关失败002');
+							}
+						});
+					}else if(status==0){
+						axios.post("follow.action",qs.stringify({op:'judge',mno:listid}
+						)).then(result=>{
+							var data= result.data;
+							if(data>0){
+								axios.post("follow.action",qs.stringify({op:'addeach',mno:listid}
+								)).then(result=>{
+									var data= result.data;
+									if(data>0){
+										alert('关注成功，修改');
+										axios.all([checkLogin(),findFollow(),findBeFollowed()])
+										.then(axios.spread((fn1,fn2,fn3)=>{
+											if(!fn1.data){
+												//用户未登录
+												alert("请先登录");
+												window.location.href='login.html';
+											
+											}else{
+												this.follows=fn2.data.follows;
+												this.followeds=fn3.data.followeds;
+											}
+										}));
+									}else {
+										alert('关注失败003');
+									}
+								});
+							}else {
+								axios.post("follow.action",qs.stringify({op:'add',bno:listid}
+								)).then(result=>{
+									var data= result.data;
+									if(data>0){
+										alert('关注成功，添加');
+										axios.all([checkLogin(),findFollow(),findBeFollowed()])
+										.then(axios.spread((fn1,fn2,fn3)=>{
+											if(!fn1.data){
+												//用户未登录
+												alert("请先登录");
+												window.location.href='login.html';
+											
+											}else{
+												this.follows=fn2.data.follows;
+												this.followeds=fn3.data.followeds;
+											}
+										}));
+									}else {
+										alert('关注失败004');
+									}
+								});
+							}
+						});
+					}
+				},
+				doMain:function(id){
+					window.open("user_main.html#"+id);
+				}
+				
+			},
+				mounted:function(){
+				//页面加载完成后
+				axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
+				.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
+					if(!fn1.data){
+						//用户未登录
+						alert("请先登录");
+						window.location.href='login.html';
+					
+					}else{
+						this.nickName=fn1.data.nickName;
+						this.pic=fn1.data.mpic;
+						this.msign=fn1.data.msign;
+						this.messaynums=fn1.data.messaynums;
+						this.elist=fn2.data.elist;
+						this.essaynums=fn8.data.EssayNum;
+						this.follows=fn3.data.follows;
+						this.fnums=fn7.data.fnums;
+						this.bnums=fn7.data.bnums;
+						this.favorites=fn4.data.favorites;
+						this.user=fn5.data.user;
+						this.mno=fn1.data.mno;
+						this.followeds=fn6.data.followeds;
+						this.outlogin=false;
+						this.onlogin=true;
+						console.log("mpic"+this.elist.mpic);
+						console.log("ss="+this.mpic);
+						console.log(this.user);
+						console.log(this.follows);
+						console.log(this.followeds);
+					}
+				}));
+	
+			}
+		});
+		//常用专题
+		function FavoriteType(){
+			//测试id
+			//mid=6;
+			return axios.get("essaytype.action?op=favorite&mno="+mid);
+		}
+		//用户粉丝列表
+		function findBeFollowed(){
+			return axios.get("follow.action?op=followeds&fansno="+mid);
+		}
+		//用户关注列表
+		function findFollow(){
+			return axios.get("follow.action?op=follows&follno="+mid);
+		}
+		//关注粉丝数
+		function findFans(){
+			return axios.get("member.action?op=fans&mno="+mid);
+		}
+		//文章列表
+		function findEassy(){
+			console.log(mid);
+			return axios.get("essay.action?op=elist&mno="+mid);
+		}
+		function findIndex(){
+			console.log(mid);
+			return axios.get("member.action?op=finduser&mno="+mid);
+		}
+		//检查用户是否登录
+		function checkLogin(){
+			return axios.get("member.action?op=check");
+		}
+		//计算用户文章数
+		function getEssayNum(){
+			return axios.get("member.action?op=getEssayNums&mno="+mid);
+		}
+		</script>
+</body>
+</html>

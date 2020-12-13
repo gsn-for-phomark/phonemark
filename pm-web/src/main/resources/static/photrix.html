@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fontset.css" />
+    <link rel="stylesheet" href="css/photrix.css" />
+    <link rel="icon" href="images/icon_main.png" type="image/x-icon" />
+    <title>Photrix精选</title>
+</head>
+
+<body>
+    <div class="header">
+        <!--防止挤占下方元素空间设置的外层div-->
+         <!--防止挤占下方元素空间设置的外层div-->
+         <header>
+            <!-- 头部菜单 -->
+            <div class="menu_area01 ">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;">
+                            PHOMark
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class=" menu_area02 ">
+                #Photrix
+            </div>
+            <div class=" menu_area03 "  id="gsn_publish">
+                <ul>
+                    <li><a href="search.html">
+                            <img src="images/icon_search.png"
+                                style=" width: 25px; height: 25px; padding-right: 20px; ">
+                        </a>
+                    </li>
+                    <li><a href="publish.html">
+                            <img src="images/icon_post.png" style="width:25px;height: 25px;padding-right: 20px;">
+                    </li>
+                    <li>                
+                        <a href="login.html" style=" color:#d81e06;" v-if="outlogin">
+                         	   登录
+                        </a>
+
+                            <a :href="'user_main.html#'+uid"  v-if="onlogin">
+                            <img  :src="uhead" onerror="javascript:this.src='images/img_all.png';"
+                            style="width: 40px; height: 40px ;border-radius:50%;position: absolute; top: 10px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <!--下方导航栏-->
+    <div id="gsn">
+    <div class="header_menu">
+        <ul class="menu_ul">
+            <li class="photrix"><a href="photrix.html">Photrix</a></li>
+            <li class="hot"><a href="photopic.html">热门文章</a></li>
+            <li class="type"><a href="photype.html">PHO专题</a></li>
+            <li class="about"><a href="about.html">关于我们</a></li>
+        </ul>
+    </div>
+    
+    <article>
+        <!--Photrix页面-->
+        <div class="gsn_photrixpage">
+            <div class="gsn_banner">
+                <a href="#"><img src="images/img_photrix.png"></a>
+            </div>
+            <div class="main_left">
+                <h3>
+                   精选文章
+                </h3>
+                <div class="commend">
+                    <!--v-for写在这个下面  ↓   -->
+                    <div v-for="fnt in info"><!-- ← 这里-->
+                        <a :href="'essay.html#'+fnt.eno"><img :src="fnt.epic"></a>
+                        <div id="main_content">
+                            <div id="content_title">
+                                <a :href="'essay.html#'+fnt.eno">{{fnt.ename}}</a>
+                            </div>
+                            <div id="content_bottom">
+                                <!--卡片下方左侧，用户头像，用户名称，发帖时间-->
+                                <div id="bottom_left">
+                                    <a :href="'user_main.html#'+fnt.mno">
+                                        <img :src="fnt.mpic" onerror="javascript:this.src='images/mavator.png';">
+                                        
+                                        <span id="picbox_name">{{fnt.nickName}}</span>
+                                    </a>
+                                    <span id="picbox_time">{{fnt.edate}}</span>
+                                </div>
+                                <!--卡片下方右侧，热度数、评论数-->
+                                <div id="bottom_right">
+                                    <table>
+                                        <tr>
+                                            <td><img src="images/icon_heat.png" border=0>{{fnt.eheat}}</td>
+                                            <td><img src="images/icon_comment.png" border=0>{{fnt.commentcount}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                 
+                </div>
+            </div>
+
+                
+
+            <div class="main_right">
+                <div class="right_topic">
+                    <h3>推荐专栏</h3>
+                    <a>查看全部</a>
+                </div>
+                <!--推荐专栏卡片-->
+                <a href="#" class="topic_card">
+                    <img class="banner" src="images/bg_type/bg_ios.jpg">
+                    <div class="card">
+                        <h4>iOS的那些细节功能</h4>
+                        <footer>
+                            <span class="btn">查看专题</span>
+                        </footer>
+                    </div>
+                </a>
+                <a href="#" class="topic_card">
+                    <img class="banner" src="images/bg_type/bg_flyme.png">
+                    <div class="card">
+                        <h4>[藏]在Flyme里的贴心小功能</h4>
+                        <footer>
+                            <span class="btn">查看专题</span>
+                        </footer>
+                    </div>
+                </a>
+                <a href="#" class="topic_card">
+                    <img class="banner" src="images/bg_type/bg_miui.png">
+                    <div class="card">
+                        <h4>为什么说MIUI是国产第一定制化系统</h4>
+                        <footer>
+                            <span class="btn">查看专题</span>
+                        </footer>
+                    </div>
+                </a>
+        
+
+            </div>
+        </div>
+
+    </article>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/axios.js"></script>
+    <script type="text/javascript" src="js/qs.js"></script>
+    <script type="text/javascript">
+    
+  //检查登录
+    var app= new Vue({
+    	el:'#gsn_publish',
+    	data:{
+    		uname:'',//用户名
+    		uhead:'',//用户头像
+    		uid:'',
+    		onlogin:false,
+    		outlogin:true
+    	},
+    	methods:{
+    		
+    	},
+    	mounted:function(){
+    		//页面加载完成后
+    		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
+    			if(!fn1.data){
+    				//用户未登录
+    			}else{
+    				this.uname=fn1.data.nickName;
+    				this.uhead=fn1.data.mpic;
+    				this.uid=fn1.data.mno;
+    				this.outlogin=false;
+    				this.onlogin=true;
+    				console.log(fn1.data.mno);
+    			}
+    		}));
+    	}
+    });
+    
+    
+    var find = new Vue({
+    	el:"#gsn",
+    	data:{
+    		info:{}
+    	},
+    	methods:{},
+    	mounted:function(){
+    		axios.all([find()]).then(axios.spread((fn1)=>{
+    			this.info=fn1.data.info;
+    			console.log(this.info);
+    		}));
+    	}
+    });
+    function find(){
+    	return axios.get("essay.action?op=findEssayandComment");
+    }
+    
+    
+  //检查登录
+    function checkLogin(){
+    	return axios.get("member.action?op=check");
+    }
+    </script>
+
+</html>

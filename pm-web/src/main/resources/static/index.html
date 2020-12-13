@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOMark--最贴心的数码测评中心</title>
+    <link rel="stylesheet" href="css/fontset.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" href="images/icon_main.png" type="image/x-icon" />
+</head>
+
+
+
+
+<body>
+    <div class="header">
+        <!--防止挤占下方元素空间设置的外层div-->
+        <header>
+            <!-- 头部菜单 -->
+            <div class="menu_area01 ">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <img src="images/icon_main.png" style=" width:35px; height:35px; margin-right: 5px;">
+                            PHOMark
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class=" menu_area02 ">
+                <ul>
+                    <li><a href="photrix.html">Photrix</a></li>
+                    <li><a href="photopic.html">热门文章</a></li>
+                    <li><a href="photype.html">PHO专题</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </div>
+            <div class=" menu_area03 "  id="gsn_publish">
+                <ul>
+                    <li><a href="search.html">
+                            <img src="images/icon_search.png"
+                                style=" width: 25px; height: 25px; padding-right: 20px; ">
+                        </a>
+                    </li>
+                    <li><a href="publish.html">
+                            <img src="images/icon_post.png" style="width:25px;height: 25px;padding-right: 20px;">
+                    </li>
+                    <li>                
+                        <a href="login.html" style=" color:#d81e06;" v-if="outlogin">
+                         	   登录
+                        </a>
+
+                            <a :href="'user_main.html#'+uid"  v-if="onlogin">
+                            <img  :src="uhead" onerror="javascript:this.src='images/img_all.png';"
+                            style="width: 40px; height: 40px ;border-radius:50%;position: absolute; top: 10px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    
+<div id="gsn_index">
+    <article>
+        <!-- 主界面 -->
+        <!-- 轮播区域 -->
+        <div class="gsn_loop">
+            <img src="images/img_loop2.png">
+        </div>
+        <!--广告区域-->
+        <div class="gsn_AD">
+            <div><img src="images/AD.png"></div>
+            <div><img src="images/AD.png"></div>
+            <div><img src="images/AD.png"></div>
+            <div><img src="images/AD.png"></div>
+        </div>
+
+        <div id="app">
+            <!--实现选项卡切换的div-->
+            <!--文章分类-->
+            <ul class="tab_title">
+                <li @click="cur=0" :class="{active:cur==0}">推荐</li>
+                <li @click="cur=1" :class="{active:cur==1}">最热</li>
+                <li @click="cur=2" :class="{active:cur==2}">最新</li>
+                <li @click="cur=3" style="width: 92px;" :class="{active:cur==3}">特别策划</li>
+            </ul>
+
+            <div class="gsn_main">
+                <!-- 文章区域 -->
+                <div class="commend" v-show="cur==0">
+                    <div v-for="info in infos">
+                        <a :href="'essay.html#'+info.eno"><img :src="info.epic"></a>
+                        <div id="main_content">
+                            <div id="content_title">
+                                <a :href="'essay.html#'+info.eno">{{info.ename}}</a>
+                            </div>
+                            <div id="content_bottom">
+                                <!--卡片下方左侧，用户头像，用户名称，发帖时间-->
+                                <div id="bottom_left">
+                                    <a :href="'user_main.html#'+info.mno">
+                                        <img :src="info.mpic" onerror="javascript:this.src='images/img_all.png';">
+                                        <span id="picbox_name">{{info.nickName}}</span>
+                                    </a>
+                                    <span id="picbox_time">{{info.edate}}</span>
+                                </div>
+                                <!--卡片下方右侧，热度数、评论数-->
+                                <div id="bottom_right">
+                                    <table>
+                                        <tr>
+                                            <td><img src="images/icon_heat.png" border=0>{{info.eheat}}</td>
+                                            <td><img src="images/icon_comment.png" border=0>{{info.commentcount}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hottest" v-show="cur==1">
+                
+                    <div v-for="heat in heats">
+                        <a :href="'essay.html#'+heat.eno"><img :src="heat.epic"></a>
+                        <div id="main_content">
+                            <div id="content_title">
+                                <a :href="'essay.html#'+heat.eno">{{heat.ename}}</a>
+                            </div>
+                            <div id="content_bottom">
+                                <!--卡片下方左侧，用户头像，用户名称，发帖时间-->
+                                <div id="bottom_left">
+                                    <a :href="'user_main.html#'+heat.mno">
+                                        <img :src="heat.mpic"onerror="javascript:this.src='images/img_all.png';">
+                                        <span id="picbox_name">{{heat.nickName}}</span>
+                                    </a>
+                                    <span id="picbox_time">{{heat.edate}}</span>
+                                </div>
+                                <!--卡片下方右侧，热度数、评论数-->
+                                <div id="bottom_right">
+                                    <table>
+                                        <tr>
+                                            <td><img src="images/icon_heat.png" border=0>{{heat.eheat}}</td>
+                                            <td><img src="images/icon_comment.png" border=0>{{heat.commentcount}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="newest" v-show="cur==2">
+                    <div v-for="time in times">
+                        <a :href="'essay.html#'+time.eno"><img :src="time.epic"></a>
+                        <div id="main_content">
+                            <div id="content_title">
+                                <a :href="'essay.html#'+time.eno">{{time.ename}}</a>
+                            </div>
+                            <div id="content_bottom">
+                                <!--卡片下方左侧，用户头像，用户名称，发帖时间-->
+                                <div id="bottom_left">
+                                    <a :href="'user_main.html#'+time.mno">
+                                        <img :src="time.mpic" onerror="javascript:this.src='images/img_all.png';">
+                                        <span id="picbox_name">{{time.nickName}}</span>
+                                    </a>
+                                    <span id="picbox_time">{{time.edate}}</span>
+                                </div>
+                                <!--卡片下方右侧，热度数、评论数-->
+                                <div id="bottom_right">
+                                    <table>
+                                        <tr>
+                                            <td><img src="images/icon_heat.png" border=0>{{time.eheat}}</td>
+                                            <td><img src="images/icon_comment.png" border=0>{{time.commentcount}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special" v-show="cur==3">
+                    <div>
+                        <a href="essay.html"><img src="images/card_img04.jpg"></a>
+                        <div id="main_content">
+                            <div id="content_title">
+                                <a href="essay.html">支持鼠标和触控板操作，使用 iPad 的强大新方式</a>
+                            </div>
+                            <div id="content_bottom">
+                                <!--卡片下方左侧，用户头像，用户名称，发帖时间-->
+                                <div id="bottom_left">
+                                    <a href="user_main.html">
+                                        <img src="images/img-photo.jpg">
+                                        <span id="picbox_name">Kirito</span>
+                                    </a>
+                                    <span id="picbox_time">20小时前</span>
+                                </div>
+                                <!--卡片下方右侧，热度数、评论数-->
+                                <div id="bottom_right">
+                                    <table>
+                                        <tr>
+                                            <td><img src="images/icon_heat.png" border=0>22</td>
+                                            <td><img src="images/icon_comment.png" border=0>22</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gsn_mainright">
+            <!-- 文章侧边 -->
+            <a><img src="images/right_business.png" style="width: 252px; height: 121px;"></a>
+
+            <div class="gsn_rightmaster">
+                <a href="photrix.html">
+                    <img src="images/icon_rightmaster.png" style="width: 50px;height: 50px;">
+                    Photrix 精选
+                </a>
+            </div>
+            <!-- 文章精选区域 -->
+            <div class="gsn_righttext">
+                <ul>
+                    <li id="text_li" v-for="pho in phos">
+                        <div id="li_left">
+                            <img :src="pho.mpic" onerror="javascript:this.src='images/img_all.png';">
+                        </div>
+                        <div id="li_right">
+                            <div id="li_name">
+                                <a :href="'user_main.html#'+pho.mno">{{pho.nickName}}</a>
+                            </div>
+                            <div id="li_caption">
+                                <a :href="'essay.html#'+pho.eno">{{pho.ename}}</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--查看更多-->
+                    <div class="text_more">
+                        <span><a href="photrix.html">查看全部></a></span>
+                    </div>
+                </ul>
+            </div>
+            <!--尾注-->
+            <div class="right_bottom">
+                <hr />
+            </div>
+            <div class="bottom_iconbox">
+                <a><img src="images/icon_weibo.png"></a>
+                <a><img src="images/icon_weixin.png"></a>
+                <a><img src="images/icon_qq.png"></a>
+            </div>
+            <div class="bottom_textbox">
+                <a href="">关于我们</a>
+                <a href="">常见问题</a>
+                <a href="">加入我们</a>
+                <a href="">用户协议</a>
+                <a href="">商务合作</a>
+                <a href="">联系我们</a>
+            </div>
+            <span class="gsn_text">
+                © 2020- ∞ 永无BUG
+            </span>
+        </div>
+    </article>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/axios.js"></script>
+<script type="text/javascript" src="js/qs.js"></script>
+<script type="text/javascript">
+var show=new Vue({
+	el:'#gsn_index',
+	data:{
+		cur: 0,//默认选中第一个tab
+		infos:{},
+		heats:{},
+		times:{},
+		phos:{}
+		
+	},
+	methods:{
+		
+	},
+	mounted:function(){
+		//页面加载完成后
+		axios.all([findIndex(),findHeat(),findTime(),findPhotrix()]).then(axios.spread((fn1,fn2,fn3,fn4)=>{
+			
+				this.infos=fn1.data.infos;
+				this.heats=fn2.data.heats;
+				this.times=fn3.data.times;
+				this.phos =fn4.data.phos;
+
+		}))
+	}
+});
+
+//检查登录
+var app= new Vue({
+	el:'#gsn_publish',
+	data:{
+		uname:'',//用户名
+		uhead:'',//用户头像
+		uid:'',
+		onlogin:false,
+		outlogin:true
+	},
+	methods:{
+		
+	},
+	mounted:function(){
+		//页面加载完成后
+		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
+			if(!fn1.data){
+				//用户未登录
+			}else{
+				this.uname=fn1.data.nickName;
+				this.uhead=fn1.data.mpic;
+				this.uid=fn1.data.mno;
+				this.outlogin=false;
+				this.onlogin=true;
+				console.log(fn1.data.mno);
+			}
+		}));
+	}
+});
+
+//检查登录
+function checkLogin(){
+	return axios.get("member.action?op=check");
+}
+//显示首页信息
+function findIndex(){
+	return axios.get("essay.action?op=findEssayinfo");
+}
+//显示首页信息(按照热度)
+function findHeat(){
+	return axios.get("essay.action?op=findEssayHeat");
+}
+//显示首页信息(按照时间)
+function findTime(){
+	return axios.get("essay.action?op=findEssayTime");
+}
+//显示Photrix
+function findPhotrix(){
+	return axios.get("essay.action?op=findPhotrix");
+}
+
+
+
+</script>
+
+
+</html>

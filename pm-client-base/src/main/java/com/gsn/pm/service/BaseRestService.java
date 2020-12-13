@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,11 +19,11 @@ public class BaseRestService {
     private BaseClient baseClient;
 
     @HystrixCommand(fallbackMethod = "LoginFallback")
-    public String Login(HttpServletRequest request, HttpServletResponse response){
-        return baseClient.Login(request,response);
+    public String Login(String uname, String upass){
+        return baseClient.Login(uname, upass);
     };
 
-    private String LoginFallback(HttpServletRequest request, HttpServletResponse response) {
+    private String LoginFallback(String uname, String upass) {
         Map map = new HashMap();
         map.put("code", "-4");
         map.put("msg", "服务异常,登录失败");
@@ -33,11 +34,11 @@ public class BaseRestService {
 
 
     @HystrixCommand(fallbackMethod = "registerFallback")
-    public String register(HttpServletRequest request, HttpServletResponse response){
-        return baseClient.register(request,response);
+    public String register(HttpServletRequest request){
+        return baseClient.register(request);
     };
 
-    private String registerFallback(HttpServletRequest request, HttpServletResponse response) {
+    private String registerFallback(HttpServletRequest request) {
         Map map = new HashMap();
         map.put("code", "-4");
         map.put("msg", "服务异常,注册失败");
@@ -47,11 +48,11 @@ public class BaseRestService {
 
 
     @HystrixCommand(fallbackMethod = "checkFallback")
-    public String check(HttpServletRequest request, HttpServletResponse response){
-        return baseClient.check(request,response);
+    public String check(HttpServletRequest request){
+        return baseClient.check(request);
     };
 
-    private String checkFallback(HttpServletRequest request, HttpServletResponse response) {
+    private String checkFallback(HttpServletRequest request) {
         Map map = new HashMap();
         map.put("code", "-4");
         map.put("msg", "服务异常,检查登录失败");

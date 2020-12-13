@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>设置--基本信息--PhoMark</title>
+	<link rel="shortcut icon" href=" images/icon_main.png">
+	<link rel="stylesheet" href="css/fontset.css" />
+	<link rel="stylesheet" href="css/setting.css" />
+	  <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="css/xadmin.css">
+        <script src="js/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/xadmin.js"></script>
+</head>
+
+<body>
+	<div id="gsn_set">
+	<header>
+	
+		<!-- 头部菜单 -->
+		<div class="menu_area01 ">
+			<ul>
+				<li>
+					<a href="index.html">
+						<img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;">
+						PHOMark
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class=" menu_area02 ">
+			<ul>
+				<li><a href="photrix.html">Photrix</a></li>
+				<li><a href="photopic.html">热门文章</a></li>
+				<li><a href="photype.html">PHO专题</a></li>
+				<li><a href="about.html">关于我们</a></li>
+			</ul>
+		</div>
+		<div class=" menu_area03 ">
+			<ul>
+				<li><a href="search.html"><img src="  images/icon_search.png "
+							style=" width: 25px; height: 25px; padding-right: 20px; "></a></li>
+				<li><a href="publish.html"><img src="images/icon_post.png"
+							style="width:25px;height: 25px;padding-right: 20px;"></li>
+				<li>
+					<a href="login.html" style=" color:#d81e06;" v-if="outlogin">
+						登录
+					</a>
+					<!--登陆成功后显示个人头像-->
+					
+					<a :href="'user_main.html#'+mno" v-if="onlogin">
+						<img  :src="mpic" onerror="javascript:this.src='images/img_all.png';"
+						style="width: 50px; height: 50px ;border-radius:50%;position: absolute; top: 6px;">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- 个人中心设置 -->
+	<div id="setting">
+		<div id="protect">
+			<!--  防止头部遮挡勿删 -->
+		</div>
+		<div style="font-size: 30px;">
+			<p>账号设置</p>
+		</div>
+		<hr />
+		<div id="opt">
+			<!--设置信息分类-->
+			<div id="classify">
+				<a @click="cur=0" :class="{active:cur==0}">资料编辑</a>
+				<a @click="cur=1" :class="{active:cur==1}">账号和密码</a>
+				<a @click="cur=2" :class="{active:cur==2}">消息和邮件</a>
+				<a @click="cur=3" :class="{active:cur==3}">实名认证</a>
+				<a @click="cur=4" :class="{active:cur==4}">Token</a>
+			</div>
+			<!--选项的切换-->
+			<div class="setting_container">
+				<!--资料编辑-->
+				<div class="setting_profile" v-show="cur==0">
+				
+					<div class="header_box">
+						<img  :src="mpic" onerror="javascript:this.src='images/img_all.png';">
+						<input id="mpic" type="file" accept="image/*"  @click="change($event)" style="display: none;" 
+						name="mpic" ref="avatarInput">
+						<div class="changpic">
+							<button id="btn_changePic"  ><span>修改头像</span></button>
+							<!--仅为外观设置，如要添加修改头像功能请修改上方input-->
+						</div>
+					</div>
+				
+					<div class="item_box">
+						<div class="label_margin_bottom10">
+							<span class="label_contain">昵称</span>
+						</div>
+						<div class="label_margin_bottom20">
+							<input class="input_inner" :placeholder='nickName' id="nickName" v-model="nickName">
+						</div>
+
+						<div class="label_margin_bottom10">
+							<span class="label_contain">性别</span>
+						</div>
+						<div class="label_margin_bottom20">
+							<input class="input_inner" placeholder="请输入性别" id="msex" v-model="msex">
+						</div>
+
+						<div class="label_margin_bottom10">
+							<span class="label_contain">个人简介</span>
+						</div>
+						<div class="label_margin_bottom20">
+							<textarea class="input_inner_bigger" placeholder="一句话介绍，让他人快速了解自己" id="msign" v-model="msign">
+							</textarea>
+						</div>
+					</div>
+					<div class="item_btn">
+						<input class="profile_save" type="button" onclick="save()" value="保存">
+					</div>
+				
+				</div>
+				<!--账号和密码-->
+				<div class="setting_account" v-show="cur==1">
+					<div class="account_box">
+						<div class="label_margin_bottom10">
+							<span class="label_contain">认证手机号码</span>
+						</div>
+						<div class="label_margin_bottom20">
+							<input class="input_inner" :placeholder='tel' v-model="tel">
+							<div class="item_btn">
+								<button class="account_btn" @click="updateTel"><span>修改</span></button>
+							</div>
+						</div>
+					</div>
+					<div class="account_box">
+						<div class="label_margin_bottom10">
+							<span class="label_contain">邮箱绑定</span>
+						</div>
+						<div class="label_margin_bottom20">
+							<input class="input_inner" :placeholder='email' v-model="email">
+							<div class="item_btn">
+								<button class="account_btn" @click="updateEmail"><span>修改</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="change_pwd_box">
+						<span class="label_changepwd">修改登录密码</span>
+						<div class="item_btn">
+							<button class="changepwd_btn" @click="updateP"><span>修改</span></button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+	</div>
+	<script type="text/javascript" src=" js/vue.js"></script>
+	<script type="text/javascript" src=" js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src=" js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+	<script type="text/javascript" src="js/axios.js"></script>
+	<script type="text/javascript" src="js/qs.js"></script>
+	<script type="text/javascript">
+	var mid=0;
+	var name=$('#nickName').val();
+	var msex01=$('#msex').val();
+	var msign01=$('#msign').val();
+	var mpic01=$('#mpic').src;
+	var hash=window.location.hash;
+	hash=hash.replace('#','');
+	hash=hash.split('&');
+	 mid=hash[0];
+		var opt = new Vue({
+			el: "#gsn_set",
+			data: {
+				cur: 0,//默认选中第一个tab
+				mno:'',
+			//	mpic:require('../PhoneMark_images1be86427-1b4c-4f5b-9f0a-da5ee6648c90imgQCEG30ZA.jpg'),
+				nickName:'',
+				msign:'',
+				msex:'',
+				tel:'',
+				email:'',
+				onlogin:false,
+				outlogin:true,
+				mpic:'',
+				pic: mpic
+	          
+			},
+			methods:{
+				updateTel:function(){
+					axios.post("member.action",qs.stringify({op:'phone',mno:this.mno,tel:this.tel}
+					)).then(result=>{
+						console.log(this.mno);
+						console.log(this.tel);
+						var data= result.data;
+						console.log(data);
+						if(data>0){
+							alert('修改成功');
+						}else {
+							alert('修改失败');
+						}
+					});
+				},
+				updateEmail:function(){
+					axios.post("member.action",qs.stringify({op:'email',mno:this.mno,email:this.email}
+					)).then(result=>{
+						console.log(this.mno);
+						console.log(this.email);
+						var data= result.data;
+						console.log(data);
+						if(data>0){
+							alert('修改成功');
+						}else {
+							alert('修改失败');
+						}
+					});
+				},
+				change:function(e){
+					 
+				},
+				updateP:function(){
+					console.log(mid);
+					xadmin.open('修改密码','updata-pwd.html?mno='+mid,'300','250');
+				}
+			},
+			mounted:function(){
+				//页面加载完成后
+				axios.all([checkLogin()])
+				.then(axios.spread((fn1)=>{
+					if(!fn1.data){
+						//用户未登录
+						alert("请先登录");
+						window.location.href='login.html';
+					
+					}else{
+						this.nickName=fn1.data.nickName;
+						this.mno=fn1.data.mno;
+						this.mpic=fn1.data.mpic;
+						this.msign=fn1.data.msign;
+						this.msex=fn1.data.msex;
+					//	name=this.nickName;
+					//	mpic01=this.mpic;
+					//	msign01=this.msign;
+					//	msex01=this.msex;
+						this.tel=fn1.data.tel;
+						this.email=fn1.data.email;
+						this.messaynums=fn1.data.messaynums;
+						this.outlogin=false;
+						this.onlogin=true;
+					}
+				}));
+			}
+		});
+		//检查用户是否登录
+		function checkLogin(){
+			return axios.get("member.action?op=check");
+		}
+		
+		$(document).ready(function () {
+			$('#btn_changePic').click(function () {
+				$('#mpic').click();
+			});
+
+		});
+		console.log("name"+name);
+		console.log("msex"+msex);
+		console.log("msign"+msign);
+		//修改信息
+		function save(){
+			//获取所有元素值
+			var uname =$('#nickName').val();
+			var sex =$('#msex').val();
+			var	sign =$('#msign').val();
+			var mno=mid;
+			console.log("name"+name);
+			console.log("msex"+msex);
+			console.log("msign"+msign);
+			
+			$.ajaxFileUpload({
+				url:'fileUpload.action',
+				secureuri:false,
+				fileElementId:'mpic',
+				dataType:'json',
+				data:{mno:mno,nickName:uname,msex:sex,msign:sign},
+				success:function(data){
+					if(data>0){
+						//清空文本框
+						alert("保存成功");
+						
+					}else{
+						alert("保存失败");
+					}
+				}
+			});
+		}
+	</script>
+
+</body>
+
+</html>

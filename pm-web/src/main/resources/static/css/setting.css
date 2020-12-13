@@ -1,0 +1,260 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+body {
+    height: 100%;
+    background: #f4f4f4;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    float: left;
+    text-align: center;
+    height: 100%;
+}
+img{
+    vertical-align:middle ;
+}
+
+/*头部区域*/
+header {
+    height: 62px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    position: fixed;
+    z-index: 100;/*解决relative的层级会显示在fixed上方的问题*/
+    
+}
+.header{
+    height: 62px;
+    width: 100%;
+}
+header a{
+    color: white;
+}
+header div {
+    float: left;
+    padding-top: 15px;
+}
+.menu_area01 {
+    padding-left: 11%;
+    font-weight: bolder;
+}
+.menu_area02 {
+    padding-left: 11%;
+    padding-right: 11%;
+    width: 40%;
+}
+.menu_area02 ul li {
+    width: 25%;
+}
+
+#setting{
+	width: 36%;
+	padding-top: 3%;
+	margin: auto;
+}
+#protect{
+	width: 100%;
+	height: 75px;
+}
+hr{
+	margin-top: 3%;
+}
+
+#classify{
+	margin-top: 3%;
+	width: 100%;
+	height: 30px;
+}
+#classify a{
+	display: inline-block;
+	width: 19%;
+	text-align: center;
+	line-height: 30px;
+	color: darkgray;
+	text-align: center;
+	cursor:pointer;
+}
+#classify .active{
+	color: red;
+	border-bottom: 2px solid red;
+}
+
+.setting_container{
+	margin: 40px auto;
+}
+
+.setting_profile{
+	width: 100%;
+	height:420px;
+}
+
+.header_box{
+	width: 100%;
+	height: 92px;
+	padding: 16px;
+	box-sizing: border-box;
+	background-color: white;
+	position: relative;
+	
+}
+.header_box img{
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+}
+#header_changePic{
+	display: none;
+}
+.changpic{
+	float: right;
+	line-height: 60px;
+}
+#btn_changePic{
+	padding:5px 12px;
+	box-sizing: border-box;
+	border-radius: 24px;
+	border:none;
+	color:#fd281a;
+	text-align: center;
+	cursor: pointer;
+	outline:none;
+}
+.changpic :hover{
+	background-color: #fd281a;
+	color: white;
+}
+
+.item_box{
+	width: 100%;
+	height: 100%;
+	margin: 12px 0;
+	padding: 24px 20px;
+	box-sizing: border-box;
+	background-color: white;
+}
+.label_margin_bottom10{
+	margin: 0 0 10px;
+	width: 100%;
+	height: 21.6px;
+}
+.label_margin_bottom20{
+	margin-bottom: 20px;
+	position: relative;
+}
+.input_inner{
+	display: inline-block;
+	width: 100%;
+	border-radius: 4px;
+	border-color: transparent;
+	border-style: solid;
+	box-sizing: border-box;
+	height: 60px;
+	line-height: 14px;
+	padding: 23px 15px 23px 14px;
+	background-color: #f4f4f4;
+	outline:none;
+}
+.input_inner_bigger{
+	display: inline-block;
+	width: 100%;
+	border-radius: 4px;
+	border-color: transparent;
+	border-style: solid;
+	box-sizing: border-box;
+	height: 95px;
+	line-height: 14px;
+	padding: 5px 15px;
+	background-color: #f4f4f4;
+	outline:none;
+	resize: none;	/*禁止拉伸*/
+}
+.label_margin_bottom20 input:focus{
+	background-color: white;
+	border:gray 1px solid;
+	border-radius: 4px;
+	
+}
+.item_btn{
+	margin-top:20px ;
+	margin-bottom: 20px;
+	width: 100%;
+	text-align: center;
+}
+.profile_save{
+	padding: 5px 40px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	border-radius: 80px;
+	border:none;
+	background-color: white;
+	color:#fd281a;
+	text-align: center;
+	cursor: pointer;
+	outline:none;
+}
+.item_btn button:hover{
+	background-color: #fd281a;
+	color: white;
+}
+/*账号和密码*/
+.setting_account{
+	width: 100%;
+	height: 600px;
+
+}
+.account_box{
+	width: 100%;
+	height:139.6px;
+	margin: 0 0 12px;
+	padding: 24px 20px;
+	box-sizing: border-box;
+	background-color: white;
+}
+.account_btn{
+	position: absolute;
+	right: 13px;
+	top: 14px;
+	float: left;
+	padding: 5px 12px;
+	border-radius: 24px;
+	border: none;
+	background-color: white;
+	color:#655E5E;
+	cursor: pointer;
+	outline:none;
+}
+.change_pwd_box{
+	width: 548px;
+	height:100px;
+	margin: 0 0 12px;
+	padding: 24px 20px;
+	box-sizing: border-box;
+	background-color: white;
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+}
+.changepwd_btn{
+	position: absolute;
+	right: 33px;
+	top: 29px;
+	float: left;
+	padding: 5px 12px;
+	border-radius: 24px;
+	border: none;
+	background-color: #f4f4f4;
+	color:#655E5E;
+	cursor: pointer;
+	outline:none;
+}

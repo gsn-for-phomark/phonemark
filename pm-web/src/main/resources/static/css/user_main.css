@@ -1,0 +1,347 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+body {
+    height: 100%;
+    background: #f4f4f4;
+    margin: 0 auto;
+  
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    float: left;
+    text-align: center;
+    height: 100%;
+}
+img{
+    vertical-align:middle ;
+}
+
+/*头部区域*/
+header {
+    height: 62px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    position: fixed;
+    z-index: 100;/*解决relative的层级会显示在fixed上方的问题*/
+    
+}
+.header{
+    height: 62px;
+    width: 100%;
+}
+header a{
+    color: white;
+}
+header div {
+    float: left;
+    padding-top: 15px;
+}
+.menu_area01 {
+    padding-left: 11%;
+    font-weight: bolder;
+}
+.menu_area02 {
+    padding-left: 11%;
+    padding-right: 11%;
+    width: 40%;
+}
+.menu_area02 ul li {
+    width: 25%;
+}
+
+article{
+    width: 1120px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 112px;
+}
+
+/*左侧用户卡片*/
+.user_content{
+    width: 800px;
+    position: relative;
+    float: left;
+}
+.user_info{
+    width: 100%;
+    height: 206px;
+    padding: 30px 30px 30px 30px;
+    box-sizing: border-box; /*防止div被padding撑大*/
+    background-color: white;
+}
+.user_info img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    float: left;
+    position: absolute;
+}
+.content_info{
+    width: 610px;
+    height: 146px;
+    margin-left: 130px;
+    
+}
+.info_cont{
+    width: 610px;
+    height: 86px;
+    box-sizing: border-box; /*防止div被padding撑大*/
+    padding: 0 0 20px;
+    border-bottom:1px solid #8e8787;
+}
+.info_cont button{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #655e5e;
+    background-color: #f4f4f4;
+    border:1px solid #f4f4f4;
+    border-radius: 24px;
+    padding: 5px 12px;
+}
+.info_cont button span{
+    font-size: 14px;
+}
+.info_name{
+    font-size: 24px;
+    margin: 0 0 11px;
+}
+.info_intro{
+    font-size: 14px ;
+    line-height: 20px;
+}
+.info_follow{
+    font-size: 14px;
+    margin:24px 0 0;
+    color: #8e8787;
+}
+/*文章以及关注*/
+.tab_title{
+    float: left;
+    padding-top:20px;
+}
+
+.tab_title li {
+    font-size: 16px;
+    color: gray;
+    width: 60px;
+    box-sizing: border-box;
+    margin: 0px 10px 10px 0px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+/*点击对应的li显示对应的样式*/
+.tab_title .active{
+    color: #d81e06;
+    border-bottom: 3px solid#d81e06;
+}
+/*推荐*/
+.essay{
+    clear: both;
+    padding-top: 14px;
+}
+.essay div{
+    margin-bottom: 10px;
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.essay div:hover{
+    transform: scale(1.03,1.03);    /*动效参数*/
+}
+.essay div img{ 
+    float: left;
+    width: 400px;
+    height: 200px;
+    clear: both;
+}
+/*相同组件*/
+#main_content{
+    float: left;
+    width: 340px;
+    height: 140px;
+    background-color: white;
+    padding: 30px;
+}
+#content_title{
+    width: 340px;
+    height: 57px;
+    margin: 0px,0px,20px;
+    font-size: 19px;
+    font-weight: bold;
+}
+#content_title a{
+    color: black;
+}
+#content_bottom{
+    margin-top: 60px;
+    width:280px ;
+    height: 24px;
+
+}
+#bottom_left{
+    font-size: 14px;
+    display: inline;
+}
+#bottom_left img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;/*方形图片圆形显示*/
+    margin-right: 10px;
+    
+}
+
+#picbox_name{
+    color: #292525;
+    margin-right: 10px;
+}
+#picbox_time{
+    color: #8E8787;
+}
+#bottom_right{
+    height: 20px;
+    width: 93px;
+    float: right;
+
+}
+#bottom_right img{
+    width: 20px;
+    height: 20px;
+}
+#bottom_right table{
+    color: #8E8787;
+    width: 150%;
+    left: 40px;
+    position: relative;
+}
+
+/*关注列表*/
+.attention{
+    clear: both;
+    padding-top: 14px;
+}
+.attention_left_user{
+    width: 395px;
+    height: 100px;
+    float: left;;
+    margin-right: 10px;
+    
+}
+.attention_right_fans{
+    width: 395px;
+    height: 100px;
+    float: left;
+   
+}
+.attention_title{
+    color: #8e8787;
+    font-size: 14px;
+    margin-left:5px ;
+}
+
+.attention_card{
+    width: 100%;
+    height: 120px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: white;
+    
+}
+.attention_card img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    float: left;
+    margin-bottom: 10px;
+}
+.card_top{
+    width: 270px;
+    height: 55px;
+    position: relative;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 8px;
+    border-bottom: #8e8787 1px solid;
+}
+.top_name{
+    position: absolute;
+    margin:0 0 5px;
+}
+.top_name a{
+    color: #292525;
+}
+.card_top button{
+    position: absolute;
+    right: 20px;
+    width: 60px;
+    height: 25px;
+    color: #655e5e;
+    background-color: #f4f4f4;
+    border:1px solid #f4f4f4;
+    border-radius: 24px;
+}
+.card_intro{
+    position: absolute;
+    float: left;
+    top: 30px;
+    font-size: 14px;
+    color: #8e8787;
+   overflow: hidden;
+}
+.attention_follow {
+    width: 100%;
+    height: 30px;
+    float: left;
+    font-size: 13px;
+    color: #8e8787;
+    margin-left: 80px;
+}
+
+/*右侧区域*/
+.right_side{
+    width: 264px;
+    height: 206px;
+    margin-left: 52px;
+    position: relative;
+    float: left;
+}
+.side_top{
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+    margin: 0 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.side_item{
+    background-color: white;
+    width:100%;
+    height: 95px;
+    padding:20px;
+    margin: 0 0 20px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+.side_item span{
+    font-size: 14px;
+    display: inline-block;
+    color: #655e5e;
+    background-color: #f4f4f4;
+    border:1px solid #f4f4f4;
+    border-radius: 24px;
+    padding: 2px 5px;
+    margin-right:3px;
+}
+

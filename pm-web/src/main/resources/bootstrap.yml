@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: pmweb
+  #  profiles:
+  #    active: development
+  cloud:
+    config:
+      name: pmweb-config
+      profile: beta
+      label: main
+      username: admin
+      password: a
+      discovery:
+        enabled: true   # 通过配置中心加载配置文件
+        service-id: BASE-GIT-CONFIG   # 在eureka之中注册的服务ID
+    stream:    # 联接消息中心
+      kafka:
+        binder:
+          brokers:  101.200.81.3
+
+#服务注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:a@eureka1:7301/eureka
+  register-with-eureka: false   #自己不注册到eureka中，只做eureka的客户端，读取服务
+  instance:     #实例配置, 没有在eureka注册，所以有没有都没关系
+    preferIpAddress: true
+    instance-id: picweb1
+    lease-expiration-duration-in-seconds: 90  #如果现在超过了5s的时间间隔( default: 90 s )
+    lease-renewal-interval-in-seconds: 30
+
+
+#这里将所有的监控端口打开
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

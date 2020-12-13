@@ -1,0 +1,358 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+body {
+    height: 100%;
+    background: #f4f4f4;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    float: left;
+    text-align: center;
+    height: 100%;
+}
+img{
+    vertical-align:middle ;
+}
+
+article a{
+    color: #292525;
+}
+
+/*头部区域*/
+header {
+    height: 62px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    position: fixed;
+    z-index: 100;/*解决relative的层级会显示在fixed上方的问题*/
+}
+
+.header{
+    height: 62px;
+    width: 100%;
+}
+header a{
+    color: white;
+}
+header div {
+    float: left;
+    padding-top: 15px;
+}
+.menu_area01 {
+    padding-left: 11%;
+    font-weight: bolder;
+}
+.menu_area02 {
+    padding-left: 11%;
+    padding-right: 11%;
+    width: 40%;
+}
+.menu_area02 ul li {
+    width: 25%;
+}
+
+
+/*主界面框架*/
+.gsn_loop{
+    width: 100%;
+    height: 327px;
+}
+.gsn_loop  img{   
+    height: 100%;
+    position: relative;
+}
+
+.gsn_AD div img{
+    width: 264px;
+    height: 144px;
+    margin-right: 20px;
+    float: left;
+    /*给div块状设置为圆角矩形*/
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    /*设置阴影*/
+    box-shadow: 0 4px 4px rgba(0,0,0,.15);
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.gsn_AD div img:hover{
+    transform: scale(1.03,1.03);    /*动效参数*/
+}
+.gsn_AD{
+    margin-left: 222px;
+    position: relative;
+    bottom: 17px;
+
+}
+/*文章分类*/
+.tab_title{
+    clear: both;
+    padding-left: 222px;
+    padding-top:20px;
+}
+
+.tab_title li {
+    font-size: 17px;
+    color: gray;
+    width: 60px;
+    margin: 0px,10px,10px,0px;
+    padding: 0px,14px;
+    cursor: pointer;
+}
+/*点击对应的li显示对应的样式*/
+.tab_title .active{
+    color: #d81e06;
+    border-bottom: 3px solid#d81e06;
+}
+
+/*文章主体区域*/
+/*推荐*/
+.commend{
+    clear: both;
+    padding-left: 222px;
+    padding-top: 14px;
+    
+}
+.commend div{
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.commend div img{ 
+    float: left;
+    width: 400px;
+    height: 200px;
+    clear: both;
+}
+.commend div:hover{
+    transform: scale(1.03,1.03);    /*动效参数*/
+}
+/*最热*/
+.hottest{
+    clear: both;
+    padding-left: 222px;
+    padding-top: 14px;
+}
+.hottest div{
+    margin-bottom: 10px;
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.hottest div img{ 
+    float: left;
+    width: 400px;
+    height: 200px;
+    clear: both;
+}
+.hottest div:hover{
+    transform: scale(1.03,1.03);    /*动效参数*/
+}
+/*最新*/
+.newest{
+    clear: both;
+    padding-left: 222px;
+    padding-top: 14px;
+ 
+}
+.newest div{
+    margin-bottom: 10px;
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.newest div img{ 
+    float: left;
+    width: 400px;
+    height: 200px;
+    clear: both;
+}
+.newest div:hover{
+    transform: scale(1.03,1.03);    /*动效参数*/
+}
+/*特别策划*/
+.special{
+    clear: both;
+    padding-left: 222px;
+    padding-top: 14px;
+
+}
+.special div{
+    margin-bottom: 10px;
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.special div img{ 
+    float: left;
+    width: 400px;
+    height: 200px;
+    clear: both;
+}
+.special div:hover{
+    transform: scale(1.03,1.03);    /*动效参数*/
+}
+/*相同组件*/
+#main_content{
+    float: left;
+    width: 340px;
+    height: 140px;
+    background-color: white;
+    padding: 30px;
+}
+#content_title{
+    width: 340px;
+    height: 57px;
+    margin: 0px,0px,20px;
+    font-size: 19px;
+    font-weight: bold;
+}
+#content_title a:hover{
+    color: #d81e06;
+}
+#content_title a{
+    color: black;
+}
+#content_bottom{
+    margin-top: 60px;
+    width:280px ;
+    height: 24px;
+
+}
+#bottom_left{
+    font-size: 14px;
+    display: inline;
+}
+#bottom_left img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;/*方形图片圆形显示*/
+    margin-right: 10px;
+    
+}
+
+#picbox_name{
+    color: #292525;
+    margin-right: 10px;
+}
+#picbox_time{
+    color: #8E8787;
+}
+#bottom_right{
+    height: 20px;
+    width: 93px;
+    float: right;
+
+}
+#bottom_right img{
+    width: 20px;
+    height: 20px;
+}
+#bottom_right table{
+    color: #8E8787;
+    width: 150%;
+    left: 40px;
+    position: relative;
+}
+
+/*文章右侧区域*/
+.gsn_mainright{
+    position: absolute;
+    width: 252px;
+    height: 100%;
+    left: 1087px;
+    top: 574px;
+}
+.gsn_rightmaster{
+    width: 252px;
+    height: 80px;
+    background-color: white;
+    text-align: center;
+    line-height: 80px;
+    margin-top: 10px;
+}
+
+/*精选文章区域*/
+.gsn_righttext{
+    margin-top: 25px;
+}
+.gsn_righttext img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;/*方形图片圆形显示*/
+}
+.gsn_righttext div a{
+    font-size: 16px;
+}
+
+#text_li{
+    width: 252px;
+    height: 71px;
+    margin-bottom: 25px;
+}
+#li_left{
+    height: 71px;
+    float: left;
+}
+
+#li_right{
+    margin-left: 47px;
+}
+#li_name{
+    width:210px;
+    height: 20px;
+    text-align: left;
+    font-weight: bold;
+}
+#li_caption{
+    text-align: left;
+    margin-top: 5px;
+}
+#li_caption a{
+    font-size: 12px;
+    display: block;
+}
+.text_more{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.text_more span a{
+    color: #d81e06;
+    font-size: 12px;
+}
+/*尾注*/
+.right_bottom{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+}
+.bottom_iconbox img{
+    width: 34px;
+    height: 34px;
+    padding: 20px;
+    border-radius: 50%;/*方形图片圆形显示*/
+}
+.bottom_textbox{
+    margin: 30px 0px 0px;
+    width: 252px;
+    height: 87px;
+}
+.bottom_textbox a{
+    float: left;
+    width: 50px;
+    text-align: center;
+    margin: 0px 15px 0px;
+    font-size: 12px;
+    margin-bottom: 10px;  
+    color: #8E8787;   
+}
+.gsn_text{
+    color: #c1bdbd;
+    font-size: 12px;
+}

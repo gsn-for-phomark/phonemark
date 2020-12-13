@@ -1,0 +1,12 @@
+
+@font-face {font-family: "OPPOSans";
+    src: url('font/OPPOSans.eot?t=1540892600244'); /* IE9*/
+    src: url('font/OPPOSans.eot?t=1540892600244#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('font/OPPOSans.woff?t=1540892600244') format('woff'),
+    url('font/OPPOSans.ttf?t=1540892600244') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('font/OPPOSans.svg?t=1540892600244#iconfont') format('svg'); /* iOS 4.1- */
+  }
+
+* {
+    font-family:"OPPOSans" !important;
+  }

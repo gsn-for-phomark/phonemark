@@ -1,0 +1,179 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100%;
+    background: #f4f4f4;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    float: left;
+    text-align: center;
+    height: 100%;
+}
+img{
+    vertical-align:middle ;
+}
+
+/*头部区域*/
+header {
+    height: 62px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    position: fixed;
+    z-index: 100;/*解决relative的层级会显示在fixed上方的问题*/
+}
+.header{
+    height: 62px;
+    width: 100%;
+}
+header a{
+    color: white;
+}
+header div {
+    float: left;
+    padding-top: 15px;
+}
+.menu_area01 {
+    padding-left: 11%;
+    font-weight: bolder;
+}
+.menu_area02 {
+    padding-left: 11%;
+    padding-right: 11%;
+    text-align: center;
+    width: 40%;
+}
+.menu_area02 span{
+    font-size: 24px;
+}
+.menu_area02 ul li {
+    width: 25%;
+}
+
+.gsn_photrixpage{
+    width: 1110px;
+    padding: 40px 0px 0px;
+    margin: 0 auto;
+}
+.gsn_banner{
+    text-align: center;
+}
+
+.gsn_banner img{
+    width: 1110px;
+    height: 340px;
+    margin-bottom: 25px;
+}
+
+/*顶部菜单栏*/
+.header_menu{
+    height: 40px;
+    padding-left: 206px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    box-shadow: 0 2px 0 rgba(41,67,73,.01), 0 1px 0 rgba(0,0,0,.05);
+    line-height: 40px;
+    font-weight: 700;
+    font-size: 14px;
+}
+.menu_ul li{
+    width: 277.5px;
+    border-left:1px solid rgba(0,0,0,.12);
+    
+}
+.about{
+    border-right:1px solid rgba(0,0,0,.12);
+}
+
+.recommend_topic{
+    padding-top: 50px;
+}
+.topic_card_large{
+    background-color: aqua;
+    width: 350px;
+    height: 188px;
+    display: block;
+    float: left;
+    margin-right: 32px;
+}
+
+.main_split{
+    clear: both;
+    padding-top: 15px;
+    height: 27px;
+    width: 1114px;
+    border-bottom: lightgray 1px solid;
+}
+.main_split h3{
+    width: 60px;
+    font-size: 14px;
+    line-height: 27px;
+    border-bottom: black 1px solid;
+}
+
+.recommend_list{
+    padding-top: 15px;
+    display: block;
+    
+}
+.topic_card_small{
+    background-color: aqua;
+    display: block;
+    width: 263.5px;
+    height: 140px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+/*各个卡片内容样式*/
+.banner{
+    display: block;
+    width: 100%;
+    height: 100%;
+    float: left;
+    object-fit:cover;
+}
+.card{
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+    background-color: rgba(0,0,0,.6);
+    position: relative;
+    transition: all 0.7s ease;  /*动效代码*/
+}
+.card :hover{
+    transform: scale(1.05,1.05);    /*动效参数*/
+}
+.card h4{    
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 25px 0 0;
+    padding: 0 20px;
+    float: left;
+    overflow: hidden;
+}
+.card footer{
+    padding:20px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+}
+.card footer span{
+    margin: 10px 0 0;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
