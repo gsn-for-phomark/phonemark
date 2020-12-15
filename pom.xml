@@ -14,7 +14,7 @@
         <module>pm-domain</module>
         <module>pm-util</module>
         <module>pm-domain-essay</module>
-        <module>eureka-config</module>
+        <module>base-eureka-config</module>
         <module>base-git-config</module>
         <module>base-git-config2</module>
         <module>base-git-config3</module>
