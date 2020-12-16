@@ -30,6 +30,7 @@
         <module>pm-restapi-pinfo</module>
         <module>pm-client-base</module>
         <module>pm-web</module>
+        <module>pm-restapi-essay</module>
     </modules>
 
     <properties>

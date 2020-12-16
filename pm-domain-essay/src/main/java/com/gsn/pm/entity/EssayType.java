@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
-@Table(name= "essayinfo")
+@Table(name= "essaytype")
 public class EssayType {
 
     private static final long serialVersionUID = 2593620613133115154L;
