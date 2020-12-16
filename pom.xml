@@ -10,10 +10,9 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>pm-base</module>
-        <module>pm-domain</module>
+
+
         <module>pm-util</module>
-        <module>pm-domain-essay</module>
         <module>base-eureka-config</module>
         <module>base-git-config</module>
         <module>base-git-config2</module>
@@ -22,10 +21,14 @@
         <module>base-hystrix-turbine</module>
         <module>base-security</module>
         <module>base-zuul-gateway</module>
-        <module>pm-client-base</module>
+        <module>pm-domain</module>
         <module>pm-domain-comment</module>
+        <module>pm-domain-pinfo</module>
+        <module>pm-domain-essay</module>
+        <module>pm-base</module>
         <module>pm-restapi-comment</module>
-        <module>pm-client-comment</module>
+        <module>pm-restapi-pinfo</module>
+        <module>pm-client-base</module>
         <module>pm-web</module>
     </modules>
 
