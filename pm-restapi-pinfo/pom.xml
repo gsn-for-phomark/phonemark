@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pm-client-comment</artifactId>
+    <artifactId>pm-restapi-pinfo</artifactId>
+
+
 
 
 </project>
