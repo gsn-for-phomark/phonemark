@@ -23,5 +23,15 @@ public class FollowDomain {
         this.status = status;
     }
 
-
+    @Override
+    public String toString() {
+        return "FollowDomain{" +
+                "fno=" + fno +
+                ", mno=" + mno +
+                ", bno=" + bno +
+                ", fnum=" + fnum +
+                ", bnum=" + bnum +
+                ", status=" + status +
+                '}';
+    }
 }

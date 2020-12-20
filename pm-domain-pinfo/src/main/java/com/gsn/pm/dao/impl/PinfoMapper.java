@@ -2,7 +2,8 @@ package com.gsn.pm.dao.impl;
 
 
 import com.gsn.pm.dao.MisBaseMapper;
-import com.gsn.pm.entity.Followinfo;
+import com.gsn.pm.domain.ETypeList;
+import com.gsn.pm.domain.EssayList;
 import com.gsn.pm.entity.Memberinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -42,25 +43,50 @@ public interface PinfoMapper extends MisBaseMapper<Memberinfo> {
     int updatePwd(@Param("mno")Integer mno,@Param("pwd")String pwd);
 
     /**
-     * 查询关注数
+     * 计算用户写的文章数
      * @param mno
-     * @param bno
      * @return
      */
-    @Select("select ifnull(count(bno),0) fnum from followinfo where `status`=1 and mno= #{mno} GROUP BY mno " +
-            "UNION all  select ifnull(count(bno),0) fnum from followinfo where `status`=2 and mno= #{mno} GROUP BY mno  " +
-            "UNION all select ifnull(count(mno),0) fnum from followinfo where `status`=2 and bno= #{bno} GROUP BY bno ")
-    List<Followinfo> followNum(@Param("mno")Integer mno,@Param("bno")Integer bno) ;
+    @Select("select mno,COUNT(mno) messaynums FROM essayinfo  where mno=#{mno} GROUP BY mno")
+    List<Memberinfo> countUserEssayNum(@Param("mno")Integer mno);
+
 
     /**
-     * 查询粉丝数
+     * 个人中心文章查询
+     * @param eno
      * @param mno
-     * @param bno
      * @return
      */
-    @Select(" select ifnull(count(bno),0) fnum from followinfo where `status`=1 and bno= #{bno} GROUP BY mno " +
-            " UNION all  select ifnull(count(bno),0) fnum from followinfo where `status`=2 and mno= #{mno} GROUP BY mno " +
-            " UNION all select ifnull(count(mno),0) fnum from followinfo where `status`=2 and bno= #{bno} GROUP BY bno ")
-    List<Followinfo> befollowNum(@Param("mno")Integer mno,@Param("bno")Integer bno) ;
+    @Select("<script>" +
+            "select b.eno,ename,epic,m.mno,mpic,nickName, " +
+            "DATE_FORMAT(edate,'%m-%d') as edate,IFNULL(eheat,0) eheat,IFNULL(cnum,0) cnum from (" +
+            "SELECT e.eno,ename,epic,e.mno,eheat,edate,cnum from (SELECT eno,COUNT(eno) cnum " +
+            "from commentinfo GROUP BY eno) a right join essayinfo e on e.eno=a.eno) b " +
+            "left join memberinfo m on m.mno=b.mno where 1=1 " +
+            "<if test='eno!=null'>" +
+            "and eno=#{eno}" +
+            "</if>" +
+            "<if test='mno!=null'>" +
+            "and m.mno=#{mno}" +
+            "</if>" +
+            "order by edate asc" +
+            "</script>")
+    List<EssayList> findEssayList(@Param("eno")Integer eno,@Param("mno")Integer mno);
+
+
+    /**
+     * 常用专题
+     * @return
+     */
+    @Select("<script>" +
+            "select e.tno,tname from ( select mno,tno from essayinfo where 1=1 " +
+            "<if test='mno!=null'>" +
+            "and mno=#{mno}" +
+            "</if>" +
+            " ) e left join essaytype t on e.tno=t.tno  group by e.tno limit 0,5 " +
+            "</script>")
+    List<ETypeList> FavoriteType(@Param("mno")Integer mno);
+
+
 
 }
