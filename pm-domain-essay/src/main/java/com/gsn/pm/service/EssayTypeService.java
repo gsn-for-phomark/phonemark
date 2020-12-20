@@ -2,7 +2,6 @@ package com.gsn.pm.service;
 
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.entity.EssayType;
-import com.gsn.pm.entity.Essayinfo;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public interface EssayTypeService {
     public int add(EssayType t);
 
     /**
-     * 根据tno查找文章类型
+     * 根据tno查找文章类型表的所有内容
      */
     public List<EssayType> findByTrem(EssayType t);
 
@@ -22,7 +21,7 @@ public interface EssayTypeService {
      * 查看每个文章类型下的文章数量
      *
      * */
-    public List<EssayType> EssaytypeTotal();
+    public List<EssayType> essaytypeTotal();
 
     /**
      * 根据文章类型名精确查询
@@ -32,7 +31,7 @@ public interface EssayTypeService {
     /**
      * 常用专题
      */
-    public List<ETypeList> FavoriteType(ETypeList t);
+    public List<ETypeList> favoriteType(ETypeList t);
 
     /**
      * 文章类型删除

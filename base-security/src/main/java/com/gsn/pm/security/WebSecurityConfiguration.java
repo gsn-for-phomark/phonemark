@@ -32,10 +32,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .fullyAuthenticated();
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.csrf().disable();
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/actuator/hystrix.stream","/turbine.stream") ;
     }
+
+
 }

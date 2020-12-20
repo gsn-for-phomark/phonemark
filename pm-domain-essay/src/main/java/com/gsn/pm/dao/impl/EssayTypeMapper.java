@@ -34,7 +34,7 @@ public interface EssayTypeMapper extends MisBaseMapper<EssayType> {
      * */
     @Select("SELECT tno,tname,COUNT(*) as totalNum from (" +
             " SELECT a.tname,b.tno FROM essayinfo b RIGHT JOIN essaytype a  ON a.tno=b.tno where b.tno is NOT NULL)c GROUP BY tno ")
-    List<EssayType> EssaytypeTotal();
+    List<EssayType> essaytypeTotal();
 
     /**
      * 根据文章类型名精确查询
@@ -49,7 +49,7 @@ public interface EssayTypeMapper extends MisBaseMapper<EssayType> {
     @Select("select e.tno,tname from (" +
             " select mno,tno from essayinfo where 1=1 " +
             " and mno=#{mno} ) e left join essaytype t on e.tno=t.tno  group by e.tno limit 0,5")
-    List<ETypeList> FavoriteType(@Param("mno") Integer mno);
+    List<ETypeList> favoriteType(@Param("mno") Integer mno);
 
 
     /**

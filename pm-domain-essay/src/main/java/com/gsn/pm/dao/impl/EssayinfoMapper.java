@@ -55,13 +55,13 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
     List<EssayComment> findEssayandComment();
 
     /**
-     * 文章显示  前台
+     * 显示文章详细内容
      * @param eno
      * @return
      */
     @Select("SELECT eno,ename,e.mno,`status`,DATE_FORMAT(edate,'%Y-%m-%d %H:%I') edate,eheat,epic,edser,tno,m.nickName,m.mpic from essayinfo as e " +
             "left join (SELECT mno,nickName,mpic from memberinfo) AS m on e.mno=m.mno where eno = #{eno}")
-    List<EssayShow> ShowEssay(@Param("eno") Integer eno);
+    List<EssayShow> showEssay(@Param("eno") Integer eno);
 
 
     /**

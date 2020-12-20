@@ -1,5 +1,5 @@
 server:
-  port: 8889
+  port: 8080
 
 mybatis:
   configuration:
@@ -26,7 +26,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 47.106.189.240
+          brokers: 101.200.81.3
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -70,7 +70,7 @@ spring:
 #监控配置
 info:
   app.name: PM-RESTAPI-ESSAY
-  company.name: yc
+  company.name: gsn
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$
   version: $project.version$
