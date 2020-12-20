@@ -10,14 +10,17 @@
         <module name="base-security" />
         <module name="pm-domain-comment" />
         <module name="pm-base" />
+        <module name="pm-domain-pinfo" />
         <module name="pm-restapi-comment" />
         <module name="base-hystrix-turbine" />
+        <module name="base-eureka-config" />
         <module name="pm-client-comment" />
         <module name="pm-client-base" />
         <module name="pm-domain" />
         <module name="pm-domain-essay" />
         <module name="base-zuul-gateway" />
         <module name="pm-util" />
+        <module name="pm-restapi-pinfo" />
         <module name="base-hystrix-dashboard" />
         <module name="base-git-config3" />
         <module name="base-git-config2" />
@@ -27,6 +30,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="base-eureka-config" target="1.8" />
       <module name="base-git-config" target="1.8" />
       <module name="base-git-config2" target="1.8" />
       <module name="base-git-config3" target="1.8" />
@@ -43,7 +47,9 @@
       <module name="pm-domain" target="1.8" />
       <module name="pm-domain-comment" target="1.8" />
       <module name="pm-domain-essay" target="1.8" />
+      <module name="pm-domain-pinfo" target="1.8" />
       <module name="pm-restapi-comment" target="1.8" />
+      <module name="pm-restapi-pinfo" target="1.8" />
       <module name="pm-util" target="1.8" />
       <module name="pm-web" target="1.8" />
     </bytecodeTargetLevel>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/base-eureka-config/base-eureka-config.iml" filepath="$PROJECT_DIR$/base-eureka-config/base-eureka-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-git-config/base-git-config.iml" filepath="$PROJECT_DIR$/base-git-config/base-git-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-git-config2/base-git-config2.iml" filepath="$PROJECT_DIR$/base-git-config2/base-git-config2.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-git-config3/base-git-config3.iml" filepath="$PROJECT_DIR$/base-git-config3/base-git-config3.iml" />
@@ -17,7 +18,9 @@
       <module fileurl="file://$PROJECT_DIR$/pm-domain/pm-domain.iml" filepath="$PROJECT_DIR$/pm-domain/pm-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-domain-comment/pm-domain-comment.iml" filepath="$PROJECT_DIR$/pm-domain-comment/pm-domain-comment.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-domain-essay/pm-domain-essay.iml" filepath="$PROJECT_DIR$/pm-domain-essay/pm-domain-essay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pm-domain-pinfo/pm-domain-pinfo.iml" filepath="$PROJECT_DIR$/pm-domain-pinfo/pm-domain-pinfo.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-restapi-comment/pm-restapi-comment.iml" filepath="$PROJECT_DIR$/pm-restapi-comment/pm-restapi-comment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pm-restapi-pinfo/pm-restapi-pinfo.iml" filepath="$PROJECT_DIR$/pm-restapi-pinfo/pm-restapi-pinfo.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-util/pm-util.iml" filepath="$PROJECT_DIR$/pm-util/pm-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-web/pm-web.iml" filepath="$PROJECT_DIR$/pm-web/pm-web.iml" />
     </modules>
