@@ -46,12 +46,12 @@
       <module name="pm-comment-restapi" target="1.8" />
       <module name="pm-domain" target="1.8" />
       <module name="pm-domain-comment" target="1.8" />
-      <module name="pm-domain-essay" target="1.8" />
-      <module name="pm-domain-pinfo" target="1.8" />
+      <module name="pm-domain-essay" target="8" />
+      <module name="pm-domain-pinfo" target="8" />
       <module name="pm-restapi-comment" target="1.8" />
       <module name="pm-restapi-essay" target="1.8" />
       <module name="pm-restapi-pinfo" target="1.8" />
-      <module name="pm-util" target="1.8" />
+      <module name="pm-util" target="8" />
       <module name="pm-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -40,7 +40,7 @@ public class TestEssayType {
 
     @Test
     public void testEssaytypeTotal(){
-        List<EssayType> list=essayTypeService.EssaytypeTotal();
+        List<EssayType> list=essayTypeService.essaytypeTotal();
         System.out.println(list);
     }
 
@@ -54,7 +54,7 @@ public class TestEssayType {
     public void testFavoriteType(){
         ETypeList ep=new ETypeList();
         ep.setMno(1);
-        List<ETypeList> list=essayTypeService.FavoriteType(ep);
+        List<ETypeList> list=essayTypeService.favoriteType(ep);
         System.out.println(list);
     }
 

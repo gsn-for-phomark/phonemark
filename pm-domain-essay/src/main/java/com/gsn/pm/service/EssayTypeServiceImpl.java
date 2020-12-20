@@ -27,8 +27,8 @@ public class EssayTypeServiceImpl implements EssayTypeService{
     }
 
     @Override
-    public List<EssayType> EssaytypeTotal() {
-        return essayTypeMapper.EssaytypeTotal();
+    public List<EssayType> essaytypeTotal() {
+        return essayTypeMapper.essaytypeTotal();
     }
 
     @Override
@@ -37,8 +37,8 @@ public class EssayTypeServiceImpl implements EssayTypeService{
     }
 
     @Override
-    public List<ETypeList> FavoriteType(ETypeList t) {
-        return essayTypeMapper.FavoriteType(t.getMno());
+    public List<ETypeList> favoriteType(ETypeList t) {
+        return essayTypeMapper.favoriteType(t.getMno());
     }
 
     @Override

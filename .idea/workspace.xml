@@ -4,22 +4,24 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="pm-domain-essay基础方法完成，创建restapi">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base-security/src/main/java/com/gsn/pm/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/base-security/src/main/java/com/gsn/pm/security/WebSecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/pm-base.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/EssayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/EssayType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/Essayinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/Essayinfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="dev_yang" />
+    <option name="BRANCH" value="dev_yyq" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -66,7 +68,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\compileFile\apache-maven-3.6.3-bin\maven_jar" />
-        <option name="mavenHome" value="D:\compileFile\apache-maven-3.6.3-bin\apache-maven-3.6.3" />
         <option name="userSettingsFile" value="D:\compileFile\apache-maven-3.6.3-bin\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -122,86 +123,67 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestEssayType.testFavoriteType">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.EurekaForHaConfig">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestEssayType.testFavoriteType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pm-domain-essay" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gsn.pm" />
-      <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestEssayType" />
-      <option name="METHOD_NAME" value="testFavoriteType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestEssayType.testFindByPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pm-domain-essay" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gsn.pm" />
-      <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestEssayType" />
-      <option name="METHOD_NAME" value="testFindByPage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="pm-base" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.BaseRestApiApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConfigApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ConfigApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="base-git-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConfigApp2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ConfigApp2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="base-git-config2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConfigApp3" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ConfigApp3" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="base-git-config3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="eureka-config" />
+    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="base-eureka-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -214,25 +196,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PM_restapi_essay_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="PM_restapi_essay_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="pm-restapi-essay" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_essay_App" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PmWebApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="pm-web" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.gsn.pm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_essay_App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PmWebApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pm-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PmWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -244,40 +223,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZuulApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="base-zuul-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ZuulApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Spring Boot.ConfigApp" />
       <item itemvalue="Spring Boot.ConfigApp2" />
       <item itemvalue="Spring Boot.ConfigApp3" />
-      <item itemvalue="Spring Boot.EurekaForHaConfig" />
-      <item itemvalue="Spring Boot.HystrixDashboardApp" />
-      <item itemvalue="Spring Boot.TurbineApp" />
-      <item itemvalue="Spring Boot.PmWebApp" />
-      <item itemvalue="Spring Boot.BaseRestApiApp" />
-      <item itemvalue="Spring Boot.ZuulApp" />
-      <item itemvalue="JUnit.TestEssayType.testFindByPage" />
-      <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
       <item itemvalue="Spring Boot.PM_restapi_essay_App" />
+      <item itemvalue="Spring Boot.PmWebApp" />
+      <item itemvalue="Spring Boot.TurbineApp" />
+      <item itemvalue="Spring Boot.HystrixDashboardApp" />
+      <item itemvalue="Spring Boot.EurekaForHaConfig" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
-        <item itemvalue="JUnit.TestEssayType.testFindByPage" />
-        <item itemvalue="Spring Boot.ZuulApp" />
-        <item itemvalue="Spring Boot.BaseRestApiApp" />
-        <item itemvalue="Spring Boot.PmWebApp" />
+        <item itemvalue="Spring Boot.PM_restapi_essay_App" />
+        <item itemvalue="Spring Boot.ConfigApp3" />
+        <item itemvalue="Spring Boot.ConfigApp2" />
+        <item itemvalue="Spring Boot.ConfigApp" />
+        <item itemvalue="Spring Boot.EurekaForHaConfig" />
       </list>
     </recent_temporary>
   </component>
@@ -328,6 +290,7 @@
       <workItem from="1607819574176" duration="11124000" />
       <workItem from="1608133556270" duration="213000" />
       <workItem from="1608133804024" duration="1041000" />
+      <workItem from="1608443824456" duration="15931000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -396,7 +359,8 @@
     <MESSAGE value="添加pm-util" />
     <MESSAGE value="添加pm-domain-essay" />
     <MESSAGE value="修改了base中 register方法访问地址的一个bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了base中 register方法访问地址的一个bug" />
+    <MESSAGE value="pm-domain-essay基础方法完成，创建restapi" />
+    <option name="LAST_COMMIT_MESSAGE" value="pm-domain-essay基础方法完成，创建restapi" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

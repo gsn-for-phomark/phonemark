@@ -60,7 +60,7 @@ public class TestService {
     @Test
     public void testShowEssay(){
         Integer eno=2;
-        List<EssayShow> list=essayinfoService.ShowEssay(eno);
+        List<EssayShow> list=essayinfoService.showEssay(eno);
         System.out.println(list);
     }
 

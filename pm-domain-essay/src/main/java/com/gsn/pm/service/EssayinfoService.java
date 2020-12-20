@@ -34,9 +34,9 @@ public interface EssayinfoService {
 
 
     /**
-     * 文章显示  前台
+     * 显示文章详细内容
      */
-    public List<EssayShow> ShowEssay (Integer eno);
+    public List<EssayShow> showEssay (Integer eno);
 
     /**
      * 个人中心文章列表

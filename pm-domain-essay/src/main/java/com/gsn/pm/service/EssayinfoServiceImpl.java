@@ -51,8 +51,8 @@ public class EssayinfoServiceImpl implements EssayinfoService{
     }
 
     @Override
-    public List<EssayShow> ShowEssay(Integer eno) {
-        return essayinfoMapper.ShowEssay(eno);
+    public List<EssayShow> showEssay(Integer eno) {
+        return essayinfoMapper.showEssay(eno);
     }
 
     @Override
