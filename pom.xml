@@ -27,6 +27,8 @@
         <module>pm-restapi-comment</module>
         <module>pm-client-comment</module>
         <module>pm-web</module>
+        <module>pm-domain-followinfo</module>
+        <module>pm-domain-follow</module>
     </modules>
 
     <properties>
