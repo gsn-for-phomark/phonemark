@@ -31,8 +31,13 @@ zuul:
       path: /comment-proxy/**                   # 访问的路径
       serviceId: MICROSERVICE-PROVIDER-COMMENT
       sensitiveHeaders:            # zuul是基于过滤器机制，它会自动过滤掉敏感头, 这里设置要过滤的敏感头集合为空
+    pm-essay:
+      path: /essay-proxy/**                   # 访问的路径
+      serviceId: MICROSERVICE-PROVIDER-ESSAY
+      sensitiveHeaders:
+
   ignored-services: "*"      # "*"代表隐藏所有的服务名，这样就不能通过zuul直接用服务名访问真实的服务了.
-  prefix: /gsn-api    #公共前缀       /yc-api/piclib-proxy/piclib/1
+  prefix: /gsn-api    #公共前缀       /gsn-api/essay-proxy/***/***
   #sensitiveHeaders:    #去掉敏感头设置,   以实现将  权限 信息向过滤器链传递 的目标
 
 logging:

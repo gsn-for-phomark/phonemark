@@ -1,11 +1,11 @@
 spring:
   application:
-    name: pmweb
+    name: pm-web
   #  profiles:
   #    active: development
   cloud:
     config:
-      name: pmweb-config
+      name: pm-web-config
       profile: beta
       label: main
       username: admin
@@ -26,7 +26,7 @@ eureka:
   register-with-eureka: false   #自己不注册到eureka中，只做eureka的客户端，读取服务
   instance:     #实例配置, 没有在eureka注册，所以有没有都没关系
     preferIpAddress: true
-    instance-id: picweb1
+    instance-id: pic-web_1
     lease-expiration-duration-in-seconds: 90  #如果现在超过了5s的时间间隔( default: 90 s )
     lease-renewal-interval-in-seconds: 30
 

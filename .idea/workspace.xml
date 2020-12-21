@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="pm-domain-essay基础方法完成，创建restapi">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="pm-restapi-essay完成">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base-security/src/main/java/com/gsn/pm/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/base-security/src/main/java/com/gsn/pm/security/WebSecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/pm-base.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-client-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +78,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-restapi-essay/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -123,16 +113,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EurekaForHaConfig">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.PM_restapi_essay_App">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,19 +164,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="base-eureka-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HystrixDashboardApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="base-hystrix-dashboard" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.HystrixDashboardApp" />
@@ -223,23 +198,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ZuulApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="base-zuul-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ZuulApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Spring Boot.ConfigApp" />
-      <item itemvalue="Spring Boot.ConfigApp2" />
-      <item itemvalue="Spring Boot.ConfigApp3" />
-      <item itemvalue="Spring Boot.PM_restapi_essay_App" />
       <item itemvalue="Spring Boot.PmWebApp" />
       <item itemvalue="Spring Boot.TurbineApp" />
       <item itemvalue="Spring Boot.HystrixDashboardApp" />
-      <item itemvalue="Spring Boot.EurekaForHaConfig" />
+      <item itemvalue="Spring Boot.ConfigApp" />
+      <item itemvalue="Spring Boot.ConfigApp2" />
+      <item itemvalue="Spring Boot.ConfigApp3" />
+      <item itemvalue="Spring Boot.ZuulApp" />
+      <item itemvalue="Spring Boot.PM_restapi_essay_App" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.PM_restapi_essay_App" />
+        <item itemvalue="Spring Boot.ZuulApp" />
         <item itemvalue="Spring Boot.ConfigApp3" />
         <item itemvalue="Spring Boot.ConfigApp2" />
         <item itemvalue="Spring Boot.ConfigApp" />
-        <item itemvalue="Spring Boot.EurekaForHaConfig" />
       </list>
     </recent_temporary>
   </component>
@@ -291,6 +279,7 @@
       <workItem from="1608133556270" duration="213000" />
       <workItem from="1608133804024" duration="1041000" />
       <workItem from="1608443824456" duration="15931000" />
+      <workItem from="1608546883715" duration="4786000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
