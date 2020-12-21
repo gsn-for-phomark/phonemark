@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="pm-restapi-essay完成">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="dev_yyq" />
+    <option name="BRANCH" value="dev_yyq3" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -349,7 +343,8 @@
     <MESSAGE value="添加pm-domain-essay" />
     <MESSAGE value="修改了base中 register方法访问地址的一个bug" />
     <MESSAGE value="pm-domain-essay基础方法完成，创建restapi" />
-    <option name="LAST_COMMIT_MESSAGE" value="pm-domain-essay基础方法完成，创建restapi" />
+    <MESSAGE value="essayClient编写完成..." />
+    <option name="LAST_COMMIT_MESSAGE" value="essayClient编写完成..." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
