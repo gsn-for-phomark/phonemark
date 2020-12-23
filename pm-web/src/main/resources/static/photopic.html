@@ -176,16 +176,20 @@
     	mounted:function(){
     		//页面加载完成后
     		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-    			if(!fn1.data){
-    				//用户未登录
-    			}else{
-    				this.uname=fn1.data.nickName;
-    				this.uhead=fn1.data.mpic;
-    				this.uid=fn1.data.mno;
-    				this.outlogin=false;
-    				this.onlogin=true;
-    				console.log(fn1.data.mno);
-    			}
+                if(fn1.data.code==0){
+                    //用户未登录
+                    localStorage.clear();
+                    alert('请先进行登录');
+                    window.location.href='login.html';
+
+                }else{
+                    console.log(fn1.data.member);
+                    this.uname=fn1.data.member.nickName;
+                    this.uhead=fn1.data.member.mpic;
+                    this.uid=fn1.data.member.mno;
+                    this.outlogin=false;
+                    this.onlogin=true;
+                }
     		}));
     	}
     });
@@ -199,10 +203,9 @@
     		
     	},
     	mounted:function(){
-    		//页面加载完成后
     		axios.all([findByTno()]).then(axios.spread((fn1)=>{
     			if(!fn1.data){
-    				//用户未登录
+
     			}else{
     				this.essaytype=fn1.data.essaytype;
     				console.log(fn1.data.essaytype);
@@ -240,7 +243,13 @@
     }
   //检查登录
     function checkLogin(){
-    	return axios.get("member.action?op=check");
+        var token=localStorage.getItem("token");
+        console.log(token);
+        return axios({
+            method: 'post',
+            url :   '/base/check',
+            data: {"token":token}
+        });
     }
     </script>
 </html>

@@ -63,15 +63,18 @@
 	                draw(show_num);
 	                return ;
 	            }
-				axios.post("member.action",qs.stringify({op:'register',uname:this.uname,upass:this.upass,uemail:this.uemail}
-				)).then(result=>{
+                axios({
+                    method: 'post',
+                    url :   '/base/register',
+                    data: {"nickName":this.uname,"pwd":this.upass,"email":this.uemail}
+                }).then(result=>{
 					var data= result.data;
 					console.log(data);
-					if('3'==data){
+					if('3'==data.code){
 						alert('用户名已被注册！！');
-					}else if('2'==data){
+					}else if('2'==data.code){
 						alert('有必填项为空，请仔细检查！！！');
-					}else if('1'==data){
+					}else if('1'==data.code){
 						alert('恭喜您！注册成功，点击前往登录界面')
 						window.location.href='login.html';
 					}

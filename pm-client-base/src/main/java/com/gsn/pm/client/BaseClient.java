@@ -2,6 +2,8 @@ package com.gsn.pm.client;
 
 
 import com.gsn.pm.config.FeignClientConfig;
+import com.gsn.pm.domain.Token;
+import com.gsn.pm.entity.Memberinfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,23 +15,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@FeignClient(name = "BASE-MICROSERVICE-ZUUL-GATEWAY",
+@FeignClient(name = "BASE-MICROSERVICE-ZUUL-GATEWAY", contextId = "base",
         configuration = FeignClientConfig.class
 )// 配置要按自定义的类FeignClientConfig
 public interface BaseClient {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/gsn-api/base-proxy/base/Login"
-            )
-    String Login(@RequestParam("uname") String uname, @RequestParam("upass") String upass);
+    @RequestMapping(method = RequestMethod.POST, value = "/gsn-api/base-proxy/base/Login",
+            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    String Login(@RequestBody Memberinfo memberinfo);
 
     @RequestMapping(method = RequestMethod.POST, value = "/gsn-api/base-proxy/base/register",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    String register(@RequestBody HttpServletRequest request);
+    String register(@RequestBody Memberinfo memberinfo);
 
-    @RequestMapping(method = RequestMethod.GET, value = "/gsn-api/base-proxy/base/check",
+    @RequestMapping(method = RequestMethod.POST, value = "/gsn-api/base-proxy/base/check",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    String check(HttpServletRequest request);
+    String check(@RequestBody Token token);
 
 }

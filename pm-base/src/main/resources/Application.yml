@@ -11,6 +11,10 @@ logging:
     com.gsn.piclib: debug
 # 数据源
 spring:
+  security:   # zuul网关服务的用户认证
+    user:
+      name: admin
+      password: a
   cloud:
     stream:
       kafka:
@@ -46,15 +50,9 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat=true
   redis:
-    host: 127.0.0.1
+    host: 101.200.216.156
     port: 6379
-    #    password: 12345678
-    pool:
-      max-idle: 8
-      min-idle: 0
-      max-active: 8
-      max-wait: -1
-
+    password: asd8711341
 #监控配置
 info:
   app.name: MICROSERVICE-PROVIDER-BASE
