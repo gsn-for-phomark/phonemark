@@ -235,24 +235,22 @@
 				//页面加载完成后
 				axios.all([checkLogin()])
 				.then(axios.spread((fn1)=>{
-					if(!fn1.data){
-						//用户未登录
-						alert("请先登录");
-						window.location.href='login.html';
-					
-					}else{
-						this.nickName=fn1.data.nickName;
-						this.mno=fn1.data.mno;
-						this.mpic=fn1.data.mpic;
-						this.msign=fn1.data.msign;
-						this.msex=fn1.data.msex;
-					//	name=this.nickName;
-					//	mpic01=this.mpic;
-					//	msign01=this.msign;
-					//	msex01=this.msex;
-						this.tel=fn1.data.tel;
-						this.email=fn1.data.email;
-						this.messaynums=fn1.data.messaynums;
+                    if(fn1.data.code==0){
+                        //用户未登录
+                        localStorage.clear();
+                        alert('请先进行登录');
+                        window.location.href='login.html';
+
+                    }else{
+                        console.log(fn1.data.member);
+						this.nickName=fn1.data.member.nickName;
+						this.mno=fn1.data.member.mno;
+						this.mpic=fn1.data.member.mpic;
+						this.msign=fn1.data.member.msign;
+						this.msex=fn1.data.member.msex;
+						this.tel=fn1.data.member.tel;
+						this.email=fn1.data.member.email;
+						this.messaynums=fn1.data.member.messaynums;
 						this.outlogin=false;
 						this.onlogin=true;
 					}
@@ -261,7 +259,13 @@
 		});
 		//检查用户是否登录
 		function checkLogin(){
-			return axios.get("member.action?op=check");
+            var token=localStorage.getItem("token");
+            console.log(token);
+            return axios({
+                method: 'post',
+                url :   '/base/check',
+                data: {"token":token}
+            });
 		}
 		
 		$(document).ready(function () {

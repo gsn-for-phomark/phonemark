@@ -320,16 +320,17 @@
 				//页面加载完成后
 				axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
 				.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
-					if(!fn1.data){
-						//用户未登录
-						alert("请先登录");
-						window.location.href='login.html';
-					
-					}else{
-						this.nickName=fn1.data.nickName;
-						this.pic=fn1.data.mpic;
-						this.msign=fn1.data.msign;
-						this.messaynums=fn1.data.messaynums;
+                    if(fn1.data.code==0){
+                        //用户未登录
+                        localStorage.clear();
+                        alert('请先进行登录');
+                        window.location.href='login.html';
+
+                    }else{
+						this.nickName=fn1.data.member.nickName;
+						this.pic=fn1.data.member.mpic;
+						this.msign=fn1.data.member.msign;
+						this.messaynums=fn1.data.member.messaynums;
 						this.elist=fn2.data.elist;
 						this.essaynums=fn8.data.EssayNum;
 						this.follows=fn3.data.follows;
@@ -337,7 +338,7 @@
 						this.bnums=fn7.data.bnums;
 						this.favorites=fn4.data.favorites;
 						this.user=fn5.data.user;
-						this.mno=fn1.data.mno;
+						this.mno=fn1.data.member.mno;
 						this.followeds=fn6.data.followeds;
 						this.outlogin=false;
 						this.onlogin=true;
@@ -380,7 +381,13 @@
 		}
 		//检查用户是否登录
 		function checkLogin(){
-			return axios.get("member.action?op=check");
+            var token=localStorage.getItem("token");
+            console.log(token);
+            return axios({
+                method: 'post',
+                url :   '/base/check',
+                data: {"token":token}
+            });
 		}
 		//计算用户文章数
 		function getEssayNum(){
