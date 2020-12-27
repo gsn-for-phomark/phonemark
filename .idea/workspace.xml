@@ -109,39 +109,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestEssayType.testFavoriteType">
-    <configuration name="TestEssayType.testFavoriteType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pm-domain-essay" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gsn.pm" />
-      <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestEssayType" />
-      <option name="METHOD_NAME" value="testFavoriteType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestEssayType.testFindByPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pm-domain-essay" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gsn.pm" />
-      <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestEssayType" />
-      <option name="METHOD_NAME" value="testFindByPage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.CommentRestApiApp">
     <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="pm-base" />
       <extension name="coverage">
@@ -151,6 +119,19 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.BaseRestApiApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-restapi-comment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.CommentRestApiApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,6 +153,19 @@
     <configuration name="ConfigApp3" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="base-git-config3" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaForHaConfig (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="base-eureka-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -234,8 +228,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestEssayType.testFindByPage" />
-      <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
       <item itemvalue="Spring Boot.ConfigApp" />
       <item itemvalue="Spring Boot.ConfigApp2" />
       <item itemvalue="Spring Boot.ConfigApp3" />
@@ -246,11 +238,13 @@
       <item itemvalue="Spring Boot.PmWebApp" />
       <item itemvalue="Spring Boot.BaseRestApiApp" />
       <item itemvalue="Spring Boot.ZuulApp" />
+      <item itemvalue="Spring Boot.EurekaForHaConfig (1)" />
+      <item itemvalue="Spring Boot.CommentRestApiApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
-        <item itemvalue="JUnit.TestEssayType.testFindByPage" />
+        <item itemvalue="Spring Boot.CommentRestApiApp" />
+        <item itemvalue="Spring Boot.EurekaForHaConfig (1)" />
         <item itemvalue="Spring Boot.ZuulApp" />
         <item itemvalue="Spring Boot.BaseRestApiApp" />
         <item itemvalue="Spring Boot.PmWebApp" />
