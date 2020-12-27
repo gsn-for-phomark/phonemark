@@ -138,13 +138,15 @@ public class FollowServiceImpl implements FollowService{
      */
     @Override
     public Map<String, Object> findFollow(FollowList t, Integer mno) {
+
+
         Map<String, Object> map=new HashMap<String,Object>();
         Followinfo rel=new Followinfo();
         rel.setMno(mno);
-        List<FollowList> list=followMapper.findFollowList(mno, rel.getBno());
+        List<FollowList> list=followMapper.findFollowList(t.getFollno(),t.getFollno());
         for(int i=0;i<list.size();i++){
             rel.setBno(list.get(i).getFollno());
-            List<Followinfo> list01=followMapper.findRelation(rel.getBno(), rel.getMno());
+            List<Followinfo> list01=followMapper.findRelation(rel.getMno(), rel.getBno());
             if(list01.size()==0){
                 Followinfo rel1=new Followinfo();
                 rel1.setStatus(0);
@@ -168,7 +170,7 @@ public class FollowServiceImpl implements FollowService{
         Map<String, Object> map=new HashMap<String,Object>();
         Followinfo rel=new Followinfo();
         rel.setMno(mno);
-        List<FollowList> list=followMapper.findBeFollowedList(mno, rel.getBno());
+        List<FollowList> list=followMapper.findBeFollowedList(t.getFansno(),t.getFansno());
         for(int i=0;i<list.size();i++){
             rel.setBno(list.get(i).getFansno());
             List<Followinfo> list01=followMapper.findRelation(rel.getMno(), rel.getBno());

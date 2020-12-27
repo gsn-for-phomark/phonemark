@@ -37,8 +37,8 @@ public class TestService {
     public  void  TestCheckEssayUser(){
         logger.info("调用TestCheckEssayUser");
         Followinfo followinfo1 =new Followinfo();
-        followinfo1.setMno(3);
-        followinfo1.setBno(1);
+        followinfo1.setMno(2);
+        followinfo1.setBno(3);
         Map<String,Object> map2=followService.checkEssayUser(followinfo1);
         System.out.println(map2);
     }
@@ -47,8 +47,8 @@ public class TestService {
     public  void  TestCheckFollows(){
         logger.info("调用TestCheckFollows");
         Followinfo followinfo2 =new Followinfo();
-        followinfo2.setMno(1);
-        followinfo2.setBno(4);
+        followinfo2.setMno(2);
+        followinfo2.setBno(9);
         Map<String,Object> map3=followService.checkFollows(followinfo2);
         System.out.println(map3);
     }
@@ -67,7 +67,7 @@ public class TestService {
         logger.info("调用TestAddFollow");
         Followinfo followinfo4 =new Followinfo();
         followinfo4.setMno(12);
-        followinfo4.setBno(9);
+        followinfo4.setBno(10);
         Integer info2 =followService.addFollow(followinfo4);
         System.out.println(info2);
     }
@@ -75,8 +75,8 @@ public class TestService {
     public  void  TestDelete01(){
         logger.info("调用TestDelete01");
         Followinfo followinfo5 =new Followinfo();
-        followinfo5.setMno(8);
-        followinfo5.setBno(9);
+        followinfo5.setMno(12);
+        followinfo5.setBno(10);
         followinfo5.setStatus(1);
         Integer info3 =followService.delete01(followinfo5);
         System.out.println(info3);
@@ -99,16 +99,20 @@ public class TestService {
     @Test
     public void TestFindFollow(){
         logger.info("调用TestFindFollow");
-        Followinfo followinfo7 =new Followinfo();
         FollowList followList = new FollowList();
-        followinfo7.setMno(6);
-        followinfo7.setBno(10);
+        followList.setFollno(1);
+        Map<String, Object> map=followService.findFollow(followList,1);
+        System.out.println(map.toString());
 //        Map<String,Object> map2=followService.findFollow(followinfo7.getBno(),followinfo7.getMno());
 
     }
     @Test
     public  void  TestFindBeFollowed(){
-        logger.info("调用TestFindBeFollowed");
+        logger.info("调用TestFindFollow");
+        FollowList followList = new FollowList();
+        followList.setFansno(1);
+        Map<String, Object> map=followService.findBeFollowed(followList,1);
+        System.out.println(map.toString());
 
 
     }
