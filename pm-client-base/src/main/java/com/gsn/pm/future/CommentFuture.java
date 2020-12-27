@@ -21,4 +21,30 @@ public class CommentFuture {
             return commentRestService.doAdd(eno, cdesr, mno);
         });
     }
+
+    @Async
+    public CompletableFuture<String> doAdd2and3(Integer eno,String cdesr,Integer mno,Integer flag,String spare1,String spare2) {
+        return CompletableFuture.supplyAsync(() -> {
+            return commentRestService.doAdd2and3(eno, cdesr, mno, flag, spare1, spare2);
+        });
+    }
+    @Async
+    public CompletableFuture<String> countCom(Integer eno) {
+        return CompletableFuture.supplyAsync(() -> {
+            return commentRestService.countCom(eno);
+        });
+    }
+    @Async
+    public CompletableFuture<String> showCom(Integer eno) {
+        return CompletableFuture.supplyAsync(() -> {
+            return commentRestService.showCom(eno);
+        });
+    }
+    @Async
+    public CompletableFuture<String> doHeat(Integer eno,Integer cno,Integer mno) {
+        return CompletableFuture.supplyAsync(() -> {
+            return commentRestService.doHeat(eno, cno, mno);
+        });
+    }
+
 }
