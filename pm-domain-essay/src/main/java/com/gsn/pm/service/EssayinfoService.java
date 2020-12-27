@@ -8,6 +8,7 @@ import com.gsn.pm.domain.EssayShow;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface EssayinfoService {
 
@@ -25,23 +26,23 @@ public interface EssayinfoService {
      * 查看文章信息和评论信息
      *
      **/
-    public List<EssayComment> findEssayandCommentByEtype(EssayComment t);
+    public Map<String, Object> findEssayandCommentByEtype(EssayComment t) ;
 
     /**
      * 查看精选status=3文章信息和评论信息
      **/
-    public List<EssayComment> findEssayandComment();
+    public Map<String, Object> findEssayandComment();
 
 
     /**
      * 显示文章详细内容
      */
-    public List<EssayShow> showEssay (Integer eno);
+    public Map<String,Object> showEssay(Integer eno);
 
     /**
      * 个人中心文章列表
      */
-    public List<EssayList> findEssayList(EssayList t);
+    public Map<String, Object> findUserEassy(EssayList t);
 
     /**
      * 文章删除
@@ -54,11 +55,6 @@ public interface EssayinfoService {
      */
     public int updateStatus(Essayinfo t);
 
-    /**
-     * 时间和名称的综合查询
-     * 返回文章数量
-     */
-    public int findByDateAndAnameTotal(String startDate,String endDate,String t);
 
     /**
      * 时间和名称的综合查询
@@ -66,41 +62,37 @@ public interface EssayinfoService {
      * @param endDate	结束时间
      * @param t  查询词缀
      */
-    public List<Essayinfo> findByDateAndAname (String startDate,String endDate,String t,Integer pageNum,Integer pageSize);
+    public Map<String,Object> findByDateAndAname(String startDate,String endDate,String t,Integer pageNum,Integer pageSize);
 
 
-    /**
-     * 分页时总条数
-     */
-    public int findByPageTotal( );
 
     /**
      * 分页查询
      */
-    public List<Essayinfo> findByPage (Integer pageNum,Integer pageSize);
+    public Map<String,Object> findByPage(Integer pageNum,Integer pageSize);
 
 
     /**
      * 首页查询
      *
      */
-    public List<EssayVO> findByEssayInfo();
+    public Map<String, Object> findEssayInfo();
 
     /**
      * 首页查询（按照热度）
      *
      */
-    public List<EssayVO> findByEssayHeat();
+    public Map<String, Object> findEssayHeat( ) ;
 
     /**
      * 首页查询（按照时间）
      */
-    public List<EssayVO> findByEssayTime();
+    public Map<String, Object> findEssayTime();
 
     /**
      * Photrix精选查询
      *
      */
-    public List<EssayVO> findByPhotrix();
+    public Map<String, Object> findPhotrix( );
 
 }

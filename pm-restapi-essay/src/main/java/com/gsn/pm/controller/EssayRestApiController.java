@@ -1,26 +1,26 @@
 package com.gsn.pm.controller;
 
 import com.google.gson.Gson;
-import com.gsn.pm.domain.*;
+import com.gsn.pm.domain.ETypeList;
+import com.gsn.pm.domain.EssayComment;
+import com.gsn.pm.domain.EssayList;
 import com.gsn.pm.entity.EssayType;
 import com.gsn.pm.entity.Essayinfo;
 import com.gsn.pm.service.EssayTypeService;
 import com.gsn.pm.service.EssayinfoService;
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/essay")
-public class PiclibRestController {
-    private static  Logger logger = LoggerFactory.getLogger(PiclibRestController.class);
+public class EssayRestApiController {
+    private static  Logger logger = LoggerFactory.getLogger(EssayRestApiController.class);
 
     @Autowired
     private EssayinfoService essayinfoService;
@@ -35,7 +35,7 @@ public class PiclibRestController {
     @RequestMapping(value = "/findEinfo",method =RequestMethod.GET)
     public CompletableFuture<String> findByEssayInfo(){
         return CompletableFuture.supplyAsync(()->{
-            List<EssayVO> essayVO=essayinfoService.findByEssayInfo();
+            Map<String,Object> essayVO=essayinfoService.findEssayInfo();
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -52,7 +52,7 @@ public class PiclibRestController {
     @RequestMapping(value = "/findEheat",method =RequestMethod.GET)
     public CompletableFuture<String> findByEssayHeat(){
         return CompletableFuture.supplyAsync(()->{
-            List<EssayVO> essayVO=essayinfoService.findByEssayHeat();
+            Map<String,Object> essayVO=essayinfoService.findEssayHeat();
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -68,7 +68,7 @@ public class PiclibRestController {
     @RequestMapping(value = "/findEtime",method =RequestMethod.GET)
     public CompletableFuture<String> findByEssayTime(){
         return CompletableFuture.supplyAsync(()->{
-            List<EssayVO> essayVO=essayinfoService.findByEssayTime();
+            Map<String,Object> essayVO=essayinfoService.findEssayTime();
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -84,7 +84,7 @@ public class PiclibRestController {
    @RequestMapping(value = "/findPhotrix",method = RequestMethod.GET)
    public CompletableFuture<String> findPhotrix(){
         return CompletableFuture.supplyAsync(() ->{
-            List<EssayVO> essayVO=essayinfoService.findByPhotrix();
+            Map<String,Object> essayVO=essayinfoService.findPhotrix();
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -100,7 +100,7 @@ public class PiclibRestController {
     @RequestMapping(value = "/findEC",method = RequestMethod.GET)
     public CompletableFuture<String> findEssayandComment(){
         return CompletableFuture.supplyAsync(() ->{
-            List<EssayComment> ec=essayinfoService.findEssayandComment();
+            Map<String,Object> ec=essayinfoService.findEssayandComment();
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -118,7 +118,7 @@ public class PiclibRestController {
         return CompletableFuture.supplyAsync(() ->{
             EssayComment essayComment=new EssayComment();
             essayComment.setTno(tno);
-            List<EssayComment> ec=essayinfoService.findEssayandCommentByEtype(essayComment);
+            Map<String,Object> ec=essayinfoService.findEssayandCommentByEtype(essayComment);
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -134,7 +134,7 @@ public class PiclibRestController {
     @RequestMapping(value = "/showEssay",method = RequestMethod.GET)
     public CompletableFuture<String> showEssay(Integer eno){
         return CompletableFuture.supplyAsync(() ->{
-            List<EssayShow> es=essayinfoService.showEssay(eno);
+            Map<String,Object> es=essayinfoService.showEssay(eno);
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -168,6 +168,29 @@ public class PiclibRestController {
         });
     }
 
+    /**
+     * 文章类型添加
+     */
+    @RequestMapping(value = "/addType", method = RequestMethod.POST)
+    public CompletableFuture<String> addType(@RequestBody EssayType t) throws Exception {
+        return CompletableFuture.supplyAsync(() -> {
+
+            int i=et.addTypeInEssay(t);
+            if(i==1){
+                Map<String, Object> map = new HashMap<>();
+                map.put("code", 1);
+                map.put("data", t);
+                map.put("msg","文章类型添加成功");
+                return new Gson().toJson(map);
+            }else {
+                Map<String, Object> map = new HashMap<>();
+                map.put("code", 0);
+                map.put("data", t);
+                map.put("msg","文章类型添加失败");
+                return new Gson().toJson(map);
+            }
+        });
+    }
 
     /**
      * 各个文章类型的文章数
@@ -175,7 +198,7 @@ public class PiclibRestController {
     @RequestMapping(value = "/typeTotal",method = RequestMethod.GET)
     public CompletableFuture<String> essaytypeTotal(){
         return CompletableFuture.supplyAsync(() ->{
-            List<EssayType> essayTypeNum=et.essaytypeTotal();
+            Map<String,Object> essayTypeNum=et.essaytypeTotal();
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -193,7 +216,7 @@ public class PiclibRestController {
         return CompletableFuture.supplyAsync(() ->{
             EssayType essayType=new EssayType();
             essayType.setTno(tno);
-            List<EssayType> essayTypeNum=et.findByTrem(essayType);
+            Map<String,Object> essayTypeNum=et.findByTrem(essayType);
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -206,12 +229,12 @@ public class PiclibRestController {
     /**
      * 个人中心文章列表
      */
-    @RequestMapping(value = "/findElist",method = RequestMethod.GET)
+    @RequestMapping(value = "/findUserlist",method = RequestMethod.GET)
     public CompletableFuture<String> findEssayList(Integer mno){
         return CompletableFuture.supplyAsync(() ->{
             EssayList essayList=new EssayList();
             essayList.setMno(mno);
-            List<EssayList> essayTypeNum=essayinfoService.findEssayList(essayList);
+            Map<String,Object> essayTypeNum=essayinfoService.findUserEassy(essayList);
             //协议
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -251,7 +274,7 @@ public class PiclibRestController {
         return CompletableFuture.supplyAsync(() -> {
             ETypeList eTypeList=new ETypeList();
             eTypeList.setMno(mno);
-            List<ETypeList> list=et.favoriteType(eTypeList);
+            Map<String,Object> list=et.favoriteTypeList(eTypeList);
 
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
@@ -260,62 +283,4 @@ public class PiclibRestController {
             return new Gson().toJson(map);
         });
     }
-
-    /**
-     * 文章类型添加
-     */
-    @RequestMapping(value = "/addType", method = RequestMethod.POST)
-    public CompletableFuture<String> addType(@RequestBody EssayType t) throws Exception {
-        return CompletableFuture.supplyAsync(() -> {
-
-            int i=et.add(t);
-            if(i==1){
-                Map<String, Object> map = new HashMap<>();
-                map.put("code", 1);
-                map.put("data", t);
-                map.put("msg","文章类型添加成功");
-                return new Gson().toJson(map);
-            }else {
-                Map<String, Object> map = new HashMap<>();
-                map.put("code", 0);
-                map.put("data", t);
-                map.put("msg","文章类型添加失败");
-                return new Gson().toJson(map);
-            }
-        });
-    }
-
-
-
-//    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-//    public CompletableFuture<String> findAll(Integer page, Integer pageSize, String description) {
-//        return CompletableFuture.supplyAsync(() -> {
-//            try {
-//                PicDomain picDomain = new PicDomain();
-//
-//                if (CommonUtils.isNotNull(page)) {
-//                    picDomain.setPage(page);
-//                }
-//                if (CommonUtils.isNotNull(pageSize)) {
-//                    picDomain.setPageSize(pageSize);
-//                }
-//                if (CommonUtils.isNotNull(description)) {
-//                    picDomain.setDescription(description);
-//                }
-//                PageDomain<PicDomain> pageDomain = picService.listByPage(picDomain);
-//
-//                Map<String, Object> map = new HashMap<>();
-//                map.put("code", 1);
-//                map.put("data", pageDomain);
-//
-//
-//                return new Gson().toJson(map);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            return null;
-//        });
-//    }
-
-
 }
