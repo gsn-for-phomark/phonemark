@@ -11,13 +11,9 @@
 
     <artifactId>pm-restapi-pinfo</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.gsn</groupId>
-            <artifactId>base-security</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+    <packaging>jar</packaging>
 
+    <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
@@ -39,7 +35,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -52,35 +47,26 @@
             <artifactId>logstash-logback-encoder</artifactId>
             <version>4.10</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.gsn</groupId>
-            <artifactId>pm-domain</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>com.gsn</groupId>
             <artifactId>pm-domain-pinfo</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <groupId>com.gsn</groupId>
+            <artifactId>base-security</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.gsn</groupId>
-            <artifactId>pm-domain-pinfo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
-
     </dependencies>
+
 
 
 

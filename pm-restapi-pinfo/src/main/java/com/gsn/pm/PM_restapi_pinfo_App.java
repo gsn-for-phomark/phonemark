@@ -11,11 +11,11 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableZuulProxy
-@EnableEurekaClient    //启动eureka客户端
+@EnableEurekaClient   //启动eureka客户端
 @EnableCircuitBreaker   //启用断路器
 @SpringCloudApplication
-public class PinfoRestApiApp {
+public class PM_restapi_pinfo_App {
     public static void main(String[] args) {
-        SpringApplication.run(PinfoRestApiApp.class, args);
+        SpringApplication.run(PM_restapi_pinfo_App.class, args);
     }
 }
