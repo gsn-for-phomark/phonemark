@@ -33,6 +33,7 @@
         <module>pm-restapi-essay</module>
         <module>pm-web</module>
         <module>pm-domain-follow</module>
+        <module>pm-restapi-follow</module>
     </modules>
 
     <properties>

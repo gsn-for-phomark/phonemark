@@ -8,13 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.List;
 @Data
-@Table(name= "followList")
 public class FollowList {
+
     private static final long serialVersionUID = 47270913890810661L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer follno;//关注人编号
-    private Integer fansno;
+    private Integer fansno;//粉丝id
     private String nickName;//用户名
     private String mpic;
     private String msign;
