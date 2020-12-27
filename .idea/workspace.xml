@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="pm-restapi-essay完成">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="essay后端完成">
+      <change afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonemark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/phonemark.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonemark.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/EssayClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/EssayClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/EssayFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/EssayFuture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/essay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/essay.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +88,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-restapi-essay/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,27 +103,39 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\java\com\gsn\pm\web\controllers" />
+      <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\java\com\gsn\pm\controller" />
+      <recent name="D:\Jtb\IDEA\phonemark\pm-domain-essay\src\main\java\com\gsn\pm\service" />
+      <recent name="D:\Jtb\IDEA\phonemark\pm-client-base\src\main\java\com\gsn\pm\client" />
+      <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\resources" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.gsn.pm.domain" />
       <recent name="com.gsn.pm.dao" />
       <recent name="com.gsn.pm.config" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\resources" />
-      <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\java" />
-      <recent name="D:\Jtb\IDEA\phonemark\pm-domain-essay\src" />
-      <recent name="D:\Jtb\IDEA\phonemark\pm-domain-essay\src\main\java" />
-      <recent name="D:\IDEAspace\phonemark\pm-web\src\main\java\com\gsn\pm" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
+        <option value="MavenRunConfiguration" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestEssayType.testFavoriteType">
+  <component name="RunManager" selected="Spring Boot.PM_restapi_essay_App">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestEssayType.testFavoriteType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pm-domain-essay" />
       <extension name="coverage">
@@ -121,22 +147,6 @@
       <option name="PACKAGE_NAME" value="com.gsn.pm" />
       <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestEssayType" />
       <option name="METHOD_NAME" value="testFavoriteType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestEssayType.testFindByPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pm-domain-essay" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.gsn.pm" />
-      <option name="MAIN_CLASS_NAME" value="com.gsn.pm.TestEssayType" />
-      <option name="METHOD_NAME" value="testFindByPage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,8 +186,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="eureka-config" />
+    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="base-eureka-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -234,26 +250,25 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestEssayType.testFindByPage" />
       <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
       <item itemvalue="Spring Boot.ConfigApp" />
       <item itemvalue="Spring Boot.ConfigApp2" />
       <item itemvalue="Spring Boot.ConfigApp3" />
-      <item itemvalue="Spring Boot.EurekaForHaConfig" />
       <item itemvalue="Spring Boot.HystrixDashboardApp" />
       <item itemvalue="Spring Boot.TurbineApp" />
       <item itemvalue="Spring Boot.PM_restapi_essay_App" />
       <item itemvalue="Spring Boot.PmWebApp" />
       <item itemvalue="Spring Boot.BaseRestApiApp" />
       <item itemvalue="Spring Boot.ZuulApp" />
+      <item itemvalue="Spring Boot.EurekaForHaConfig" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
-        <item itemvalue="JUnit.TestEssayType.testFindByPage" />
         <item itemvalue="Spring Boot.ZuulApp" />
+        <item itemvalue="Spring Boot.EurekaForHaConfig" />
         <item itemvalue="Spring Boot.BaseRestApiApp" />
         <item itemvalue="Spring Boot.PmWebApp" />
+        <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
       </list>
     </recent_temporary>
   </component>
@@ -285,7 +300,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Harswlgb\AppData\Roaming\Subversion</configuration>
   </component>
@@ -305,6 +320,8 @@
       <workItem from="1607819574176" duration="11124000" />
       <workItem from="1608133556270" duration="213000" />
       <workItem from="1608133804024" duration="1041000" />
+      <workItem from="1609058410174" duration="3234000" />
+      <workItem from="1609067902844" duration="1609000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -357,15 +374,19 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目初始化" />
@@ -375,12 +396,6 @@
     <MESSAGE value="添加pm-domain-essay" />
     <MESSAGE value="修改了base中 register方法访问地址的一个bug" />
     <option name="LAST_COMMIT_MESSAGE" value="修改了base中 register方法访问地址的一个bug" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="560" y="214" key="git4idea.merge.GitMergeDialog" timestamp="1608727788029">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="560" y="214" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1608727788029" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

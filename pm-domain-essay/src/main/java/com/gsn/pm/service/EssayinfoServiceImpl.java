@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -20,11 +22,7 @@ public class EssayinfoServiceImpl implements EssayinfoService{
 
     @Autowired
     private EssayinfoMapper essayinfoMapper;
-    /**
-     * 文章添加
-     * @param t
-     * @return
-     */
+
     @Override
     public int add(Essayinfo t) {
         return essayinfoMapper.add(t.getEname(),t.getMno(),t.getEpic(),t.getEdser(),t.getTno());
@@ -41,23 +39,36 @@ public class EssayinfoServiceImpl implements EssayinfoService{
     }
 
     @Override
-    public List<EssayComment> findEssayandCommentByEtype(EssayComment t) {
-        return essayinfoMapper.findEssayandCommentByEtype(t.getTno());
+    public Map<String, Object> findEssayandCommentByEtype(EssayComment t)  {
+        List<EssayComment> list =essayinfoMapper.findEssayandCommentByEtype(t.getTno());
+        Map<String, Object>  map = new HashMap<String,Object>();
+        map.put("EACByType",list);
+        return map;
     }
 
     @Override
-    public List<EssayComment> findEssayandComment() {
-        return essayinfoMapper.findEssayandComment();
+    public Map<String, Object> findEssayandComment() {
+        List<EssayComment> list =essayinfoMapper.findEssayandComment();
+        Map<String, Object>  map = new HashMap<String,Object>();
+        map.put("EAC",list);
+        return map;
     }
 
     @Override
-    public List<EssayShow> showEssay(Integer eno) {
-        return essayinfoMapper.showEssay(eno);
+    public Map<String,Object> showEssay(Integer eno) {
+        Map<String, Object>  map = new HashMap<String,Object>();
+        List<EssayShow> list = essayinfoMapper.showEssay(eno);
+        map.put("essay", list);
+        return map;
     }
 
     @Override
-    public List<EssayList> findEssayList(EssayList t) {
-        return essayinfoMapper.findEssayList(t.getMno());
+    public Map<String, Object> findUserEassy(EssayList t) {
+        Map<String, Object> map=new HashMap<String,Object>();
+        List<EssayList> list=essayinfoMapper.findEssayList(t.getMno());
+        map.put("elist", list);
+        System.out.println(list.toString());
+        return map;
     }
 
     @Override
@@ -70,46 +81,93 @@ public class EssayinfoServiceImpl implements EssayinfoService{
         return essayinfoMapper.updateStatus(t.getStatus(),t.getEno());
     }
 
-    @Override
-    public int findByDateAndAnameTotal(String startDate, String endDate, String t) {
 
-        return essayinfoMapper.findByDateAndAnameTotal(startDate,endDate,t);
-    }
 
     @Override
-    public List<Essayinfo> findByDateAndAname(String startDate, String endDate, String t, Integer pageNum, Integer pageSize) {
+    public Map<String,Object> findByDateAndAname(String startDate,String endDate,String t,Integer pageNum,Integer pageSize){
         Integer num=(pageNum-1)*pageSize;
-        return essayinfoMapper.findByDateAndAname(startDate,endDate,t,num,pageSize);
+        Map<String, Object>  map = new HashMap<String,Object>();
+        List<Essayinfo> list = essayinfoMapper.findByDateAndAname(startDate,endDate,t,num,pageSize);
+        System.out.println(list);
+        int total = essayinfoMapper.findByDateAndAnameTotal(startDate,endDate,t);
+        map.put("essays", list);
+        if(null==pageNum){
+            return map;
+        }
+        System.err.println(total);
+        int maxPage =0;
+        if(total%pageSize==0){
+            maxPage = total/pageSize;
+        }else{
+            maxPage = total/pageSize+1;
+        }
+        map.put("maxPage", maxPage);
+        int pageNs[] = new int[maxPage] ;
+        for(int i=1;i<=maxPage;i++){
+            pageNs[i-1]=i;
+        }
+        System.err.println(pageNs);
+        map.put("pageNs", pageNs);
+        return map;
     }
 
-    @Override
-    public int findByPageTotal( ) {
-        return essayinfoMapper.findByPageTotal();
-    }
 
     @Override
-    public List<Essayinfo> findByPage( Integer pageNum, Integer pageSize) {
+    public Map<String,Object> findByPage(Integer pageNum,Integer pageSize) {
         Integer num=(pageNum-1)*pageSize;
-        return essayinfoMapper.findByPage(num,pageSize);
+        Map<String, Object>  map = new HashMap<String,Object>();
+        List<Essayinfo> list = essayinfoMapper.findByPage(num,pageSize);
+        int total = essayinfoMapper.findByPageTotal();
+        map.put("essays", list);
+        if(null==pageNum){
+            return map;
+        }
+        System.err.println(total);
+        int maxPage =0;
+        if(total%pageSize==0){
+            maxPage = total/pageSize;
+        }else{
+            maxPage = total/pageSize+1;
+        }
+        map.put("maxPage", maxPage);
+        int pageNs[] = new int[maxPage] ;
+        for(int i=1;i<=maxPage;i++){
+            pageNs[i-1]=i;
+        }
+        System.err.println(pageNs);
+        map.put("pageNs", pageNs);
+        return map;
     }
 
     @Override
-    public List<EssayVO> findByEssayInfo() {
-        return essayinfoMapper.findByEssayInfo();
+    public Map<String, Object> findEssayInfo( ) {
+        List<EssayVO> list = essayinfoMapper.findByEssayInfo();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("infos", list);
+        return map;
     }
 
     @Override
-    public List<EssayVO> findByEssayHeat() {
-        return essayinfoMapper.findByEssayHeat();
+    public Map<String, Object> findEssayHeat() {
+        List<EssayVO> list = essayinfoMapper.findByEssayHeat();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("heats", list);
+        return map;
     }
 
     @Override
-    public List<EssayVO> findByEssayTime() {
-        return essayinfoMapper.findByEssayTime();
+    public Map<String, Object> findEssayTime() {
+        List<EssayVO> list = essayinfoMapper.findByEssayTime();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("times", list);
+        return map;
     }
 
     @Override
-    public List<EssayVO> findByPhotrix() {
-        return essayinfoMapper.findByPhotrix();
+    public Map<String, Object> findPhotrix() {
+        List<EssayVO> list = essayinfoMapper.findByPhotrix();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("photrix", list);
+        return map;
     }
 }
