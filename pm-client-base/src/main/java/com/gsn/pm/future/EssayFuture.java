@@ -75,6 +75,13 @@ public class EssayFuture {
     }
 
     @Async
+    public CompletableFuture<String> essaytypeTotal(){
+        return  CompletableFuture.supplyAsync(()->{
+            return essayRestService.essaytypeTotal();
+        });
+    }
+
+    @Async
     public CompletableFuture<String> findByTnoEssay(Integer tno){
         return  CompletableFuture.supplyAsync(()->{
             return essayRestService.findByTnoEssay(tno);
@@ -82,7 +89,7 @@ public class EssayFuture {
     }
 
     @Async
-    public CompletableFuture<String> findEssayList(Integer mno){
+    public CompletableFuture<String> findUserList(Integer mno){
         return  CompletableFuture.supplyAsync(()->{
             return essayRestService.findEssayList(mno);
         });
@@ -107,4 +114,6 @@ public class EssayFuture {
             return essayRestService.addType(t);
         });
     }
+
+
 }

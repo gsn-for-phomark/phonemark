@@ -270,19 +270,35 @@ var app= new Vue({
 	},
 	mounted:function(){
 		//页面加载完成后
-		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-			if(!fn1.data){
-				//用户未登录
-			}else{
-				this.uname=fn1.data.nickName;
-				this.uhead=fn1.data.mpic;
-				this.uid=fn1.data.mno;
-				this.outlogin=false;
-				this.onlogin=true;
-				console.log("s");
-				console.log(this.uid);
-			}
-		}));
+		// axios.all([checkLogin()]).then(axios.spread((fn1)=>{
+		// 	if(!fn1.data){
+		// 		//用户未登录
+		// 	}else{
+		// 		this.uname=fn1.data.nickName;
+		// 		this.uhead=fn1.data.mpic;
+		// 		this.uid=fn1.data.mno;
+		// 		this.outlogin=false;
+		// 		this.onlogin=true;
+		// 		// console.log("s");
+		// 		// console.log(this.uid);
+		// 	}
+		// }));
+        axios.all([checkLogin()]).then(axios.spread((fn1)=>{
+            if(fn1.data.code==0){
+                //用户未登录
+                localStorage.clear();
+                alert("请登录之后再查看文章");
+                window.location.href='login.html';
+            }else{
+                this.uname=fn1.data.member.nickName;
+                this.uhead=fn1.data.member.mpic;
+                this.uid=fn1.data.member.mno;
+                console.log(this.uid);
+                this.outlogin=false;
+                this.onlogin=true;
+            }
+        }));
+
 	}
 });
 
@@ -415,17 +431,17 @@ var app1= new Vue({
                         window.location.href='login.html';
 
                     }else{
-                        console.log(fn1.data.member);
+                        // console.log(fn1.data.member);
                         this.uname=fn1.data.member.nickName;
                         this.uhead=fn1.data.member.mpic;
                         this.uid=fn1.data.member.mno;
 						this.outlogin=false;
 						this.onlogin=true;
 						this.relation=fn2.data.relation;
-						console.log("s");
-						console.log("ss"+this.uid);
-						console.log(this.relation);
-						console.log(this.relation[0]);
+						// console.log("s");
+						// console.log("ss"+this.uid);
+						// console.log(this.relation);
+						// console.log(this.relation[0]);
 					}
 				}));
 
@@ -478,26 +494,28 @@ var vue = new Vue({
 			this.eno1=eno;
 			this.cdesr1=document.getElementById("desr").value;
 			//console.log(this.cdesr1);
-			axios.get("comment.action",{params:{op:'add',eno:this.eno1,cdesr:this.cdesr1,mno:this.uid }}).then(result =>{
-				if(data=1){
+			axios.get("/comment/add",{params:{eno:this.eno1,cdesr:this.cdesr1,mno:this.uid }}).then(result =>{
+				if(result.data.code==1){
 					alert('评论成功,数据更新中请耐心等待');
-					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
-						if(!fn1.data){
-							//用户未登录
-						}else{
-							
-							this.uname=fn1.data.nickName;
-							this.uhead=fn1.data.mpic;
-							this.uid=fn1.data.mno;
-							this.countcom=countcom.data;	
-							this.comments=fn3.data.comments;
-
-							console.log(this.comments);
-						}
-					}));
-				}else{
-					alert('评论失败');
-				
+                    axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,fn2,fn3)=>{
+                        if(fn1.data.code==0){
+                            //用户未登录
+                            localStorage.clear()
+                            alert("请登录之后再查看文章");
+                            window.location.href='login.html';
+                        }else{
+                            this.uname=fn1.data.member.nickName;
+                            this.uhead=fn1.data.member.mpic;
+                            this.uid=fn1.data.member.mno;
+                            this.countcom=fn2.data.data;
+                            this.comments=fn3.data.data.comments;
+                            console.log(this.uid);
+                            console.log(this.countcom);
+                            console.log(this.comments);
+                        }
+                    }));
+				}else if(result.data.code==-4){
+					alert('服务器异常，评论失败');
 				}
 			});
 		},
@@ -516,71 +534,84 @@ var vue = new Vue({
 		addCom2:function (){//添加2，3级评论
 			this.eno1=eno;
 			this.cdesr2=document.getElementById('desr2or3'+this.spare1).value;
-			//console.log(this.cdesr2);
-			//console.log(this.eno1);
-			axios.get("comment.action",{params:{op:'add2and3',eno:this.eno1,cdesr:this.cdesr2,mno:this.uid,flag:this.flag2or3,spare1:this.spare1,spare2:this.spare2 }}).then(result =>{
-				if(data=1){
+			if(this.flag2or3==2){
+                this.spare2=" ";
+            }
+			console.log(this.eno1);
+            console.log(this.cdesr2);
+            console.log(this.uid);
+            console.log(this.flag2or3);
+            console.log(this.spare1);
+            console.log(this.spare2);
+			axios.get("/comment/add2and3",{params:{eno:this.eno1,cdesr:this.cdesr2,mno:this.uid,flag:this.flag2or3,spare1:this.spare1,spare2:this.spare2 }}).then(result =>{
+				if(result.data.code==1){
 					alert('评论成功,数据更新中请耐心等待');
-					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
-						if(!fn1.data){
-							//用户未登录
-						}else{
-							
-							this.uname=fn1.data.nickName;
-							this.uhead=fn1.data.mpic;
-							this.uid=fn1.data.mno;
-							this.countcom=countcom.data;	
-							this.comments=fn3.data.comments;
-
-							console.log(this.comments);
-						}
-					}));
-				}else{
-					alert('评论失败');
-					
-				}
+                    axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,fn2,fn3)=>{
+                        if(fn1.data.code==0){
+                            //用户未登录
+                            localStorage.clear();
+                            alert("请登录之后再查看文章");
+                            window.location.href='login.html';
+                        }else{
+                            this.uname=fn1.data.member.nickName;
+                            this.uhead=fn1.data.member.mpic;
+                            this.uid=fn1.data.member.mno;
+                            this.countcom=fn2.data.data;
+                            this.comments=fn3.data.data.comments;
+                            console.log(this.uid);
+                            console.log(this.countcom);
+                            console.log(this.comments);
+                        }
+                    }));
+				}else if(result.data.code==-4){
+                    alert('服务器异常，评论失败');
+                }
 			});
 		},
-		doHeat:function (cno){//添加2，3级评论
+		doHeat:function (cno){//点赞
 			this.eno1=eno;
 			this.heatcno=cno ;	
 			$("#errormsg").html("ok1").hide(3000);
-			axios.get("comment.action",{params:{op:'heat',eno:this.eno1,cno:this.heatcno,mno:this.uid }}).then(result =>{
+			axios.get("/comment/heat",{params:{eno:this.eno1,cno:this.heatcno,mno:this.uid }}).then(result =>{
 				console.log(result);
-				if(result.data==1){
+				if(result.data.data==1){
 					alert('点赞成功,数据更新中请耐心等待');
-					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
-						
-						
-						if(!fn1.data){
-							//用户未登录
-						}else{
-							
-							this.uname=fn1.data.nickName;
-							this.uhead=fn1.data.mpic;
-							this.uid=fn1.data.mno;
-							this.countcom=countcom.data;	
-							this.comments=fn3.data.comments;
-
-							console.log(this.comments);
-						}
-					}));
-				}else if(result.data==2){
-					alert('完成取消点赞操作,数据更新中请耐心等待');
-					axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
-						if(!fn1.data){
-							//用户未登录
-						}else{
-							
-							this.uname=fn1.data.nickName;
-							this.uhead=fn1.data.mpic;
-							this.uid=fn1.data.mno;
-							this.countcom=countcom.data;	
-							this.comments=fn3.data.comments;
-
-							console.log(this.comments);
-						}
-					}));
+                    axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,fn2,fn3)=>{
+                        if(fn1.data.code==0){
+                            //用户未登录
+                            localStorage.clear();
+                            alert("请登录之后再查看文章");
+                            window.location.href='login.html';
+                        }else{
+                            this.uname=fn1.data.member.nickName;
+                            this.uhead=fn1.data.member.mpic;
+                            this.uid=fn1.data.member.mno;
+                            this.countcom=fn2.data.data;
+                            this.comments=fn3.data.data.comments;
+                            // console.log(this.uid);
+                            // console.log(this.countcom);
+                            // console.log(this.comments);
+                        }
+                    }));
+				}else if(result.data.data==2){
+                    alert('取消点赞成功,数据更新中请耐心等待');
+                    axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,fn2,fn3)=>{
+                        if(fn1.data.code==0){
+                            //用户未登录
+                            localStorage.clear();
+                            alert("请登录之后再查看文章");
+                            window.location.href='login.html';
+                        }else{
+                            this.uname=fn1.data.member.nickName;
+                            this.uhead=fn1.data.member.mpic;
+                            this.uid=fn1.data.member.mno;
+                            this.countcom=fn2.data.data;
+                            this.comments=fn3.data.data.comments;
+                            // console.log(this.uid);
+                            // console.log(this.countcom);
+                            // console.log(this.comments);
+                        }
+                    }));
 				}
 			});
 		},
@@ -589,60 +620,74 @@ var vue = new Vue({
 		     document.documentElement.scrollTop = anchor.offsetTop-200;	
 		},
 		freshData:function(){
-			axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
-				if(!fn1.data){
-				
-				}else{
-					
-					this.uname=fn1.data.nickName;
-					this.uhead=fn1.data.mpic;
-					this.uid=fn1.data.mno;
-					this.countcom=countcom.data;	
-					this.comments=fn3.data.comments;
-
-					console.log(this.comments);
-				}
-			}));
+            axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,fn2,fn3)=>{
+                if(fn1.data.code==0){
+                    //用户未登录
+                    localStorage.clear();
+                    alert("请登录之后再查看文章");
+                    window.location.href='login.html';
+                }else{
+                    this.uname=fn1.data.member.nickName;
+                    this.uhead=fn1.data.member.mpic;
+                    this.uid=fn1.data.member.mno;
+                    this.countcom=fn2.data.data;
+                    this.comments=fn3.data.data.comments;
+                    console.log(this.uid);
+                    console.log(this.countcom);
+                    console.log(this.comments);
+                }
+            }));
 		}
 		
 	},
 	mounted:function(){
-		
-		axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,countcom,fn3)=>{
-			if(!fn1.data){
-				//用户未登录
-				alert("请登录之后再查看文章");
-				window.location.href='login.html';
-			}else{
-				
-				this.uname=fn1.data.nickName;
-				this.uhead=fn1.data.mpic;
-				this.uid=fn1.data.mno;
-				this.countcom=countcom.data;	
-				this.comments=fn3.data.comments;
 
-				console.log(this.comments);
-			}
-		}));
+        axios.all([checkLogin(),countCom(),showCom()]).then(axios.spread((fn1,fn2,fn3)=>{
+            if(fn1.data.code==0){
+                //用户未登录
+                localStorage.clear();
+                alert("请登录之后再查看文章");
+                window.location.href='login.html';
+            }else{
+                this.uname=fn1.data.member.nickName;
+                this.uhead=fn1.data.member.mpic;
+                this.uid=fn1.data.member.mno;
+                this.countcom=fn2.data.data;
+                this.comments=fn3.data.data.comments;
+                console.log(this.uid);
+                console.log(this.countcom);
+                console.log(this.comments);
+            }
+        }));
+        // axios.all([countCom()]).then(axios.spread((fn2)=>{
+        //         this.countcom=fn2.data.data;
+        //         console.log(this.countcom);
+        // }));
+		// axios.all([showCom()]).then(axios.spread((fn3)=>{
+		// 		this.comments=fn3.data.data.comments;
+        //         console.log(this.comments);
+		// }));
 	}
 
 });
 
-
+//三期修改
 function showCom(){
 	return axios({
-		url:'comment.action?op=showCom'+"&eno="+eno,
+		url:'/comment/showCom'+"?eno="+eno,
 		method:'get'
 	});
 }
 
+//三期修改
 //文章评论总数
 function countCom(){
 	return axios({
-		url:'comment.action?op=countCom'+"&eno="+eno,
+		url:'/comment/countCom'+"?eno="+eno,
 		method:'get'
 	});
 }
+//三期修改
 //检查用户是否登录
 function checkLogin(){
     var token=localStorage.getItem("token");
@@ -654,7 +699,4 @@ function checkLogin(){
     });
 }
 </script>
-
-
-
 </html>

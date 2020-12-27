@@ -82,7 +82,7 @@ public interface EssayClient {
     )
     String doFindByTnoEssay(@RequestParam("tno") Integer tno);
 
-    @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/essay-proxy/essay/findElist",
+    @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/essay-proxy/essay/findUserlist",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
