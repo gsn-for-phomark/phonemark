@@ -1,6 +1,6 @@
 spring:
   application:
-    name: pm-restapi-essay  #应用服务名
+    name: MICROSERVICE-PROVIDER-ESSAY  #应用服务名
   cloud:
     config:
       name: pm-restapi-essay      # 定义要读取的资源文件的名称即:    microservice-config-client.yml

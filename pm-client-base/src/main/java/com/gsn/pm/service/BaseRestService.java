@@ -2,9 +2,12 @@ package com.gsn.pm.service;
 
 import com.google.gson.Gson;
 import com.gsn.pm.client.BaseClient;
+import com.gsn.pm.domain.Token;
+import com.gsn.pm.entity.Memberinfo;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +22,17 @@ public class BaseRestService {
     private BaseClient baseClient;
 
     @HystrixCommand(fallbackMethod = "LoginFallback")
-    public String Login(String uname, String upass){
-        return baseClient.Login(uname, upass);
-    };
+    public String Login(Memberinfo memberinfo){
+        try{
 
-    private String LoginFallback(String uname, String upass) {
+            return baseClient.Login(memberinfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String LoginFallback(Memberinfo memberinfo) {
         Map map = new HashMap();
         map.put("code", "-4");
         map.put("msg", "服务异常,登录失败");
@@ -34,11 +43,11 @@ public class BaseRestService {
 
 
     @HystrixCommand(fallbackMethod = "registerFallback")
-    public String register(HttpServletRequest request){
-        return baseClient.register(request);
+    public String register(Memberinfo memberinfo){
+        return baseClient.register(memberinfo);
     };
 
-    private String registerFallback(HttpServletRequest request) {
+    private String registerFallback(Memberinfo memberinfo) {
         Map map = new HashMap();
         map.put("code", "-4");
         map.put("msg", "服务异常,注册失败");
@@ -48,11 +57,11 @@ public class BaseRestService {
 
 
     @HystrixCommand(fallbackMethod = "checkFallback")
-    public String check(HttpServletRequest request){
-        return baseClient.check(request);
+    public String check(Token token){
+        return baseClient.check(token);
     };
 
-    private String checkFallback(HttpServletRequest request) {
+    private String checkFallback(Token token) {
         Map map = new HashMap();
         map.put("code", "-4");
         map.put("msg", "服务异常,检查登录失败");
