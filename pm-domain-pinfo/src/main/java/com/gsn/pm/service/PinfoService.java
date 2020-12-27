@@ -1,6 +1,7 @@
 package com.gsn.pm.service;
 
 
+import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayList;
 import com.gsn.pm.entity.Memberinfo;
@@ -51,6 +52,21 @@ public interface PinfoService {
      * @return
      */
     Map<String, Object> FavoriteTypeList(ETypeList t);
+
+    /**
+     * 查询用户
+     * @param t
+     * @return
+     */
+    Map<String, Object> findIndex(Memberinfo t);
+
+
+    /**
+     * 密码验证
+     * @param t
+     * @return
+     */
+    Map<String, Object> doConn(Memberinfo t);
 
 
 }

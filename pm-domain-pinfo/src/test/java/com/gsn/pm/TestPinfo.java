@@ -81,4 +81,13 @@ public class TestPinfo {
     }
 
 
+    @Test
+    public void testFindIndex(){
+        logger.info("调用findindex");
+        Memberinfo info=new Memberinfo();
+        info.setMno(10);
+        Map<String,Object> map=pinfoService.findIndex(info);
+        System.out.println(map);
+    }
+
 }
