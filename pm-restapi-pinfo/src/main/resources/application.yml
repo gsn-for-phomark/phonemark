@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8110
 
 mybatis:
   configuration:
@@ -8,13 +8,9 @@ mapper:
   identity: MYSQL   # 标识列用mysql  配置主键自动增长
 logging:
   level:
-    com.gsn.piclib: debug
+    com.gsn.pm: debug
 # 数据源
 spring:
-  security:   # zuul网关服务的用户认证
-    user:
-      name: admin
-      password: a
   cloud:
     stream:
       kafka:
@@ -49,13 +45,20 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat=true
-  redis:
-    host: 101.200.216.156
-    port: 6379
-    password: asd8711341
+    #redis缓存配置，暂时还没有用到,不要导入redis的starter
+    #  redis:
+    #    host: 127.0.0.1
+    #    port: 6379
+    #    #    password: 12345678
+    #    pool:
+    #      max-idle: 8
+    #      min-idle: 0
+    #      max-active: 8
+    #      max-wait: -1
+
 #监控配置
 info:
-  app.name: MICROSERVICE-PROVIDER-BASE
+  app.name: PM-RESTAPI-PINFO
   company.name: gsn
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$

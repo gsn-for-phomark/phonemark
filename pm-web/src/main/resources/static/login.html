@@ -38,6 +38,7 @@
 <script type="text/javascript" src="js/axios.js"></script>
 <script type="text/javascript" src="js/qs.js"></script>
 <script type="text/javascript">
+    console.log(localStorage.getItem("token"));
 	var vm = new Vue({
 		el:'#gsn_login',
 		data:{
@@ -57,12 +58,15 @@
 	                draw(show_num);
 	                return ;
 	            }
-				axios.get("/base/Login"+"?uname="+this.uname+"&upass="+this.upass
-				).then(result=>{
-					console.log(this.uname);
-					console.log(this.upass);
+				axios({
+                    method: 'post',
+                    url :   '/base/Login',
+                    data: {"nickName":this.uname,"pwd":this.upass}
+				}).then(result=>{
+
 					var data= result.data;
 					console.log(data);
+                    console.log(data.token);
 					if('0'==data.code){
 						alert('密码或用户名错误');
 					}else if('-1'==data.code){
@@ -70,7 +74,9 @@
 					}else if('2'==data.code){
 						alert('用户名和密码不能为空！！');
 					}else {
-						 window.location.href='index.html';
+					    localStorage.setItem("token",data.token);
+
+                        window.location.href='index.html';
 
 					}
 				});

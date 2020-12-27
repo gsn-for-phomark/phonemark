@@ -408,12 +408,17 @@ var app1= new Vue({
 				console.log("bno01="+bno);
 				//页面加载完成后
 				axios.all([checkLogin(),checkEssayUser()]).then(axios.spread((fn1,fn2)=>{
-					if(!fn1.data){
-						//用户未登录
-					}else{
-						this.uname=fn1.data.nickName;
-						this.uhead=fn1.data.mpic;
-						this.uid=fn1.data.mno;
+                    if(fn1.data.code==0){
+                        //用户未登录
+                        localStorage.clear();
+                        alert('请先进行登录');
+                        window.location.href='login.html';
+
+                    }else{
+                        console.log(fn1.data.member);
+                        this.uname=fn1.data.member.nickName;
+                        this.uhead=fn1.data.member.mpic;
+                        this.uid=fn1.data.member.mno;
 						this.outlogin=false;
 						this.onlogin=true;
 						this.relation=fn2.data.relation;
@@ -640,7 +645,13 @@ function countCom(){
 }
 //检查用户是否登录
 function checkLogin(){
-	return axios.get("member.action?op=check");
+    var token=localStorage.getItem("token");
+    console.log(token);
+    return axios({
+        method: 'post',
+        url :   '/base/check',
+        data: {"token":token}
+    });
 }
 </script>
 

@@ -65,7 +65,7 @@
             	</a>
             </div>
             <!--文章封面-->
-            <div class="essay_pic" class="pic">
+            <div class="essay_pic" id="pic">
                 <form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form">
                     <a href="javascript:void(0)" class="file">上传封面
                         <input type="file" id="epic" name="epic">
@@ -107,7 +107,7 @@
 </script>
 <script type="text/javascript">
 var pic11 = new Vue({
-	el:'.pic',
+	el:'#pic',
 	data:{
 		uname:'',//用户名
 		uhead:'',//用户头像
@@ -138,16 +138,17 @@ var app= new Vue({
 	mounted:function(){
 		//页面加载完成后
 		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-			if(!fn1.data){
+			if(fn1.data.code==0){
 				//用户未登录
+                localStorage.clear();
 				alert('请先进行登录');
 				window.location.href='login.html';
 				
 			}else{
-				console.log(fn1.data);
-				this.uname=fn1.data.nickName;
-				this.uhead=fn1.data.mpic;
-				this.uid=fn1.data.mno;
+				console.log(fn1.data.member);
+				this.uname=fn1.data.member.nickName;
+				this.uhead=fn1.data.member.mpic;
+				this.uid=fn1.data.member.mno;
 				this.outlogin=false;
 				this.onlogin=true;
 			}
@@ -156,7 +157,13 @@ var app= new Vue({
 });
 //检查用户是否登录
 function checkLogin(){
-	return axios.get("member.action?op=check");
+    var token=localStorage.getItem("token");
+    console.log(token);
+	return axios({
+        method: 'post',
+        url :   '/base/check',
+        data: {"token":token}
+    });
 }
 
 //function AddEssay(){

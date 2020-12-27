@@ -148,30 +148,20 @@ public class PiclibRestController {
     /**
      * 添加文章
      */
-    @RequestMapping(value = "/add" )
-    public CompletableFuture<String> addEssay(String ename,
-                                         Integer mno,
-                                         String epic,
-                                         String edesr,
-                                         Integer tno){
+    @RequestMapping(value = "/add" ,method = RequestMethod.POST)
+    public CompletableFuture<String> addEssay(@RequestBody  Essayinfo t){
         return CompletableFuture.supplyAsync(() ->{
-            Essayinfo ei=new Essayinfo();
-            ei.setEname(ename);
-            ei.setMno(mno);
-            ei.setEpic(epic);
-            ei.setEdser(edesr);
-            ei.setTno(tno);
-            int i=essayinfoService.add(ei);
+            int i=essayinfoService.add(t);
             if(i==1){
                 Map<String, Object> map = new HashMap<>();
                 map.put("code", 1);
-                map.put("data", ei);
+                map.put("data", t);
                 map.put("msg","文章添加成功");
                 return new Gson().toJson(map);
             }else {
                 Map<String, Object> map = new HashMap<>();
                 map.put("code", 0);
-                map.put("data", ei);
+                map.put("data", t);
                 map.put("msg","文章添加失败");
                 return new Gson().toJson(map);
             }
@@ -237,8 +227,8 @@ public class PiclibRestController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public CompletableFuture<String> delete(@PathVariable Integer eno) throws Exception {
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public CompletableFuture<String> delete(Integer eno) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
             Essayinfo essayinfo=new Essayinfo();
             essayinfo.setEno(eno);
@@ -275,22 +265,20 @@ public class PiclibRestController {
      * 文章类型添加
      */
     @RequestMapping(value = "/addType", method = RequestMethod.POST)
-    public CompletableFuture<String> addType(String tname,String typedesc) throws Exception {
+    public CompletableFuture<String> addType(@RequestBody EssayType t) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
-            EssayType type=new EssayType();
-            type.setTname(tname);
-            type.setTypedesc(typedesc);
-            int i=et.add(type);
+
+            int i=et.add(t);
             if(i==1){
                 Map<String, Object> map = new HashMap<>();
                 map.put("code", 1);
-                map.put("data", type);
+                map.put("data", t);
                 map.put("msg","文章类型添加成功");
                 return new Gson().toJson(map);
             }else {
                 Map<String, Object> map = new HashMap<>();
                 map.put("code", 0);
-                map.put("data", type);
+                map.put("data", t);
                 map.put("msg","文章类型添加失败");
                 return new Gson().toJson(map);
             }
