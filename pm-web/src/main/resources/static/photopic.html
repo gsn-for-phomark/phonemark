@@ -179,9 +179,6 @@
                 if(fn1.data.code==0){
                     //用户未登录
                     localStorage.clear();
-                    alert('请先进行登录');
-                    window.location.href='login.html';
-
                 }else{
                     console.log(fn1.data.member);
                     this.uname=fn1.data.member.nickName;
