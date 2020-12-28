@@ -120,4 +120,5 @@ public interface PinfoMapper extends MisBaseMapper<Memberinfo> {
 
 
 
+
 }

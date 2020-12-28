@@ -146,26 +146,24 @@ public class PinfoRestController {
      * 密码验证
      */
     @RequestMapping(value = "/doCon",method = RequestMethod.GET)
-    public CompletableFuture<String> doCon(Integer mno,String Nickname,String pwd,String tel,Integer status){
+    public CompletableFuture<String> doCon(Integer mno,String Nickname,String pwd){
         return CompletableFuture.supplyAsync(()->{
             Memberinfo memberinfo=new Memberinfo();
             memberinfo.setMno(mno);
             memberinfo.setNickName(Nickname);
             memberinfo.setPwd(pwd);
-            memberinfo.setTel(tel);
-            memberinfo.setStatus(status);
             Map<String,Object> map=new HashMap<>();
             Map<String,Object> data=pinfoService.doConn(memberinfo);
             if (data!=null){
-                logger.info("查找用户成功  1");
+                logger.info("密码验证成功  1");
                 map.put("code",1);
-                map.put("msg","查找用户成功");
+                map.put("msg","密码验证成功");
                 map.put("data",data);
                 return new Gson().toJson(map);
             }else{
-                logger.info("查找用户失败  0");
+                logger.info("密码验证失败  0");
                 map.put("code",0);
-                map.put("msg","查找失败");
+                map.put("msg","密码验证失败");
                 map.put("data",data);
                 return new Gson().toJson(map);
             }

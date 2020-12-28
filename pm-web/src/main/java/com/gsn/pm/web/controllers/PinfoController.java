@@ -22,24 +22,29 @@ public class PinfoController {
 
 
     @RequestMapping("/phone")
-    public CompletableFuture<String> updateTel() {
-        return pinfoFuture.updateTel();
+    public CompletableFuture<String> updateTel(Integer mno,String tel) {
+        return pinfoFuture.updateTel(mno, tel);
     }
 
 
     @RequestMapping("/email")
-    public CompletableFuture<String> updateEmail() {
-        return pinfoFuture.updateEmail();
+    public CompletableFuture<String> updateEmail(Integer mno,String email) {
+        return pinfoFuture.updateEmail(mno, email);
     }
 
     @RequestMapping("/pwd")
-    public CompletableFuture<String> updatePwd() {
-        return pinfoFuture.updatePwd();
+    public CompletableFuture<String> updatePwd(Integer mno,String pwd) {
+        return pinfoFuture.updatePwd(mno, pwd);
     }
 
     @RequestMapping("/finduser")
-    public CompletableFuture<String> findUser(){
-        return pinfoFuture.findUser();
+    public CompletableFuture<String> findUser(Memberinfo t){
+        return pinfoFuture.findUser(t);
+    }
+
+    @RequestMapping("/doCon")
+    public CompletableFuture<String> doCon(Memberinfo t){
+        return pinfoFuture.doCon(t);
     }
 
 }
