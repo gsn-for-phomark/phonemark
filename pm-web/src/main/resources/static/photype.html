@@ -97,7 +97,7 @@
 
         <!--品牌分类-->
         <div  class="recommend_list" >
-            <a v-for="site in info" :href="'photopic.html#'+site.tno" class="topic_card_small">
+            <a v-for="site in typeTotal" :href="'photopic.html#'+site.tno" class="topic_card_small">
                 <img class="banner" src="images/bg_type/bg_oppo.png">
                 <div class="card" >
                     <h4>{{site.tname}}</h4>
@@ -148,19 +148,24 @@
     var fenlei = new Vue({
     	el:"#gsn",
     	data:{
-    		info:{}
+            typeTotal:{}
     	},
     	methods:{},
     	mounted:function(){
-    		axios.all([fenlei()]).then(axios.spread((fn1)=>{
-    			this.info=fn1.data.site;
-    			console.log(this.info);
+    		axios.all([typeNum()]).then(axios.spread((fn1)=>{
+    			this.typeTotal=fn1.data.data.typeTotal;
+    			console.log(this.typeTotal);
     		}));
     	}
     });
-    function fenlei(){
-    	return axios.get("essaytype.action?op=typeTotal");
-    }
+
+
+ function typeNum(){
+     return axios({
+         method: 'get',
+         url: '/essay/typeTotal'
+     });
+ }
     
     //检查登录
     function checkLogin(){

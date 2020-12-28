@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title >文章标题</title>
+	<title >文章</title>
 	<link rel="stylesheet" href="css/fontset.css" />
 	<link rel="stylesheet" href="css/essay.css" />
 	<link rel="icon" href="images/icon_main.png" type="image/x-icon" />
@@ -254,6 +254,8 @@
 </script>
 <script type="text/javascript">
 
+//文章主人id
+var bno;
 
 //检查登录
 var app= new Vue({
@@ -271,12 +273,12 @@ var app= new Vue({
 	mounted:function(){
 		//页面加载完成后
 		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-			if(!fn1.data){
+			if(!fn1.data.data){
 				//用户未登录
 			}else{
-				this.uname=fn1.data.nickName;
-				this.uhead=fn1.data.mpic;
-				this.uid=fn1.data.mno;
+				this.uname=fn1.data.data.nickName;
+				this.uhead=fn1.data.data.mpic;
+				this.uid=fn1.data.data.mno;
 				this.outlogin=false;
 				this.onlogin=true;
 				console.log("s");
@@ -289,7 +291,7 @@ var app= new Vue({
 
 
 
-var bno;
+
 //文章主体
 
 var hash = window.location.hash;
@@ -298,7 +300,7 @@ var eno = hash.replace("#",'');
 var app1= new Vue({
 	el:'#gsn_showEssay',
 	data:{
-		essay:'',
+		essay:{},
 		relation:''
 	},
 	methods:{
@@ -398,30 +400,35 @@ var app1= new Vue({
 	},
 	mounted:function(){
 		axios({
-				url:'essay.action?op=ShowEssay'+"&eno="+eno,
-				method:'get'
+				url:'/essay/showEssay'+"?eno="+eno,
+				method:'get',
+			    dataType: "json"
 			}).then(result=>{
-				this.essay=result.data.essay[0];
+				//essay
+				console.log("在这看")
+				console.log(result.data.data.essay)
+				this.essay=result.data.data.essay[0];
 				essayname=this.essay.ename;
+				console.log()
 				console.log(this.essay);
 				bno=this.essay.mno;
 				console.log("bno01="+bno);
 				//页面加载完成后
 				axios.all([checkLogin(),checkEssayUser()]).then(axios.spread((fn1,fn2)=>{
-                    if(fn1.data.code==0){
+                    if(fn1.data.data.code==0){
                         //用户未登录
                         localStorage.clear();
                         alert('请先进行登录');
                         window.location.href='login.html';
 
                     }else{
-                        console.log(fn1.data.member);
-                        this.uname=fn1.data.member.nickName;
-                        this.uhead=fn1.data.member.mpic;
-                        this.uid=fn1.data.member.mno;
+                        console.log(fn1.data.data.member);
+                        this.uname=fn1.data.data.member.nickName;
+                        this.uhead=fn1.data.data.member.mpic;
+                        this.uid=fn1.data.data.member.mno;
 						this.outlogin=false;
 						this.onlogin=true;
-						this.relation=fn2.data.relation;
+						this.relation=fn2.data.data.relation;
 						console.log("s");
 						console.log("ss"+this.uid);
 						console.log(this.relation);
