@@ -224,7 +224,7 @@
             <!-- 文章精选区域 -->
             <div class="gsn_righttext">
                 <ul>
-                    <li id="text_li" v-for="pho in phos">
+                    <li id="text_li" v-for="pho in photrix">
                         <div id="li_left">
                             <img :src="pho.mpic" onerror="javascript:this.src='images/img_all.png';">
                         </div>
@@ -279,7 +279,7 @@ var show=new Vue({
 		infos:{},
 		heats:{},
 		times:{},
-		phos:{}
+        photrix:{}
 		
 	},
 	methods:{
@@ -289,10 +289,10 @@ var show=new Vue({
 		//页面加载完成后
 		axios.all([findIndex(),findHeat(),findTime(),findPhotrix()]).then(axios.spread((fn1,fn2,fn3,fn4)=>{
 			
-				this.infos=fn1.data.infos;
-				this.heats=fn2.data.heats;
-				this.times=fn3.data.times;
-				this.phos =fn4.data.phos;
+				this.infos=fn1.data.data.infos;
+				this.heats=fn2.data.data.heats;
+				this.times=fn3.data.data.times;
+				this.photrix =fn4.data.data.photrix;
 
 		}))
 	}
@@ -314,14 +314,14 @@ var app= new Vue({
 	mounted:function(){
 		//页面加载完成后
 		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-            if(fn1.data.code==0){
+            if(fn1.data.data.code==0){
                 //用户未登录
                 localStorage.clear();
             }else{
                 console.log(fn1.data.member);
-                this.uname=fn1.data.member.nickName;
-                this.uhead=fn1.data.member.mpic;
-                this.uid=fn1.data.member.mno;
+                this.uname=fn1.data.data.member.nickName;
+                this.uhead=fn1.data.data.member.mpic;
+                this.uid=fn1.data.data.member.mno;
                 this.outlogin=false;
                 this.onlogin=true;
             }
@@ -341,19 +341,31 @@ function checkLogin(){
 }
 //显示首页信息
 function findIndex(){
-	return axios.get("essay.action?op=findEssayinfo");
+    return axios({
+        method: 'get',
+        url :   '/essay/findEinfo'
+    });
 }
 //显示首页信息(按照热度)
 function findHeat(){
-	return axios.get("essay.action?op=findEssayHeat");
+	return axios({
+        method: 'get',
+        url :   '/essay/findEheat'
+    });
 }
 //显示首页信息(按照时间)
 function findTime(){
-	return axios.get("essay.action?op=findEssayTime");
+	return axios({
+        method: 'get',
+        url :   '/essay/findEtime'
+    });
 }
 //显示Photrix
 function findPhotrix(){
-	return axios.get("essay.action?op=findPhotrix");
+	return axios({
+        method: 'get',
+        url :   '/essay/findPhotrix'
+    });
 }
 
 

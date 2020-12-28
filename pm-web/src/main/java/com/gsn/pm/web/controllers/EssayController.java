@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.concurrent.CompletableFuture;
 
 @RestController
-@RequestMapping("/gsn-api/essay-proxy/essay")
+@RequestMapping("/essay")
 public class EssayController {
 
     private static Logger logger = LoggerFactory.getLogger(EssayController.class.getName());
