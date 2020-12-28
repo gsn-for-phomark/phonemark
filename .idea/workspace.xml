@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="essay后端完成">
-      <change afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonemark.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/pm-base.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/EssayClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/EssayClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/EssayFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/EssayFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestEssayType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/test/java/com/gsn/pm/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/PiclibRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/essay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/essay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/photopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/photopic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/photrix.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/photrix.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/photype.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/photype.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/user_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/user_main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,14 +116,16 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PM_restapi_essay_App">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.PmWebApp">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -264,10 +258,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.PmWebApp" />
         <item itemvalue="Spring Boot.ZuulApp" />
         <item itemvalue="Spring Boot.EurekaForHaConfig" />
         <item itemvalue="Spring Boot.BaseRestApiApp" />
-        <item itemvalue="Spring Boot.PmWebApp" />
         <item itemvalue="JUnit.TestEssayType.testFavoriteType" />
       </list>
     </recent_temporary>
@@ -322,6 +316,7 @@
       <workItem from="1608133804024" duration="1041000" />
       <workItem from="1609058410174" duration="3234000" />
       <workItem from="1609067902844" duration="1609000" />
+      <workItem from="1609120961660" duration="1914000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -395,7 +390,8 @@
     <MESSAGE value="添加pm-util" />
     <MESSAGE value="添加pm-domain-essay" />
     <MESSAGE value="修改了base中 register方法访问地址的一个bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了base中 register方法访问地址的一个bug" />
+    <MESSAGE value="essay后端完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="essay后端完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

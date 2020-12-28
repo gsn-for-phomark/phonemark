@@ -320,7 +320,7 @@
 				//页面加载完成后
 				axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
 				.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
-                    if(fn1.data.code==0){
+                    if(fn1.data.data.code==0){
                         //用户未登录
                         localStorage.clear();
                         alert('请先进行登录');
@@ -331,7 +331,7 @@
 						this.pic=fn1.data.member.mpic;
 						this.msign=fn1.data.member.msign;
 						this.messaynums=fn1.data.member.messaynums;
-						this.elist=fn2.data.elist;
+						this.elist=fn2.data.data.elist;
 						this.essaynums=fn8.data.EssayNum;
 						this.follows=fn3.data.follows;
 						this.fnums=fn7.data.fnums;
@@ -373,7 +373,10 @@
 		//文章列表
 		function findEassy(){
 			console.log(mid);
-			return axios.get("essay.action?op=elist&mno="+mid);
+			return axios({
+				method: 'get',
+				url: '/essay/findUserlist'+"mno="+mid
+			});
 		}
 		function findIndex(){
 			console.log(mid);

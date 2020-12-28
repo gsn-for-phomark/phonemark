@@ -67,9 +67,9 @@
             <img src="images/bg_type/bg_flyme.png">
             <div class="banner_mask">
                 <div class="mask_body">
-                    <h1>{{essaytype[0].tname}}</h3>
-                    <h2>{{essaytype[0].typedesc}}</h2>
-                    <span>#{{essaytype[0].tname}}</span>
+                    <h1>{{typeList[0].tname}}</h3>
+                    <h2>{{typeList[0].typedesc}}</h2>
+                    <span>#{{typeList[0].tname}}</span>
                 </div>
             </div>
         </a>
@@ -80,7 +80,7 @@
                 </h3>
                 <div class="commend">
                     <!--v-for写在这个下面  ↓   -->
-                    <div v-for="fnt in info"><!-- ← 这里-->
+                    <div v-for="fnt in EACByType"><!-- ← 这里-->
                         <a :href="'essay.html#'+fnt.eno"><img :src="fnt.epic"></a>
                         <div id="main_content">
                             <div id="content_title">
@@ -158,6 +158,8 @@
     <script type="text/javascript" src="js/axios.js"></script>
     <script type="text/javascript" src="js/qs.js"></script>
     <script type="text/javascript">
+
+  //获取文章类型id
     var hash = window.location.hash;
     var tno = hash.replace("#",'');
   //检查登录
@@ -180,7 +182,7 @@
                     //用户未登录
                     localStorage.clear();
                 }else{
-                    console.log(fn1.data.member);
+                    //console.log(fn1.data.member);
                     this.uname=fn1.data.member.nickName;
                     this.uhead=fn1.data.member.mpic;
                     this.uid=fn1.data.member.mno;
@@ -190,58 +192,69 @@
     		}));
     	}
     });
-    
-    var app3= new Vue({
-    	el:'#gsn_banner',
-    	data:{
-    		essaytype:{}
-    	},
-    	methods:{
-    		
-    	},
-    	mounted:function(){
-    		axios.all([findByTno()]).then(axios.spread((fn1)=>{
-    			if(!fn1.data){
 
-    			}else{
-    				this.essaytype=fn1.data.essaytype;
-    				console.log(fn1.data.essaytype);
-    			}
-    		}));
-    	}
-    }); 
-    var find = new Vue({
-    	el:"#gsn",
-    	data:{
-    		info:{},
-    		tname:''
-    	},
-    	methods:{},
-    	mounted:function(){
-    		axios.all([find()]).then(axios.spread((fn1)=>{
-    			this.info=fn1.data.info;
-    			this.tname=fn1.data.info[1].tname;
-       			console.log(this.tname);
-    			console.log(this.info);
-    		}));
-    	}
+
+
+//主体
+var app3= new Vue({
+    el:'#gsn_banner',
+    data:{
+        typeList:{}
+    },
+    methods:{
+    		
+    },
+    mounted:function(){
+        axios.all([findByTno()]).then(axios.spread((fn1)=>{
+            if(fn1.data.data.code!=1){
+                this.typeList=fn1.data.data.typeList;
+                console.log(fn1.data.data.typeList);
+            }else{
+                // this.typeList=fn1.data.data.typeList;
+                // console.log(fn1.data.data.typeList);
+            }
+        }));
+    }
+});
+
+var sho = new Vue({
+    el:"#gsn",
+    data:{
+        EACByType:{},
+        tname:''
+    },
+    methods:{
+
+    },
+    mounted:function(){
+        axios.all([findECT()]).then(axios.spread((fn1)=>{
+            this.EACByType=fn1.data.data.EACByType;
+            this.tname=fn1.data.data.EACByType[1].tname;
+            console.log(this.tname);
+            console.log(this.EACByType);
+        }));
+    }
+});
+
+function findECT(){
+    return axios({
+        url:'/essay/findECT'+"?tno="+tno,
+        method:'get'
     });
-    function find(){
-    	return axios({
-    		url:'essay.action?op=findEssayandCommentByEtype'+"&tno="+tno,
-    		method:'get'
-    	});
-    }
-    function findByTno(){
-    	return axios({
-    		url:'essaytype.action?op=findByTno'+"&tno="+tno,
-    		method:'get'
-    	});
-    }
+}
+
+function findByTno(){
+    return axios({
+        url:'/essay/findByTno'+"?tno="+tno,
+        method:'get'
+    });
+}
+
+
   //检查登录
     function checkLogin(){
         var token=localStorage.getItem("token");
-        console.log(token);
+        //console.log(token);
         return axios({
             method: 'post',
             url :   '/base/check',
