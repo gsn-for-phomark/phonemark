@@ -63,7 +63,7 @@
                     url :   '/base/Login',
                     data: {"nickName":this.uname,"pwd":this.upass}
 				}).then(result=>{
-
+                    console.log(result);
 					var data= result.data;
 					console.log(data);
                     console.log(data.token);
@@ -73,9 +73,8 @@
 						alert('用户被冻结,请联系管理员');
 					}else if('2'==data.code){
 						alert('用户名和密码不能为空！！');
-					}else {
+					}else if('1'==data.code){
 					    localStorage.setItem("token",data.token);
-
                         window.location.href='index.html';
 
 					}

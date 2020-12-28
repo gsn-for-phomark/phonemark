@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.CompletableFuture;
 
 // 对外公开的业务层
@@ -115,5 +116,12 @@ public class EssayFuture {
         });
     }
 
+
+    @Async
+    public CompletableFuture<String> FileUpload(HttpServletRequest request){
+        return  CompletableFuture.supplyAsync(()->{
+            return essayRestService.FileUpload(request);
+        });
+    }
 
 }

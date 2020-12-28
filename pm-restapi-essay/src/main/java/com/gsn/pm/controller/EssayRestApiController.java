@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayComment;
 import com.gsn.pm.domain.EssayList;
+import com.gsn.pm.domain.FileDomain;
 import com.gsn.pm.entity.EssayType;
 import com.gsn.pm.entity.Essayinfo;
 import com.gsn.pm.service.EssayTypeService;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -283,4 +285,32 @@ public class EssayRestApiController {
             return new Gson().toJson(map);
         });
     }
+
+
+    /**
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/fileUploadEssay", method = RequestMethod.POST)
+    public CompletableFuture<String> FileUpload(@RequestBody HttpServletRequest request) throws Exception {
+        return CompletableFuture.supplyAsync(() -> {
+            FileDomain bean= null;
+            try {
+                bean = com.gsn.util.FileUploadUtil.parseRequest(request, FileDomain.class);
+                bean.setUploaded(1);
+                bean.setUrl(bean.getUpload());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Map<String, Object> map = new HashMap<>();
+            map.put("code", 1);
+            map.put("data", bean);
+            map.put("msg","文章文件上传");
+            return new Gson().toJson(map);
+        });
+    }
+
+
 }
