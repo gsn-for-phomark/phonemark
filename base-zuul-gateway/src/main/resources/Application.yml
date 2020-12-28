@@ -39,6 +39,10 @@ zuul:
       path: /pinfo-proxy/**                   # 访问的路径
       serviceId: PM-RESTAPI-PINFO
       sensitiveHeaders:
+    pm-follow:
+      path: /pinfo-proxy/**                   # 访问的路径
+      serviceId: PM-RESTAPI-FOLLOW
+      sensitiveHeaders:
 
 
   ignored-services: "*"      # "*"代表隐藏所有的服务名，这样就不能通过zuul直接用服务名访问真实的服务了.
