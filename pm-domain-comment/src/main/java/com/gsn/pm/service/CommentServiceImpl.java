@@ -70,7 +70,11 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public Map<String, Object> countCom(Integer eno) {
         Map<String, Object>  map = new HashMap<String,Object>();
-        int i = commentMapper.countCom(eno);
+
+        Integer i = commentMapper.countCom(eno);
+        if(i==null){
+            i=0;
+        }
         map.put("countCom", i);
         return map;
     }

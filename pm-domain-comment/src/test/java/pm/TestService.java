@@ -76,7 +76,7 @@ public class TestService {
     @Test
     public void testCountCom() {
         logger.info("调用testCountCom");
-        Integer eno = 54;
+        Integer eno = 23;
         Map<String, Object> countCom = commentService.countCom(eno);
         System.out.println(countCom);
     }
