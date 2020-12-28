@@ -40,7 +40,7 @@ zuul:
       serviceId: PM-RESTAPI-PINFO
       sensitiveHeaders:
     pm-follow:
-      path: /pinfo-proxy/**                   # 访问的路径
+      path: /follow-proxy/**                   # 访问的路径
       serviceId: PM-RESTAPI-FOLLOW
       sensitiveHeaders:
 

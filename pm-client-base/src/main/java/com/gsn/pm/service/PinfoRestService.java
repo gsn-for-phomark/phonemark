@@ -2,6 +2,7 @@ package com.gsn.pm.service;
 
 import com.google.gson.Gson;
 import com.gsn.pm.client.PinfoClient;
+import com.gsn.pm.entity.Memberinfo;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class PinfoRestService {
 
 
     @HystrixCommand(fallbackMethod = "updateTelFallback")
-    public String updateTel(){
-        return pinfoClient.doUpdateTel();
+    public String updateTel(Integer mno ,String tel){
+        return pinfoClient.doUpdateTel(mno, tel);
     }
 
     private String updateTelFallback(){
@@ -29,8 +30,8 @@ public class PinfoRestService {
     }
 
     @HystrixCommand(fallbackMethod = "updateEmailFallback")
-    public String updateEmail(){
-        return pinfoClient.doUpdateEmail();
+    public String updateEmail(Integer mno,String email){
+        return pinfoClient.doUpdateEmail(mno, email);
     }
 
     private String updateEmailFallback(){
@@ -41,8 +42,8 @@ public class PinfoRestService {
     }
 
     @HystrixCommand(fallbackMethod = "updatePwdFallback")
-    public String updatePwd(){
-        return pinfoClient.doUpdatePwd();
+    public String updatePwd(Integer mno,String pwd){
+        return pinfoClient.doUpdatePwd(mno, pwd);
     }
 
     private String updatePwdFallback(){
@@ -53,8 +54,8 @@ public class PinfoRestService {
     }
 
     @HystrixCommand(fallbackMethod = "FindUserFallback")
-    public String findUser(){
-        return pinfoClient.doFindUser();
+    public String findUser(Memberinfo t){
+        return pinfoClient.doFindUser(t);
     }
 
     private String FindUserFallback(){
@@ -64,6 +65,18 @@ public class PinfoRestService {
         return new Gson().toJson(map);
     }
 
+
+    @HystrixCommand(fallbackMethod = "doConFallback")
+    public String doCon(Memberinfo t){
+        return pinfoClient.doCon(t);
+    }
+
+    private String doConFallback(){
+        Map map=new HashMap();
+        map.put("code","-1");
+        map.put("msg","doCon服务异常");
+        return new Gson().toJson(map);
+    }
 
 
 

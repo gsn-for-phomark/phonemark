@@ -196,7 +196,7 @@
 			},
 			methods:{
 				updateTel:function(){
-					axios.post("member.action",qs.stringify({op:'phone',mno:this.mno,tel:this.tel}
+					axios.post("/pinfo/phone",qs.stringify({mno:this.mno,tel:this.tel}
 					)).then(result=>{
 						console.log(this.mno);
 						console.log(this.tel);
