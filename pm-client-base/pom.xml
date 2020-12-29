@@ -37,6 +37,11 @@
             <artifactId>pm-domain-essay</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.gsn</groupId>
+            <artifactId>pm-domain-pinfo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

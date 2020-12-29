@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
-@FeignClient(name = "BASE-MICROSERVICE-ZUUL-GATEWAY",
+@FeignClient(name = "BASE-MICROSERVICE-ZUUL-GATEWAY", contextId = "essay",
         configuration = FeignClientConfig.class)// 配置要按自定义的类FeignClientConfig
 public interface EssayClient {
 

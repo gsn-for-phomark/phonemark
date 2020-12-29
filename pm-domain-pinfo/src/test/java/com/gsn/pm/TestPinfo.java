@@ -2,6 +2,7 @@ package com.gsn.pm;
 
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayList;
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import com.gsn.pm.service.PinfoService;
 import javafx.beans.binding.ObjectExpression;
@@ -89,5 +90,15 @@ public class TestPinfo {
         Map<String,Object> map=pinfoService.findIndex(info);
         System.out.println(map);
     }
+    @Test
+    public void testFollowNum(){
+        logger.info("调用followNum");
+        Followinfo info=new Followinfo();
+        info.setMno(10);
+        info.setBno(3);
+        Map<String,Object> map=pinfoService.followNum(info);
+        System.out.println(map);
+    }
+
 
 }

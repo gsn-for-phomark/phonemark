@@ -1,5 +1,6 @@
 package com.gsn.pm.future;
 
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import com.gsn.pm.service.PinfoRestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,16 +37,31 @@ public class PinfoFuture {
     }
 
     @Async
-    public CompletableFuture<String> findUser(Memberinfo t){
+    public CompletableFuture<String> findUser(Integer mno){
         return  CompletableFuture.supplyAsync(()->{
-            return pinfoRestService.findUser(t);
+            return pinfoRestService.findUser(mno);
         });
     }
 
     @Async
-    public CompletableFuture<String> doCon(Memberinfo t){
+    public CompletableFuture<String> doCon(Integer mno,String nickName,String pwd,String tel,Integer status){
         return  CompletableFuture.supplyAsync(()->{
-            return pinfoRestService.doCon(t);
+            return pinfoRestService.doCon(mno, nickName, pwd, tel, status);
         });
     }
+
+    @Async
+    public CompletableFuture<String> getEssayNums(Integer mno){
+        return  CompletableFuture.supplyAsync(()->{
+            return pinfoRestService.dogetEssayNums(mno);
+        });
+    }
+
+    @Async
+    public CompletableFuture<String> getFans(Integer mno,Integer bno){
+        return  CompletableFuture.supplyAsync(()->{
+            return pinfoRestService.dogetFans(mno, bno);
+        });
+    }
+
 }

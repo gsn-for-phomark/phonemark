@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "MICROSERVICE-PROVIDER-FOLLOW",
+@FeignClient(name = "BASE-MICROSERVICE-ZUUL-GATEWAY",contextId = "follow",
         configuration = FeignClientConfig.class)// 配置要按自定义的类FeignClientConfig
 public interface FollowClient {
 

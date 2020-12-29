@@ -128,7 +128,7 @@
 							<span class="label_contain">认证手机号码</span>
 						</div>
 						<div class="label_margin_bottom20">
-							<input class="input_inner" :placeholder='tel' v-model="tel">
+							<input class="input_inner" id="tel" :placeholder='tel' v-model="tel">
 							<div class="item_btn">
 								<button class="account_btn" @click="updateTel"><span>修改</span></button>
 							</div>
@@ -172,6 +172,7 @@
 	var name=$('#nickName').val();
 	var msex01=$('#msex').val();
 	var msign01=$('#msign').val();
+	var tel=$('#tel').val();
 	var mpic01=$('#mpic').src;
 	var hash=window.location.hash;
 	hash=hash.replace('#','');
@@ -196,18 +197,32 @@
 			},
 			methods:{
 				updateTel:function(){
-					axios.post("/pinfo/phone",qs.stringify({mno:this.mno,tel:this.tel}
-					)).then(result=>{
-						console.log(this.mno);
-						console.log(this.tel);
-						var data= result.data;
-						console.log(data);
-						if(data>0){
-							alert('修改成功');
-						}else {
-							alert('修改失败');
+					// axios.post("/pinfo/phone",qs.stringify({mno:this.mno,tel:this.tel}
+					// )).then(result=>{
+					// 	console.log(this.mno);
+					// 	console.log(this.tel);
+					// 	var data= result.data;
+					// 	console.log(data);
+					// 	if(data>0){
+					// 		alert('修改成功');
+					// 	}else {
+					// 		alert('修改失败');
+					// 	}
+					// });
+
+					axios({
+						method:'post',
+						url:'/pinfo/phone'+"?mno="+mid+"&tel="+tel,
+						data:{"mno":this.mno,"tel":this.tel}
+					}).then(result=>{
+						console.log(result);
+						var data=result.data;
+						if('0'==data){
+							alert('修改电话号码失败！');
+						}else{
+							alert('修改电话号码成功')
 						}
-					});
+					})
 				},
 				updateEmail:function(){
 					axios.post("member.action",qs.stringify({op:'email',mno:this.mno,email:this.email}

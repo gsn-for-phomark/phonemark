@@ -19,7 +19,7 @@ public class FollowRestService {
     public String checkEssayUser(Integer mno,Integer bno) {
         return followClient.docheckEssayUser(mno, bno);
     }
-    private String checkEssayUserFallback(){
+    private String checkEssayUserFallback(Integer mno,Integer bno){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","checkEssayUser异步服务异常");
@@ -30,7 +30,7 @@ public class FollowRestService {
     public String checkFollows(Integer mno,Integer bno) {
         return followClient.docheckFollows(mno, bno);
     }
-    private String checkFollowsFallback(){
+    private String checkFollowsFallback(Integer mno,Integer bno){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","checkFollows异步服务异常");
@@ -41,7 +41,7 @@ public class FollowRestService {
     public String addFollow(Integer mno,Integer bno) {
         return followClient.doaddFollow(mno, bno);
     }
-    private String addFollowFallback(){
+    private String addFollowFallback(Integer mno,Integer bno){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","addFollow异步服务异常");
@@ -52,7 +52,7 @@ public class FollowRestService {
     public String add02(Integer mno,Integer bno) {
         return followClient.doadd02(mno, bno);
     }
-    private String add02Fallback(){
+    private String add02Fallback(Integer mno,Integer bno){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","add02异步服务异常");
@@ -63,7 +63,7 @@ public class FollowRestService {
     public String delete01(Integer mno,Integer bno,Integer status) {
         return followClient.dodelete01(mno, bno, status);
     }
-    private String delete01Fallback(){
+    private String delete01Fallback(Integer mno,Integer bno,Integer status){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","delete01异步服务异常");
@@ -74,7 +74,7 @@ public class FollowRestService {
     public String delete02(Integer mno,Integer bno,Integer status) {
         return followClient.dodelete02(mno, bno, status);
     }
-    private String delete02Fallback(){
+    private String delete02Fallback(Integer mno,Integer bno,Integer status){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","delete02异步服务异常");
@@ -85,7 +85,7 @@ public class FollowRestService {
     public String findFollow(Integer mno) {
         return followClient.dofindFollow(mno);
     }
-    private String findFollowFallback(){
+    private String findFollowFallback(Integer mno){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","findFollow异步服务异常");
@@ -96,7 +96,7 @@ public class FollowRestService {
     public String findBeFollowed(Integer mno) {
         return followClient.dofindBeFollowed(mno);
     }
-    private String findBeFollowedFallback(){
+    private String findBeFollowedFallback(Integer mno){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","findBeFollowed异步服务异常");

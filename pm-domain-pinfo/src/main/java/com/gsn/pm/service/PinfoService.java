@@ -4,6 +4,7 @@ package com.gsn.pm.service;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayList;
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 
 import java.util.List;
@@ -38,6 +39,13 @@ public interface PinfoService {
      * @return
      */
     Map<String,Object> countUserEssayNum(Memberinfo t);
+
+    /**
+     * 粉丝数查询
+     * @param t
+     * @return
+     */
+    Map<String,Object> followNum(Followinfo t);
 
     /**
      * 个人中心文章查询
