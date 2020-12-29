@@ -1,6 +1,7 @@
 package com.gsn.pm.restapi.controllers;
 
 import com.google.gson.Gson;
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import com.gsn.pm.service.PinfoService;
 import org.slf4j.Logger;
@@ -115,14 +116,10 @@ public class PinfoRestController {
      * 查找用户
      */
     @RequestMapping(value = "/finduser",method = RequestMethod.GET)
-    public CompletableFuture<String> findUser(Integer mno,String Nickname,String pwd,String tel,Integer status){
+    public CompletableFuture<String> findUser(Integer mno){
         return CompletableFuture.supplyAsync(()->{
             Memberinfo memberinfo=new Memberinfo();
             memberinfo.setMno(mno);
-            memberinfo.setNickName(Nickname);
-            memberinfo.setPwd(pwd);
-            memberinfo.setTel(tel);
-            memberinfo.setStatus(status);
             Map<String,Object> map=new HashMap<>();
             Map<String,Object> data=pinfoService.findIndex(memberinfo);
             if (data!=null){
@@ -169,6 +166,62 @@ public class PinfoRestController {
             }
         });
     }
+    /**
+     * 计算用户所写的文章数
+     */
+    @RequestMapping(value = "/getEssayNums",method = RequestMethod.GET)
+    public CompletableFuture<String> countUserEssayNum(Integer mno){
+        return CompletableFuture.supplyAsync(()->{
+            Memberinfo memberinfo=new Memberinfo();
+            memberinfo.setMno(mno);
+            Map<String,Object> map=new HashMap<>();
+            Map<String,Object> data=pinfoService.countUserEssayNum(memberinfo);
+            if (data!=null){
+                logger.info("文章数查询成功  1");
+                map.put("code",1);
+                map.put("msg","文章数查询成功");
+                map.put("data",data);
+                return new Gson().toJson(map);
+            }else{
+                logger.info("文章数查询失败  0");
+                map.put("code",0);
+                map.put("msg","文章数查询失败");
+                map.put("data",data);
+                return new Gson().toJson(map);
+            }
+        });
+    }
+
+    /**
+     * 计算粉丝数
+     */
+    @RequestMapping(value = "/fans",method = RequestMethod.GET)
+    public CompletableFuture<String> getFans(Integer mno,Integer bno){
+        return CompletableFuture.supplyAsync(()->{
+            Followinfo followinfo=new Followinfo();
+            followinfo.setMno(mno);
+            followinfo.setBno(bno);
+            Map<String,Object> map=new HashMap<>();
+            Map<String,Object> data=pinfoService.followNum(followinfo);
+            if (data!=null){
+                logger.info("文章数查询成功  1");
+                map.put("code",1);
+                map.put("msg","文章数查询成功");
+                map.put("data",data);
+                return new Gson().toJson(map);
+            }else{
+                logger.info("文章数查询失败  0");
+                map.put("code",0);
+                map.put("msg","文章数查询失败");
+                map.put("data",data);
+                return new Gson().toJson(map);
+            }
+        });
+    }
+
+
+
+
 
 
 }

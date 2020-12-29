@@ -4,6 +4,7 @@ import com.gsn.pm.dao.impl.MemberMapper;
 import com.gsn.pm.dao.impl.PinfoMapper;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayList;
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,14 @@ public class PinfoServiceImpl implements PinfoService {
         List<Memberinfo> list= pinfoMapper.countUserEssayNum(t.getMno());
         Map<String,Object> map=new HashMap<String,Object>();
         map.put("EssayNum",list);
+        return map;
+    }
+
+    @Override
+    public Map<String, Object> followNum(Followinfo t) {
+        List<Followinfo> list= pinfoMapper.befollowNum(t.getMno(),t.getBno());
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("FollowNum",list);
         return map;
     }
 

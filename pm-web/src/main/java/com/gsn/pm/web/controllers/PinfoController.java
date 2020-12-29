@@ -1,6 +1,7 @@
 package com.gsn.pm.web.controllers;
 
 
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import com.gsn.pm.future.PinfoFuture;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.CompletableFuture;
@@ -38,13 +40,23 @@ public class PinfoController {
     }
 
     @RequestMapping("/finduser")
-    public CompletableFuture<String> findUser(Memberinfo t){
-        return pinfoFuture.findUser(t);
+    public CompletableFuture<String> findUser(@RequestParam("mno")Integer mno){
+        return pinfoFuture.findUser(mno);
     }
 
     @RequestMapping("/doCon")
-    public CompletableFuture<String> doCon(Memberinfo t){
-        return pinfoFuture.doCon(t);
+    public CompletableFuture<String> doCon(Integer mno,String nickName,String pwd,String tel,Integer status){
+        return pinfoFuture.doCon(mno, nickName, pwd, tel, status);
+    }
+
+    @RequestMapping("/getEssayNums")
+    public CompletableFuture<String> getEssayNums(Integer mno){
+        return pinfoFuture.getEssayNums(mno);
+    }
+
+    @RequestMapping("/fans")
+    public CompletableFuture<String> getEssayNums(Integer mno,Integer bno){
+        return pinfoFuture.getFans(mno, bno);
     }
 
 }

@@ -2,6 +2,7 @@ package com.gsn.pm.client;
 
 
 import com.gsn.pm.config.FeignClientConfig;
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -34,12 +35,22 @@ public interface PinfoClient {
     @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/pinfo-proxy/pinfo/finduser",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    String doFindUser(@RequestBody Memberinfo t);
+    String doFindUser(@RequestParam("mno")Integer mno);
 
     @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/pinfo-proxy/pinfo/doCon",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    String doCon(@RequestBody Memberinfo t);
+    String doCon(@RequestParam("mno")Integer mno,@RequestParam("nickName")String nickName,@RequestParam("pwd")String pwd,@RequestParam("tel")String tel,@RequestParam("status")Integer status);
+
+    @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/pinfo-proxy/pinfo/getEssayNums",
+            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    String dogetEssayNums(@RequestParam("mno")Integer mno);
+
+    @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/pinfo-proxy/pinfo/fans",
+            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    String dogetFans(@RequestParam("mno")Integer mno,@RequestParam("bno") Integer bno);
 
 
 

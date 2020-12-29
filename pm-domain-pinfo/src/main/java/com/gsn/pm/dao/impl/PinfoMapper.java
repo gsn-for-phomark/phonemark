@@ -4,6 +4,7 @@ package com.gsn.pm.dao.impl;
 import com.gsn.pm.dao.MisBaseMapper;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayList;
+import com.gsn.pm.entity.Followinfo;
 import com.gsn.pm.entity.Memberinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -49,6 +50,22 @@ public interface PinfoMapper extends MisBaseMapper<Memberinfo> {
      */
     @Select("select mno,COUNT(mno) messaynums FROM essayinfo  where mno=#{mno} GROUP BY mno")
     List<Memberinfo> countUserEssayNum(@Param("mno")Integer mno);
+
+    /**
+     * 粉丝数查询
+     * select ifnull(count(bno),0) fnum from followinfo where `status`=1 and bno= ? GROUP BY mno
+     * @param mno,bno
+     * @return
+     */
+    @Select("select ifnull(count(bno),0) fnum from followinfo " +
+            "where `status`=1 "+"and bno= #{bno} GROUP BY mno " +
+            "UNION all  select ifnull(count(bno),0) fnum from followinfo " +
+            "where `status`=2 and mno= #{mno} GROUP BY mno " +
+            "UNION all select ifnull(count(mno),0) fnum from followinfo " +
+            "where `status`=2 and bno= #{bno} GROUP BY bno")
+    List<Followinfo> befollowNum(@Param("mno") Integer mno, @Param("bno") Integer bno);
+
+
 
 
     /**
