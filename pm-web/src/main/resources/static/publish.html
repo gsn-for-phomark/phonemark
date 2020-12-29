@@ -93,7 +93,7 @@
 <script type="text/javascript">
 	CKEDITOR.replace('editor1', { height: '1000px', width: '100%' });
 
-	$('#epic').on('change', function () {
+	$('body').on('change', '#epic',function () {
 		var filePath = $(this).val(), //获取到input的value，里面是文件的路径
 				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
 				src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
