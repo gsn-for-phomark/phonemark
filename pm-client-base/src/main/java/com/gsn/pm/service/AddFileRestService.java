@@ -21,7 +21,14 @@ public class AddFileRestService {
 
     @HystrixCommand(fallbackMethod = "FileUploadFallback")
     public String FileUpload(MultipartFile file,String ename,String edesr,String tname,Integer mno) {
-        return uploadCilent.FileUpload(file,ename,edesr,tname,mno);
+
+        try{
+            return uploadCilent.FileUpload(file,ename,edesr,tname,mno);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
     }
 
     private String FileUploadFallback(MultipartFile file,String ename,String edesr,String tname,Integer mno){

@@ -5,7 +5,6 @@ import com.gsn.pm.dao.impl.EssayTypeMapper;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayComment;
 import com.gsn.pm.domain.EssayList;
-import com.gsn.pm.domain.FileDomain;
 import com.gsn.pm.entity.EssayType;
 import com.gsn.pm.entity.Essayinfo;
 import com.gsn.pm.entity.Memberinfo;

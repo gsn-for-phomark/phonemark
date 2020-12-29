@@ -60,7 +60,7 @@ public class ZuulFallBackHandler implements FallbackProvider {
             @Override
             public HttpHeaders getHeaders() {
                 HttpHeaders headers = new HttpHeaders();
-                headers.set("Content-Type", "application/json;charset=UTF-8");
+                headers.set("Content-Type", "multipart/form-data;application/json;charset=UTF-8");
                 return headers;
             }
         };

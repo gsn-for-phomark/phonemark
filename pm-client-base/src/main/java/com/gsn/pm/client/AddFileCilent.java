@@ -15,10 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 public interface AddFileCilent {
 
     @RequestMapping(method = RequestMethod.POST,value = "/gsn-api/essay-upload/upload/image",
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
+            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE},
+            produces = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE}
+
     )
-    String FileUpload(@RequestPart("file") MultipartFile file
+    String FileUpload(@RequestBody(required = false) MultipartFile file
             ,@RequestParam("ename") String ename,@RequestParam("edser") String edser,@RequestParam("tname")
                               String tname,@RequestParam("mno") Integer mno);
 

@@ -1,7 +1,6 @@
 package com.gsn.pm.controller;
 
 
-import com.gsn.pm.dao.impl.EssayTypeMapper;
 import com.gsn.pm.entity.EssayType;
 import com.gsn.pm.entity.Essayinfo;
 import com.gsn.pm.service.EssayTypeService;
@@ -25,8 +24,6 @@ public class UploadController {
     @Autowired
     private UploadService uploadService;
 
-    @Autowired
-    private EssayTypeMapper essayTypeMapper;
 
     @Autowired
     private EssayinfoService essayinfoService;
@@ -39,7 +36,7 @@ public class UploadController {
      * @return
      */
     @RequestMapping(value = "/image" ,method = RequestMethod.POST)
-    public ResponseEntity<String> uploadImage(@RequestPart("file") MultipartFile file
+    public ResponseEntity<String> uploadImage(@RequestBody(required = false) MultipartFile file
     ,@RequestParam("ename") String ename,@RequestParam("edser") String edser,@RequestParam("tname")
                                               String tname,@RequestParam("mno") Integer mno){
         String url = this.uploadService.upload(file);

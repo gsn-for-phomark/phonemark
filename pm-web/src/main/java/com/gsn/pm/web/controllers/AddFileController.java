@@ -2,6 +2,7 @@ package com.gsn.pm.web.controllers;
 
 import com.gsn.pm.future.AddFileFuture;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,10 +22,17 @@ public class AddFileController {
     //		formdata.append("edser",edser);
     //		formdata.append("tname",tname);
     //		formdata.append("mno",mid);
-    @RequestMapping(value = "/image",method = RequestMethod.POST)
-    public CompletableFuture<String> fileUploadEssay(@RequestPart MultipartFile file,
+    @RequestMapping(
+            value = "/image",method = RequestMethod.POST,
+            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE},
+            produces = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE}
+
+    )
+    public CompletableFuture<String> fileUploadEssay(@RequestBody(required = false) MultipartFile file,
                                                      @RequestParam("ename") String ename, @RequestParam("edser") String edser,
                                                      @RequestParam("tname") String tname, @RequestParam("mid") Integer mid){
+        System.out.println(file);
+        System.out.printf(ename);
         return uploadFuture.FileUpload(file,ename,edser,tname,mid);
     }
 }

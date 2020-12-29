@@ -66,9 +66,9 @@
 		</div>
 		<!--文章封面-->
 		<div class="essay_pic" id="pic">
-			<form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form">
+			<form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form" action="">
 				<a href="javascript:void(0)" class="file">上传封面
-					<input type="file" id="epic" name="epic">
+					<input type="file" id="epic" name="epic" value="epic">
 				</a>
 
 				<!-- 保存用户自定义的背景图片 -->
@@ -149,8 +149,11 @@
 					console.log(fn1.data.member);
 					this.uname=fn1.data.member.nickName;
 					this.uhead=fn1.data.member.mpic;
-					this.mid=fn1.data.member.mno;
+					mid=fn1.data.member.mno;
 					this.uid=fn1.data.member.mno;
+					//mid=this.mid;
+					//console.log("mid==")
+                    //console.log(mid);
 					this.outlogin=false;
 					this.onlogin=true;
 				}
@@ -191,27 +194,40 @@
 		var edser = CKEDITOR.instances.editor1.getData();//文章内容
 		var tname =$('#type').val();//文章类型
 
-		var file = document.getElementById("epic").files;
+		var file = document.getElementById("epic").files[0].name;
+        //var file=$("#epic")[0];
 		var formdata = new FormData();//创建一个表单
-
+        console.log(file);
+        console.log(ename);
+        console.log(edser);
+        console.log(tname);
+        console.log(mid);
 		formdata.append("file", file);
 		formdata.append("ename",ename);
 		formdata.append("edser",edser);
 		formdata.append("tname",tname);
-		formdata.append("mno",mid);
+		formdata.append("mid",mid);
 
 		axios({
-			url: 'http://localhost:9100/upload/image',
+			url: '/upload/image',
 			method: 'post',
 			data: formdata,
 			withCredentials: true,
+            processData: false,
+            contentType: false,
+            dataType:'json',
 			headers: {
-				'Access-Control-Allow-Origin: *'
-				'Content-Type': 'multipart/form-data'
+				'Content-Type': 'multipart/form-data;application/json;charset=UTF-8'
 			}
 		}).then((res) => { //这里根据自己具体需求即可
-				console.log("文件上传成功")
-				alert("发表文章成功")
+            console.log(res)
+		    if (res.code>0){
+                console.log("文件上传成功")
+                alert("发表文章成功")
+            }else {
+		        alert("滚蛋，失败了！！")
+            }
+
 		});
 
 		// $.ajaxFileUpload({
