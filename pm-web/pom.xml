@@ -12,6 +12,7 @@
     <artifactId>pm-web</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.gsn</groupId>
             <artifactId>pm-client-base</artifactId>

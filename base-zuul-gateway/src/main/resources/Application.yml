@@ -13,6 +13,10 @@ eureka:
     lease-expiration-duration-in-seconds: 50  # 租约超时时间间隔
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
   application:
     name:  base-microservice-zuul-gateway    # zuul网关服务在eureka中的服务名
   security:   # zuul网关服务的用户认证
