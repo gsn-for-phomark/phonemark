@@ -214,16 +214,11 @@
 			},
 			methods:{
 				doFollow:function(listid,status){
-
 					var mno=this.mno;
 					console.log(listid);
-
-
-
 					if(status==2){
 						axios.get('/follow/delete02',
 								{params: {mno:listid,bno:mno,status:status}}
-
 						).then(result=>{
 							var c= result.data.code;
 							if(c>0){
@@ -238,9 +233,7 @@
 												localStorage.clear();
 												alert('请先进行登录');
 												window.location.href='login.html';
-
 											}else{
-
 												this.nickName=fn1.data.member.nickName;
 												this.pic=fn1.data.member.mpic;
 												this.msign=fn1.data.member.msign;
@@ -258,7 +251,6 @@
 												this.messaynums=fn8.data.data.EssayNum[0].messaynums;
 												this.outlogin=false;
 												this.onlogin=true;
-
 											}
 										}));
 							}else {
@@ -276,8 +268,6 @@
 										.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
 											// console.log(fn1.data);
 											// console.log(fn2.data);
-
-
 											if(fn1.data.code==0){
 												//用户未登录
 												localStorage.clear();
@@ -303,8 +293,6 @@
 												this.messaynums=fn8.data.data.EssayNum[0].messaynums;
 												this.outlogin=false;
 												this.onlogin=true;
-
-
 											}
 										}));
 							}else {

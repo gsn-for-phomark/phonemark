@@ -54,11 +54,11 @@ public class FollowServiceImpl implements FollowService{
      */
     @Override
     public Map<String, Object> checkEssayUser(Followinfo t) {
-        Map<String, Object> map=new HashMap<String,Object>();
-        Followinfo rel=new Followinfo();
-        rel.setMno(t.getMno());
-        rel.setBno(t.getBno());
-        List<Followinfo> list =followMapper.findRelation( rel.getMno(),rel.getBno());
+          Map<String, Object> map=new HashMap<String,Object>();
+//        Followinfo rel=new Followinfo();
+//        rel.setMno(t.getMno());
+//        rel.setBno(t.getBno());
+        List<Followinfo> list =followMapper.findRelation(t.getMno(),t.getBno());
         if(list.size()==0){
             Followinfo rel1=new Followinfo();
             rel1.setStatus(0);
