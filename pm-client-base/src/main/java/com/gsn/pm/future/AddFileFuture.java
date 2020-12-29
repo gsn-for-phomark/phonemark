@@ -18,9 +18,9 @@ public class AddFileFuture {
     private AddFileRestService uploadRestService;
 
     @Async
-    public CompletableFuture<String> FileUpload(MultipartHttpServletRequest request){
+    public CompletableFuture<String> FileUpload(MultipartFile file,String ename,String edesr,String tname,Integer mno){
         return  CompletableFuture.supplyAsync(()->{
-            return uploadRestService.FileUpload(request);
+            return uploadRestService.FileUpload(file,ename,edesr,tname,mno);
         });
     }
 }

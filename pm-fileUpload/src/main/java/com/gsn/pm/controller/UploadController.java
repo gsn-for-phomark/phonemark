@@ -39,12 +39,9 @@ public class UploadController {
      * @return
      */
     @RequestMapping(value = "/image" ,method = RequestMethod.POST)
-    public ResponseEntity<String> uploadImage(@RequestBody MultipartHttpServletRequest request){
-        MultipartFile file=   request.getFile("file");
-        String tname=request.getParameter("tname");
-        String ename=request.getParameter("ename");
-        String mno=request.getParameter("mno");
-        String edser=request.getParameter("edser");
+    public ResponseEntity<String> uploadImage(@RequestPart("file") MultipartFile file
+    ,@RequestParam("ename") String ename,@RequestParam("edser") String edser,@RequestParam("tname")
+                                              String tname,@RequestParam("mno") Integer mno){
         String url = this.uploadService.upload(file);
         if (StringUtils.isBlank(url)) {
             return ResponseEntity.badRequest().build();
@@ -65,7 +62,7 @@ public class UploadController {
                 i = list.get(0).getTno();
             }
             bean.setTno(i);
-            bean.setMno(Integer.parseInt(mno));
+            bean.setMno(mno);
             bean.setEname(ename);
             bean.setEpic(url);
             bean.setEdser(edser);

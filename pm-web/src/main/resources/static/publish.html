@@ -60,7 +60,7 @@
 			<li><input type="text" id="type" placeholder="请在此处输入文章类型，例：#OPPO#生活#体验" /></li>
 		</ul>
 		<div class="movebtn" id="gsn_essay">
-			<a   href="javascript:AddEssay()">
+			<a   href="javascript:void (AddEssay())">
 				<input type="image" src="images/icon_finish.png" class="finish" value="上传文章" />
 			</a>
 		</div>
@@ -201,11 +201,12 @@
 		formdata.append("mno",mid);
 
 		axios({
-			url: '/upload/image',
+			url: 'http://localhost:9100/upload/image',
 			method: 'post',
 			data: formdata,
 			withCredentials: true,
 			headers: {
+				'Access-Control-Allow-Origin: *'
 				'Content-Type': 'multipart/form-data'
 			}
 		}).then((res) => { //这里根据自己具体需求即可
