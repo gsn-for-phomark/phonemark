@@ -34,6 +34,7 @@
         <module>pm-web</module>
         <module>pm-domain-follow</module>
         <module>pm-restapi-follow</module>
+        <module>pm-fileUpload</module>
     </modules>
 
     <properties>

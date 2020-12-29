@@ -43,7 +43,10 @@ zuul:
       path: /pinfo-proxy/**                   # 访问的路径
       serviceId: PM-RESTAPI-FOLLOW
       sensitiveHeaders:
-
+    pm-upload:
+      path: /essay-upload/**                   # 访问的路径
+      serviceId: FILEUPLOAD-SERVICE
+      sensitiveHeaders:
 
   ignored-services: "*"      # "*"代表隐藏所有的服务名，这样就不能通过zuul直接用服务名访问真实的服务了.
   prefix: /gsn-api    #公共前缀       /gsn-api/essay-proxy/***/***

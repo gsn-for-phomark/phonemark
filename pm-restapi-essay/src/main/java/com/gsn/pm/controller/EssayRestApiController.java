@@ -1,12 +1,14 @@
 package com.gsn.pm.controller;
 
 import com.google.gson.Gson;
+import com.gsn.pm.dao.impl.EssayTypeMapper;
 import com.gsn.pm.domain.ETypeList;
 import com.gsn.pm.domain.EssayComment;
 import com.gsn.pm.domain.EssayList;
 import com.gsn.pm.domain.FileDomain;
 import com.gsn.pm.entity.EssayType;
 import com.gsn.pm.entity.Essayinfo;
+import com.gsn.pm.entity.Memberinfo;
 import com.gsn.pm.service.EssayTypeService;
 import com.gsn.pm.service.EssayinfoService;
 import org.slf4j.Logger;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -30,6 +33,8 @@ public class EssayRestApiController {
     @Autowired
     private EssayTypeService et;
 
+    @Autowired
+    private EssayTypeMapper essayTypeMapper;
 
     /**
      * 主页推荐文章信息
@@ -296,20 +301,59 @@ public class EssayRestApiController {
     @RequestMapping(value = "/fileUploadEssay", method = RequestMethod.POST)
     public CompletableFuture<String> FileUpload(@RequestBody HttpServletRequest request) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
-            FileDomain bean= null;
+           // FileDomain bean= null;
             try {
-                bean = com.gsn.util.FileUploadUtil.parseRequest(request, FileDomain.class);
-                bean.setUploaded(1);
-                bean.setUrl(bean.getUpload());
+//                bean = com.gsn.util.FileUploadUtil.parseRequest(request, FileDomain.class);
+//                bean.setUploaded(1);
+//                bean.setUrl(bean.getUpload());
+//                System.out.println("文件bean:"+bean);
+
+                Essayinfo bean = com.gsn.util.FileUploadUtil.parseRequest(request, Essayinfo.class);
+                EssayType type = new EssayType();
+                String tno =bean.getSpare2();
+                bean.setSpare2(null);
+                type.setTname(tno);
+                int i=et.addTypeInEssay(type);
+                if(i==-1){
+                    List<EssayType> list = essayTypeMapper.findByTrem(Integer.parseInt(tno));
+                    i = list.get(0).getTno();
+                }
+                bean.setTno(i);
+                int e =essayinfoService.add(bean);
+                //toPrintJson(response, i);
+                System.out.println(bean);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
-            map.put("data", bean);
+            //map.put("data",);
             map.put("msg","文章文件上传");
             return new Gson().toJson(map);
         });
+
+//        try{
+//            Essayinfo bean = FileUploadUtil.parseRequest(request, Essayinfo.class);
+//            Essaytype tp = new Essaytype();
+//            String tno =bean.getSpare2();
+//            bean.setSpare2(null);
+//            Memberinfo member = (Memberinfo) request.getSession().getAttribute("member");
+//            bean.setMno(member.getMno());
+//            tp.setTname(tno);
+//            int settno=ETbiz.addTypeInEssay(tp);
+//            if(settno==-1){
+//                List<Essaytype> list = ETdao.findByName(tno);
+//                settno = list.get(0).getTno();
+//            }
+//            bean.setTno(settno);
+//            int i =biz.add(bean);
+//            toPrintJson(response, i);
+//            System.out.println(bean);
+//
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
     }
 
 

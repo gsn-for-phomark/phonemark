@@ -32,10 +32,10 @@ public interface EssayTypeService {
      * */
     public Map<String, Object> essaytypeTotal( );
 
-//    /**
-//     * 根据文章类型名精确查询
-//     */
-//    public List<EssayType> findByName (String t);
+    /**
+     * 根据文章类型名精确查询
+     */
+    public List<EssayType> findByName (String tname);
 
     /**
      * 常用专题

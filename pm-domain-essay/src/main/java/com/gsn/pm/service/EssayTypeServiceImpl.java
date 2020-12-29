@@ -49,10 +49,10 @@ public class EssayTypeServiceImpl implements EssayTypeService{
         return map;
     }
 
-//    @Override
-//    public List<EssayType> findByName(String t) {
-//        return essayTypeMapper.findByName(t);
-//    }
+    @Override
+    public List<EssayType> findByName(String tname) {
+        return essayTypeMapper.findByName(tname);
+    }
 
     @Override
     public Map<String, Object> favoriteTypeList(ETypeList t) {

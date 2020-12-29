@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -109,14 +110,6 @@ public interface EssayClient {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )
     String doAddType(@RequestBody EssayType t);
-
-
-    @RequestMapping(method = RequestMethod.POST,value = "/gsn-api/essay-proxy/essay/fileUploadEssay",
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE
-    )
-    String FileUpload(@RequestBody HttpServletRequest request);
-
 
 
 }
