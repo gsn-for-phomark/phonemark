@@ -9,6 +9,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -205,15 +207,5 @@ public class EssayRestService {
 
 
 
-    @HystrixCommand(fallbackMethod = "FileUploadFallback")
-    public String FileUpload(HttpServletRequest request) {
-        return essayClient.FileUpload(request);
-    }
 
-    private String FileUploadFallback(HttpServletRequest request){
-        Map map=new HashMap();
-        map.put("code","-1");
-        map.put("msg","FileUpload异步服务异常");
-        return new  Gson().toJson(map);
-    }
 }

@@ -77,11 +77,11 @@
 				<!--文章作者名字-->
 				<p id="essaydate">{{essay.edate}}</p>
 				<!--文章发表时间-->
-				<div id="followbutton" style="width: 70px">
-					<div v-show="relation[0].status==2"><p style="font-size: small;"><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">互相关注</a></p></div>
-					<div v-show="relation[0].status==1"><p style="font-size: small; "><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">已关注</a></p></div>
-					<div v-show="relation[0].status==0"><p style="font-size: small; "><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">关注</a></p></div>
-				</div>
+<!--				<div id="followbutton" style="width: 70px">-->
+<!--					<div v-show="relation[0].status==2"><p style="font-size: small;"><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">互相关注</a></p></div>-->
+<!--					<div v-show="relation[0].status==1"><p style="font-size: small; "><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">已关注</a></p></div>-->
+<!--					<div v-show="relation[0].status==0"><p style="font-size: small; "><a href="javascript:void(0)"  @click="doFollow(essay.mno,relation[0].status)">关注</a></p></div>-->
+<!--				</div>-->
 			</div>
 			<!--文章内容-->
 			<div class="gsn_essay_mid_desr "  v-html="essay.edser">
@@ -312,6 +312,7 @@ var hash = window.location.hash;
 var eno = hash.replace("#",'');
 
 var app1= new Vue({
+
 	el:'#gsn_showEssay',
 	data:{
 		essay:'',
@@ -321,8 +322,8 @@ var app1= new Vue({
 		doFollow:function(listid,status){
 			if(status==2){
 				axios.post("follow.action",qs.stringify({op:'deleach',mno:listid,status:status}
-				)).then(result=>{							
-					var data= result.data;							
+				)).then(result=>{
+					var data= result.data;
 					if(data>0){
 						alert('取关成功');
 						axios.all([checkLogin(),checkEssayUser()])
@@ -331,7 +332,7 @@ var app1= new Vue({
 								//用户未登录
 								alert("请先登录");
 								window.location.href='login.html';
-							
+
 							}else{
 								this.relation=fn2.data.relation;
 							}
@@ -352,7 +353,7 @@ var app1= new Vue({
 								//用户未登录
 								alert("请先登录");
 								window.location.href='login.html';
-							
+
 							}else{
 								this.relation=fn2.data.relation;
 							}
@@ -377,7 +378,7 @@ var app1= new Vue({
 										//用户未登录
 										alert("请先登录");
 										window.location.href='login.html';
-									
+
 									}else{
 										this.relation=fn2.data.relation;
 									}
@@ -398,7 +399,7 @@ var app1= new Vue({
 										//用户未登录
 										alert("请先登录");
 										window.location.href='login.html';
-									
+
 									}else{
 										this.relation=fn2.data.relation;
 									}
@@ -414,12 +415,13 @@ var app1= new Vue({
 	},
 	mounted:function(){
 		axios({
-				url:'essay.action?op=ShowEssay'+"&eno="+eno,
+				url:'/essay/showEssay'+"?eno="+eno,
 				method:'get'
 			}).then(result=>{
-				this.essay=result.data.essay[0];
+				this.essay=result.data.data.essay[0];
 				essayname=this.essay.ename;
 				console.log(this.essay);
+				console.log(essayname)
 				bno=this.essay.mno;
 				console.log("bno01="+bno);
 				//页面加载完成后

@@ -7,6 +7,7 @@ import com.gsn.pm.service.EssayRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.CompletableFuture;
@@ -117,11 +118,6 @@ public class EssayFuture {
     }
 
 
-    @Async
-    public CompletableFuture<String> FileUpload(HttpServletRequest request){
-        return  CompletableFuture.supplyAsync(()->{
-            return essayRestService.FileUpload(request);
-        });
-    }
+
 
 }

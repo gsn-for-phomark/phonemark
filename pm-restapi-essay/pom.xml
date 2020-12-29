@@ -74,5 +74,11 @@
             <version>1.4</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.gsn</groupId>
+            <artifactId>pm-domain-pinfo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

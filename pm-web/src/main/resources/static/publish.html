@@ -2,206 +2,231 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>发表文章</title>
-    <link rel="stylesheet" href="css/fontset.css" />
-    <link rel="stylesheet" href="css/publish.css" />
-    <link rel="icon" href="images/icon_main.png" type="image/x-icon" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>发表文章</title>
+	<link rel="stylesheet" href="css/fontset.css" />
+	<link rel="stylesheet" href="css/publish.css" />
+	<link rel="icon" href="images/icon_main.png" type="image/x-icon" />
 </head>
 
 
 
 
 <body >
-    <header>
-		<!-- 头部菜单 -->
-		<div class="menu_area01 ">
-			<ul>
-				<li>
-					<a href="index.html">
-						<img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;">
-						PHOMark
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class=" menu_area02 ">
-			<ul>
-				<li><a href="photrix.html">Photrix</a></li>
-				<li><a href="photopic.html">热门文章</a></li>
-				<li><a href="photype.html">PHO专题</a></li>
-				<li><a href="about.html">关于我们</a></li>
-			</ul>
-		</div>
-		<div class=" menu_area03 " id="gsn_publish">
-			<ul>
-				<li><a href="search.html"><img src="  images/icon_search.png "
-							style=" width: 25px; height: 25px; padding-right: 20px; "></a></li>
-				<li><a href="publish.html"><img src="images/icon_post.png"
-							style="width:25px;height: 25px;padding-right: 20px;"></li>
-				<li>
-                    <a href="login.html" style=" color:#d81e06;" v-if="outlogin">
-                        登录
-                    </a>
-                   
-                    <a :href="'user_main.html#'+uid" v-if="onlogin">
-                        <img :src="uhead" onerror="javascript:this.src='images/img_all.png';"
-                        style="width: 50px; height: 50px ;border-radius:50%;position: absolute; top: 6px;">
-                    </a>
-                </li>
-			</ul>
-		</div>
-	</header>
-    <article>
-        <div class=" maindiv" >
-            <ul>
-                <li><input type="text" id="title" placeholder="请在此处输入文章标题" /></li>
-                <li><input type="text" id="type" placeholder="请在此处输入文章类型，例：#OPPO#生活#体验" /></li>
-            </ul>
-            <div class="movebtn" id="gsn_essay">
-            	<a   href="javascript:AddEssay()">
-               	 <input type="image" src="images/icon_finish.png" class="finish" value="上传文章" />
-            	</a>
-            </div>
-            <!--文章封面-->
-            <div class="essay_pic" id="pic">
-                <form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form">
-                    <a href="javascript:void(0)" class="file">上传封面
-                        <input type="file" id="epic" name="epic">
-                    </a>
+<header>
+	<!-- 头部菜单 -->
+	<div class="menu_area01 ">
+		<ul>
+			<li>
+				<a href="index.html">
+					<img src=" images/icon_main.png " style=" width:35px; height:35px; margin-right: 5px;">
+					PHOMark
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class=" menu_area02 ">
+		<ul>
+			<li><a href="photrix.html">Photrix</a></li>
+			<li><a href="photopic.html">热门文章</a></li>
+			<li><a href="photype.html">PHO专题</a></li>
+			<li><a href="about.html">关于我们</a></li>
+		</ul>
+	</div>
+	<div class=" menu_area03 " id="gsn_publish">
+		<ul>
+			<li><a href="search.html"><img src="  images/icon_search.png "
+										   style=" width: 25px; height: 25px; padding-right: 20px; "></a></li>
+			<li><a href="publish.html"><img src="images/icon_post.png"
+											style="width:25px;height: 25px;padding-right: 20px;"></li>
+			<li>
+				<a href="login.html" style=" color:#d81e06;" v-if="outlogin">
+					登录
+				</a>
 
-                    <!-- 保存用户自定义的背景图片 -->
-                    <img id="cropedBigImg" value='custom' alt="lorem ipsum dolor sit" data-address='' title="文章封面"
-                        src="images/insertPic.png" />
-                </form>
-            </div>
+				<a :href="'user_main.html#'+uid" v-if="onlogin">
+					<img :src="uhead" onerror="javascript:this.src='images/img_all.png';"
+						 style="width: 50px; height: 50px ;border-radius:50%;position: absolute; top: 6px;">
+				</a>
+			</li>
+		</ul>
+	</div>
+</header>
+<article>
+	<div class=" maindiv" >
+		<ul>
+			<li><input type="text" id="title" placeholder="请在此处输入文章标题" /></li>
+			<li><input type="text" id="type" placeholder="请在此处输入文章类型，例：#OPPO#生活#体验" /></li>
+		</ul>
+		<div class="movebtn" id="gsn_essay">
+			<a   href="javascript:AddEssay()">
+				<input type="image" src="images/icon_finish.png" class="finish" value="上传文章" />
+			</a>
+		</div>
+		<!--文章封面-->
+		<div class="essay_pic" id="pic">
+			<form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form">
+				<a href="javascript:void(0)" class="file">上传封面
+					<input type="file" id="epic" name="epic">
+				</a>
 
-            <textarea id="editor1"></textarea>
-        </div>
+				<!-- 保存用户自定义的背景图片 -->
+				<img id="cropedBigImg" value='custom' alt="lorem ipsum dolor sit" data-address='' title="文章封面"
+					 src="images/insertPic.png" />
+			</form>
+		</div>
 
-    </article>
+		<textarea id="editor1"></textarea>
+	</div>
+
+</article>
 
 </body>
-	
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/vue.js"></script>
-	<script type="text/javascript" src="js/axios.js"></script>
-	<script type="text/javascript" src="js/qs.js"></script>
-	<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/axios.js"></script>
+<script type="text/javascript" src="js/qs.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
 <script src="ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-    CKEDITOR.replace('editor1', { height: '1000px', width: '100%' });
-    
-    $('#epic').on('change', function () {
-        var filePath = $(this).val(), //获取到input的value，里面是文件的路径
-            fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
-            src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
-        // 检查是否是图片
-        if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
-            error_prompt_alert('上传错误,文件格式必须为：png/jpg/jpeg');
-            return;
-        }
-        $('#cropedBigImg').attr('src', src);
-    });
+	CKEDITOR.replace('editor1', { height: '1000px', width: '100%' });
+
+	$('#epic').on('change', function () {
+		var filePath = $(this).val(), //获取到input的value，里面是文件的路径
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
+				src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
+		// 检查是否是图片
+		if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+			error_prompt_alert('上传错误,文件格式必须为：png/jpg/jpeg');
+			return;
+		}
+		$('#cropedBigImg').attr('src', src);
+	});
 </script>
 <script type="text/javascript">
-var pic11 = new Vue({
-	el:'#pic',
-	data:{
-		uname:'',//用户名
-		uhead:'',//用户头像
-		uid:'',
-		onlogin:false,
-		outlogin:true
-	},
-	methods:{
-		
-	},
-	mounted:function(){
-		
-	}
-});
+	var mid;
+	var pic11 = new Vue({
+		el:'#pic',
+		data:{
+			uname:'',//用户名
+			uhead:'',//用户头像
+			uid:'',
+			onlogin:false,
+			outlogin:true
+		},
+		methods:{
 
-var app= new Vue({
-	el:'#gsn_publish',
-	data:{
-		uname:'',//用户名
-		uhead:'',//用户头像
-		uid:'',
-		onlogin:false,
-		outlogin:true
-	},
-	methods:{
-		
-	},
-	mounted:function(){
-		//页面加载完成后
-		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-			if(fn1.data.code==0){
-				//用户未登录
-                localStorage.clear();
-				alert('请先进行登录');
-				window.location.href='login.html';
-				
-			}else{
-				console.log(fn1.data.member);
-				this.uname=fn1.data.member.nickName;
-				this.uhead=fn1.data.member.mpic;
-				this.uid=fn1.data.member.mno;
-				this.outlogin=false;
-				this.onlogin=true;
-			}
-		}));
-	}
-});
-//检查用户是否登录
-function checkLogin(){
-    var token=localStorage.getItem("token");
-    console.log(token);
-	return axios({
-        method: 'post',
-        url :   '/base/check',
-        data: {"token":token}
-    });
-}
+		},
+		mounted:function(){
 
-//function AddEssay(){
-//	var ename =$('#title').val();//文章标题
-//	var	epic =$('#epic').val();// 文章封面
-//	var edser = CKEDITOR.instances.editor1.getData();//文章内容
-//	var tno =$('#type').val();//文章类型
-//	$.post('essay.action',{op:'add',ename:ename,epic:epic,edser:edser,spare2:tno},function(data){
-//		if(data>0){
-//			alert('发帖成功');
-//			$('#title').val('');
-//			CKEDITOR.instances.editor1.setData('');
-//		}else{
-//		alert('发帖失败');
-//	}
-//	},'json');
-//
-//}
-
-
-function AddEssay(){
-	var ename =$('#title').val();//文章标题
-	var edser = CKEDITOR.instances.editor1.getData();//文章内容
-	var tno =$('#type').val();//文章类型
-	$.ajaxFileUpload({
-		url:'essay.action',
-		secureuri:false,
-		fileElementId:'epic',
-		dataType:'json',
-		data:{ename:ename,edser:edser,spare2:tno},
-		success:function(data){
-			if(data>0){
-				alert('发帖成功');
-			}else{
-				alert('发帖失败');
-			}
 		}
 	});
-}
+
+	var app= new Vue({
+		el:'#gsn_publish',
+		data:{
+			uname:'',//用户名
+			uhead:'',//用户头像
+			uid:'',
+			onlogin:false,
+			outlogin:true
+		},
+		methods:{
+
+		},
+		mounted:function(){
+			//页面加载完成后
+			axios.all([checkLogin()]).then(axios.spread((fn1)=>{
+				if(fn1.data.code==0){
+					//用户未登录
+					localStorage.clear();
+					alert('请先进行登录');
+					window.location.href='login.html';
+
+				}else{
+					console.log(fn1.data.member);
+					this.uname=fn1.data.member.nickName;
+					this.uhead=fn1.data.member.mpic;
+					this.mid=fn1.data.member.mno;
+					this.uid=fn1.data.member.mno;
+					this.outlogin=false;
+					this.onlogin=true;
+				}
+			}));
+		}
+	});
+	//检查用户是否登录
+	function checkLogin(){
+		var token=localStorage.getItem("token");
+		console.log(token);
+		return axios({
+			method: 'post',
+			url :   '/base/check',
+			data: {"token":token}
+		});
+	}
+
+	//function AddEssay(){
+	//	var ename =$('#title').val();//文章标题
+	//	var	epic =$('#epic').val();// 文章封面
+	//	var edser = CKEDITOR.instances.editor1.getData();//文章内容
+	//	var tno =$('#type').val();//文章类型
+	//	$.post('essay.action',{op:'add',ename:ename,epic:epic,edser:edser,spare2:tno},function(data){
+	//		if(data>0){
+	//			alert('发帖成功');
+	//			$('#title').val('');
+	//			CKEDITOR.instances.editor1.setData('');
+	//		}else{
+	//		alert('发帖失败');
+	//	}
+	//	},'json');
+	//
+	//}
+
+
+	function AddEssay(){
+		var ename =$('#title').val();//文章标题
+		var edser = CKEDITOR.instances.editor1.getData();//文章内容
+		var tname =$('#type').val();//文章类型
+
+		var file = document.getElementById("epic").files;
+		var formdata = new FormData();//创建一个表单
+
+		formdata.append("file", file);
+		formdata.append("ename",ename);
+		formdata.append("edser",edser);
+		formdata.append("tname",tname);
+		formdata.append("mno",mid);
+
+		axios({
+			url: '/upload/image',
+			method: 'post',
+			data: formdata,
+			withCredentials: true,
+			headers: {
+				'Content-Type': 'multipart/form-data'
+			}
+		}).then((res) => { //这里根据自己具体需求即可
+				console.log("文件上传成功")
+				alert("发表文章成功")
+		});
+
+		// $.ajaxFileUpload({
+		// 	url:'essay/fileUploadEssay',
+		// 	secureuri:false,
+		// 	fileElementId:'epic',
+		// 	dataType:'json',
+		// 	data:{ename:ename,edser:edser,spare2:tno,mno:mid},
+		// 	success:function(data){
+		// 		if(data>0){
+		// 			alert('发帖成功');
+		// 		}else{
+		// 			alert('发帖失败');
+		// 		}
+		// 	}
+		// });
+	}
 </script>
 </html>
