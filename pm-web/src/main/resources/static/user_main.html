@@ -214,94 +214,197 @@
 			},
 			methods:{
 				doFollow:function(listid,status){
+
+					var mno=this.mno;
+					console.log(listid);
+
+
+
 					if(status==2){
-						axios.post("/follow/delete02",qs.stringify({mno:listid,status:status}
-						)).then(result=>{							
-							var data= result.data;							
-							if(data>0){
+						axios.get('/follow/delete02',
+								{params: {mno:listid,bno:mno,status:status}}
+
+						).then(result=>{
+							var c= result.data.code;
+							if(c>0){
 								alert('取关成功');
-								axios.all([checkLogin(),findFollow(),findBeFollowed()])
-								.then(axios.spread((fn1,fn2,fn3)=>{
-									if(!fn1.data){
-										//用户未登录
-										alert("请先登录");
-										window.location.href='login.html';
-									
-									}else{
-										this.follows=fn2.data.follows;
-										this.followeds=fn3.data.followeds;
-									}
-								}));
+								axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
+										.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
+											// console.log(fn1.data);
+											// console.log(fn2.data);
+
+											if(fn1.data.code==0){
+												//用户未登录
+												localStorage.clear();
+												alert('请先进行登录');
+												window.location.href='login.html';
+
+											}else{
+
+												this.nickName=fn1.data.member.nickName;
+												this.pic=fn1.data.member.mpic;
+												this.msign=fn1.data.member.msign;
+												this.mno=fn1.data.member.mno;
+												console.log(this.mno);
+												this.elist=fn2.data.data.elist;
+												this.follows=fn3.data.data.follows;
+												console.log(this.follows);
+												this.favorites=fn4.data.data.favorites;
+												this.user=fn5.data.data.user;
+												this.followeds=fn6.data.data.followeds;
+												console.log(this.followeds);
+												this.fnums=fn7.data.data.fnums;
+												this.bnums=fn7.data.data.bnums;
+												this.messaynums=fn8.data.data.EssayNum[0].messaynums;
+												this.outlogin=false;
+												this.onlogin=true;
+
+											}
+										}));
 							}else {
 								alert('取关失败001');
 							}
 						});
 					}else if(status==1){
-						axios.post("follow.action",qs.stringify({op:'delete',bno:listid,status:status}
-						)).then(result=>{
-							var data= result.data;
-							if(data>0){
+						axios.get('/follow/delete01',
+								{params:{bno:listid,mno:mno,status:status}}
+						).then(result=>{
+							var c= result.data.code;
+							if(c>0){
 								alert('取关成功');
-								axios.all([checkLogin(),findFollow(),findBeFollowed()])
-								.then(axios.spread((fn1,fn2,fn3)=>{
-									if(!fn1.data){
-										//用户未登录
-										alert("请先登录");
-										window.location.href='login.html';
-									
-									}else{
-										this.follows=fn2.data.follows;
-										this.followeds=fn3.data.followeds;
-									}
-								}));
+								axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
+										.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
+											// console.log(fn1.data);
+											// console.log(fn2.data);
+
+
+											if(fn1.data.code==0){
+												//用户未登录
+												localStorage.clear();
+												alert('请先进行登录');
+												window.location.href='login.html';
+
+											}else{
+
+												this.nickName=fn1.data.member.nickName;
+												this.pic=fn1.data.member.mpic;
+												this.msign=fn1.data.member.msign;
+												this.mno=fn1.data.member.mno;
+												console.log(this.mno);
+												this.elist=fn2.data.data.elist;
+												this.follows=fn3.data.data.follows;
+												console.log(this.follows);
+												this.favorites=fn4.data.data.favorites;
+												this.user=fn5.data.data.user;
+												this.followeds=fn6.data.data.followeds;
+												console.log(this.followeds);
+												this.fnums=fn7.data.data.fnums;
+												this.bnums=fn7.data.data.bnums;
+												this.messaynums=fn8.data.data.EssayNum[0].messaynums;
+												this.outlogin=false;
+												this.onlogin=true;
+
+
+											}
+										}));
 							}else {
 								alert('取关失败002');
 							}
 						});
 					}else if(status==0){
-						axios.post("follow.action",qs.stringify({op:'judge',mno:listid}
-						)).then(result=>{
-							var data= result.data;
-							if(data>0){
-								axios.post("follow.action",qs.stringify({op:'addeach',mno:listid}
-								)).then(result=>{
-									var data= result.data;
-									if(data>0){
-										alert('关注成功，修改');
-										axios.all([checkLogin(),findFollow(),findBeFollowed()])
-										.then(axios.spread((fn1,fn2,fn3)=>{
-											if(!fn1.data){
-												//用户未登录
-												alert("请先登录");
-												window.location.href='login.html';
-											
-											}else{
-												this.follows=fn2.data.follows;
-												this.followeds=fn3.data.followeds;
-											}
-										}));
+						axios.get('/follow/checkFollows',
+								{params:{mno:listid,bno:mno}}
+						).then(result=>{
+
+							var c= result.data.code;
+							if(c>0){
+								axios.get("/follow/add02",
+										{params:{mno:listid,bno:mno}}
+								).then(result=>{
+									var c= result.data.code;
+									if(c>0){
+										alert('关注成功');
+										axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
+												.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
+													// console.log(fn1.data);
+													// console.log(fn2.data);
+
+
+													if(fn1.data.code==0){
+														//用户未登录
+														localStorage.clear();
+														alert('请先进行登录');
+														window.location.href='login.html';
+
+													}else{
+
+														this.nickName=fn1.data.member.nickName;
+														this.pic=fn1.data.member.mpic;
+														this.msign=fn1.data.member.msign;
+														this.mno=fn1.data.member.mno;
+														console.log(this.mno);
+														this.elist=fn2.data.data.elist;
+														this.follows=fn3.data.data.follows;
+														console.log(this.follows);
+														this.favorites=fn4.data.data.favorites;
+														this.user=fn5.data.data.user;
+														this.followeds=fn6.data.data.followeds;
+														console.log(this.followeds);
+														this.fnums=fn7.data.data.fnums;
+														this.bnums=fn7.data.data.bnums;
+														this.messaynums=fn8.data.data.EssayNum[0].messaynums;
+														this.outlogin=false;
+														this.onlogin=true;
+
+
+													}
+												}));
 									}else {
 										alert('关注失败003');
 									}
 								});
 							}else {
-								axios.post("follow.action",qs.stringify({op:'add',bno:listid}
-								)).then(result=>{
-									var data= result.data;
-									if(data>0){
+								axios.get("/follow/addFollow",
+										{params:{bno:listid,mno:mno}}
+								).then(result=>{
+									var c= result.data.code;
+									if(c>0){
 										alert('关注成功，添加');
-										axios.all([checkLogin(),findFollow(),findBeFollowed()])
-										.then(axios.spread((fn1,fn2,fn3)=>{
-											if(!fn1.data){
-												//用户未登录
-												alert("请先登录");
-												window.location.href='login.html';
-											
-											}else{
-												this.follows=fn2.data.follows;
-												this.followeds=fn3.data.followeds;
-											}
-										}));
+										axios.all([checkLogin(),findEassy(),findFollow(),FavoriteType(),findIndex(),findBeFollowed(),findFans(),getEssayNum()])
+												.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
+													// console.log(fn1.data);
+													// console.log(fn2.data);
+
+
+													if(fn1.data.code==0){
+														//用户未登录
+														localStorage.clear();
+														alert('请先进行登录');
+														window.location.href='login.html';
+
+													}else{
+
+														this.nickName=fn1.data.member.nickName;
+														this.pic=fn1.data.member.mpic;
+														this.msign=fn1.data.member.msign;
+														this.mno=fn1.data.member.mno;
+														console.log(this.mno);
+														this.elist=fn2.data.data.elist;
+														this.follows=fn3.data.data.follows;
+														console.log(this.follows);
+														this.favorites=fn4.data.data.favorites;
+														this.user=fn5.data.data.user;
+														this.followeds=fn6.data.data.followeds;
+														console.log(this.followeds);
+														this.fnums=fn7.data.data.fnums;
+														this.bnums=fn7.data.data.bnums;
+														this.messaynums=fn8.data.data.EssayNum[0].messaynums;
+														this.outlogin=false;
+														this.onlogin=true;
+
+
+													}
+												}));
 									}else {
 										alert('关注失败004');
 									}
@@ -309,6 +412,7 @@
 							}
 						});
 					}
+
 				},
 				doMain:function(id){
 					window.open("user_main.html#"+id);
@@ -320,7 +424,7 @@
 							.then(axios.spread((fn1,fn2,fn3,fn4,fn5,fn6,fn7,fn8)=>{
 								// console.log(fn1.data);
 								// console.log(fn2.data);
-								console.log(fn8.data);
+
 
 								if(fn1.data.code==0){
 									//用户未登录
@@ -334,11 +438,14 @@
 									this.pic=fn1.data.member.mpic;
 									this.msign=fn1.data.member.msign;
 									this.mno=fn1.data.member.mno;
+									console.log(this.mno);
 									this.elist=fn2.data.data.elist;
 									this.follows=fn3.data.data.follows;
+									console.log(this.follows);
 									this.favorites=fn4.data.data.favorites;
 									this.user=fn5.data.data.user;
 									this.followeds=fn6.data.data.followeds;
+									console.log(this.followeds);
 									this.fnums=fn7.data.data.fnums;
 									this.bnums=fn7.data.data.bnums;
 									this.messaynums=fn8.data.data.EssayNum[0].messaynums;
@@ -346,14 +453,6 @@
 									this.onlogin=true;
 
 
-
-
-
-									console.log(this.elist);
-									// console.log("ss="+this.mpic);
-									// console.log(this.user);
-									// console.log(this.follows);
-									// console.log(this.followeds);
 								}
 							}));
 				//页面加载完成后
