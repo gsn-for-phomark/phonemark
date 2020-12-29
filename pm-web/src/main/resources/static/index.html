@@ -314,14 +314,14 @@ var app= new Vue({
 	mounted:function(){
 		//页面加载完成后
 		axios.all([checkLogin()]).then(axios.spread((fn1)=>{
-            if(fn1.data.data.code==0){
+            if(fn1.data.code==0){
                 //用户未登录
                 localStorage.clear();
             }else{
                 console.log(fn1.data.member);
-                this.uname=fn1.data.data.member.nickName;
-                this.uhead=fn1.data.data.member.mpic;
-                this.uid=fn1.data.data.member.mno;
+                this.uname=fn1.data.member.nickName;
+                this.uhead=fn1.data.member.mpic;
+                this.uid=fn1.data.member.mno;
                 this.outlogin=false;
                 this.onlogin=true;
             }

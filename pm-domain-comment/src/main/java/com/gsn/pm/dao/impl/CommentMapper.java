@@ -98,7 +98,7 @@ public interface CommentMapper extends MisBaseMapper<Commentinfo> {
      * @return
      */
     @Select("SELECT COUNT(*),eno comcount from commentinfo WHERE eno=#{eno} GROUP BY eno")
-    int countCom(@Param("eno") Integer eno);
+    Integer countCom(@Param("eno") Integer eno);
 
 
     /**
