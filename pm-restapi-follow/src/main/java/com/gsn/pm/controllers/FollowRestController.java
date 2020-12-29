@@ -124,8 +124,9 @@ public class FollowRestController {
             Followinfo followinfo =new Followinfo();
             followinfo.setMno(mno);
             followinfo.setBno(bno);
+            System.out.println("添加关注：=="+followinfo.toString());
             Map<String, Object> map = new HashMap<>();
-            int i= followService.addFollow(followinfo);
+            int i= followService.add02(followinfo);
             if(i==1){
                 logger.info("关注数据的修改成功   1");
                 map.put("code", 1);
@@ -154,6 +155,7 @@ public class FollowRestController {
             followinfo.setMno(mno);
             followinfo.setBno(bno);
             followinfo.setStatus(status);
+            System.out.println(followinfo.toString());
             Map<String, Object> map = new HashMap<>();
             int i= followService.delete01(followinfo);
             if(i==1){

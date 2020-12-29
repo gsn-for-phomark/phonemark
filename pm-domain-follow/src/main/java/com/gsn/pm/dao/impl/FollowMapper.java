@@ -51,8 +51,8 @@ public interface FollowMapper extends MisBaseMapper<Followinfo> {
             " and `status`=2 UNION all"+
             " SELECT status from followinfo "+
             " WHERE 1=1 "+
-            " and mno= #{mno}"+
-            " and bno= #{bno}"+
+            " and mno= #{bno}"+
+            " and bno= #{mno}"+
             " and `status`=2")
     List<Followinfo> findRelation(@Param("mno")Integer mno,@Param("bno")Integer bno);
     /**
