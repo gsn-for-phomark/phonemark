@@ -19,8 +19,8 @@ public interface AddFileCilent {
             produces = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE}
 
     )
-    String FileUpload(@RequestBody(required = false) MultipartFile file
+    String FileUpload(@RequestPart("img") MultipartFile file
             ,@RequestParam("ename") String ename,@RequestParam("edser") String edser,@RequestParam("tname")
-                              String tname,@RequestParam("mno") Integer mno);
+                              String tname,@RequestParam("mid") Integer mid);
 
 }

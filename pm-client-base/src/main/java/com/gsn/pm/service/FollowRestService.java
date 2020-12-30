@@ -83,7 +83,14 @@ public class FollowRestService {
 
     @HystrixCommand(fallbackMethod = "findFollowFallback")
     public String findFollow(Integer mno) {
-        return followClient.dofindFollow(mno);
+
+        try{
+            return followClient.dofindFollow(mno);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
     }
     private String findFollowFallback(Integer mno){
         Map map=new HashMap();

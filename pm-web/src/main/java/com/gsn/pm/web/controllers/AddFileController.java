@@ -28,11 +28,9 @@ public class AddFileController {
             produces = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_UTF8_VALUE}
 
     )
-    public CompletableFuture<String> fileUploadEssay(@RequestBody(required = false) MultipartFile file,
+    public CompletableFuture<String> fileUploadEssay(@RequestPart("img") MultipartFile file,
                                                      @RequestParam("ename") String ename, @RequestParam("edser") String edser,
                                                      @RequestParam("tname") String tname, @RequestParam("mid") Integer mid){
-        System.out.println(file);
-        System.out.printf(ename);
         return uploadFuture.FileUpload(file,ename,edser,tname,mid);
     }
 }

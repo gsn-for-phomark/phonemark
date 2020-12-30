@@ -20,18 +20,12 @@ public class AddFileRestService {
     private AddFileCilent uploadCilent;
 
     @HystrixCommand(fallbackMethod = "FileUploadFallback")
-    public String FileUpload(MultipartFile file,String ename,String edesr,String tname,Integer mno) {
+    public String FileUpload(MultipartFile file,String ename,String edesr,String tname,Integer mid) {
 
-        try{
-            return uploadCilent.FileUpload(file,ename,edesr,tname,mno);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-
+            return uploadCilent.FileUpload(file,ename,edesr,tname,mid);
     }
 
-    private String FileUploadFallback(MultipartFile file,String ename,String edesr,String tname,Integer mno){
+    private String FileUploadFallback(MultipartFile file,String ename,String edesr,String tname,Integer mid){
         Map map=new HashMap();
         map.put("code","-1");
         map.put("msg","FileUpload异步服务异常");

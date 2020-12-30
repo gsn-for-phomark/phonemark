@@ -218,9 +218,9 @@ public class FollowRestController {
     @RequestMapping(value = "/findFollow",method = RequestMethod.GET)
     public CompletableFuture<String> dofindFollow(Integer mno)throws Exception{
         return   CompletableFuture.supplyAsync(() -> {
-            Followinfo followinfo =new Followinfo();
+            //Followinfo followinfo =new Followinfo();
             FollowList followList =new FollowList();
-            followinfo.setMno(mno);
+            //followinfo.setMno(mno);
             followList.setFollno(mno);
             Map<String, Object> data = followService.findFollow(followList,mno);
             //协议

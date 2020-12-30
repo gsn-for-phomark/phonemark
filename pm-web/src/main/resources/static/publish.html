@@ -68,7 +68,7 @@
 		<div class="essay_pic" id="pic">
 			<form class="container" enctype="multipart/form-data" method="post" id='formBox' name="form" action="">
 				<a href="javascript:void(0)" class="file">上传封面
-					<input type="file" id="epic" name="epic" value="epic">
+					<input type="file" id="epic" name="img" value="epic">
 				</a>
 
 				<!-- 保存用户自定义的背景图片 -->
@@ -194,15 +194,15 @@
 		var edser = CKEDITOR.instances.editor1.getData();//文章内容
 		var tname =$('#type').val();//文章类型
 
-		var file = document.getElementById("epic").files[0].name;
-        //var file=$("#epic")[0];
-		var formdata = new FormData();//创建一个表单
-        console.log(file);
-        console.log(ename);
-        console.log(edser);
-        console.log(tname);
-        console.log(mid);
-		formdata.append("file", file);
+		// var file = document.getElementById("epic").files[0].name;
+        // var file=$("#epic")[0];
+		var formdata = new FormData(formBox);//创建一个表单
+        // console.log(file);
+        // console.log(ename);
+        // console.log(edser);
+        // console.log(tname);
+        // console.log(mid);
+		// formdata.append("file", file);
 		formdata.append("ename",ename);
 		formdata.append("edser",edser);
 		formdata.append("tname",tname);
@@ -220,14 +220,10 @@
 				'Content-Type': 'multipart/form-data;application/json;charset=UTF-8'
 			}
 		}).then((res) => { //这里根据自己具体需求即可
-            console.log(res)
-		    if (res.code>0){
-                console.log("文件上传成功")
-                alert("发表文章成功")
-            }else {
-		        alert("滚蛋，失败了！！")
-            }
-
+            console.log(res);
+            console.log("文件上传成功");
+            alert("发表文章成功");
+            window.location.href='index.html';
 		});
 
 		// $.ajaxFileUpload({

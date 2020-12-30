@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="essay后端完成">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base-zuul-gateway/src/main/java/com/gsn/pm/fallback/ZuulFallBackHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/base-zuul-gateway/src/main/java/com/gsn/pm/fallback/ZuulFallBackHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/AddFileCilent.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/AddFileCilent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/AddFileFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/AddFileFuture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/AddFileRestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/AddFileRestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-fileUpload/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/FollowRestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/FollowRestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/service/UploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/service/UploadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-follow/src/main/java/com/gsn/pm/controllers/FollowRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-follow/src/main/java/com/gsn/pm/controllers/FollowRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/AddFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/AddFileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/Application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/publish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/user_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/user_main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +96,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" />
   </component>
   <component name="RecentsManager">
@@ -124,20 +121,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PmWebApp">
-    <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="pm-base" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.BaseRestApiApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.FileUploadApplication">
     <configuration name="ConfigApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="base-git-config" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp" />
@@ -159,19 +143,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="base-eureka-config" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FileUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="pm-fileUpload" />
       <extension name="coverage">
@@ -181,6 +152,19 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FileUploadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FollowRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-restapi-follow" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FollowRestApiApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,6 +183,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PM_restapi_pinfo_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-restapi-pinfo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_pinfo_App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PmWebApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="pm-web" />
       <extension name="coverage">
@@ -208,9 +205,6 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PmWebApp" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -242,10 +236,10 @@
       <item itemvalue="Spring Boot.HystrixDashboardApp" />
       <item itemvalue="Spring Boot.TurbineApp" />
       <item itemvalue="Spring Boot.PM_restapi_essay_App" />
-      <item itemvalue="Spring Boot.PmWebApp" />
-      <item itemvalue="Spring Boot.BaseRestApiApp" />
+      <item itemvalue="Spring Boot.FollowRestApiApp" />
+      <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
       <item itemvalue="Spring Boot.ZuulApp" />
-      <item itemvalue="Spring Boot.EurekaForHaConfig" />
+      <item itemvalue="Spring Boot.PmWebApp" />
       <item itemvalue="Spring Boot.FileUploadApplication" />
     </list>
     <recent_temporary>
@@ -253,8 +247,8 @@
         <item itemvalue="Spring Boot.PmWebApp" />
         <item itemvalue="Spring Boot.ZuulApp" />
         <item itemvalue="Spring Boot.FileUploadApplication" />
-        <item itemvalue="Spring Boot.BaseRestApiApp" />
-        <item itemvalue="Spring Boot.EurekaForHaConfig" />
+        <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
+        <item itemvalue="Spring Boot.FollowRestApiApp" />
       </list>
     </recent_temporary>
   </component>
@@ -311,6 +305,7 @@
       <workItem from="1609120961660" duration="1914000" />
       <workItem from="1609227684254" duration="11324000" />
       <workItem from="1609243207193" duration="17138000" />
+      <workItem from="1609293465593" duration="5941000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -388,7 +383,8 @@
     <MESSAGE value="essay后端完成" />
     <MESSAGE value="essay 文件" />
     <MESSAGE value="essay 文件上传" />
-    <option name="LAST_COMMIT_MESSAGE" value="essay 文件上传" />
+    <MESSAGE value="文章上传 postman 成功" />
+    <option name="LAST_COMMIT_MESSAGE" value="文章上传 postman 成功" />
   </component>
   <component name="WindowStateProjectService">
     <state x="301" y="64" key="#PmWebApp" timestamp="1609227881256">
@@ -411,42 +407,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="551" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609227721346" />
-    <state width="1098" height="351" key="GridCell.Tab.0.bottom" timestamp="1609260462466">
+    <state width="1098" height="455" key="GridCell.Tab.0.bottom" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609260462466" />
-    <state width="1098" height="351" key="GridCell.Tab.0.center" timestamp="1609260462466">
+    <state width="1098" height="455" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.0.center" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609260462466" />
-    <state width="1098" height="351" key="GridCell.Tab.0.left" timestamp="1609260462466">
+    <state width="1098" height="455" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.0.left" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609260462466" />
-    <state width="1098" height="351" key="GridCell.Tab.0.right" timestamp="1609260462466">
+    <state width="1098" height="455" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.0.right" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609260462466" />
-    <state width="1098" height="351" key="GridCell.Tab.1.bottom" timestamp="1609260462467">
+    <state width="1098" height="455" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.1.bottom" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609260462467" />
-    <state width="1098" height="351" key="GridCell.Tab.1.center" timestamp="1609260462466">
+    <state width="1098" height="455" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.1.center" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609260462466" />
-    <state width="1098" height="351" key="GridCell.Tab.1.left" timestamp="1609260462466">
+    <state width="1098" height="455" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.1.left" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609260462466" />
-    <state width="1098" height="351" key="GridCell.Tab.1.right" timestamp="1609260462467">
+    <state width="1098" height="455" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state width="1098" height="455" key="GridCell.Tab.1.right" timestamp="1609299119306">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1098" height="351" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609260462467" />
-    <state x="272" y="0" key="SettingsEditor" timestamp="1609243254125">
+    <state width="1098" height="455" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
+    <state x="272" y="0" key="SettingsEditor" timestamp="1609293491069">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="272" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609243254125" />
+    <state x="272" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609293491069" />
+    <state x="560" y="214" key="git4idea.merge.GitMergeDialog" timestamp="1609260820183">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="560" y="214" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1609260820183" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
