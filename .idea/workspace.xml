@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="essay后端完成">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="essay 文件上传测试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/AddFileCilent.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/AddFileCilent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/AddFileFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/future/AddFileFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/AddFileRestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/AddFileRestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/FollowRestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/service/FollowRestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-follow/src/main/java/com/gsn/pm/controllers/FollowRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-follow/src/main/java/com/gsn/pm/controllers/FollowRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/AddFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/AddFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/Application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/publish.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/publish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/user_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/user_main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +52,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\maven_jar" />
-        <option name="mavenHome" value="D:/apache-maven-3.6.3" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../apache-maven-3.6.3" />
         <option name="userSettingsFile" value="D:\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -122,6 +111,17 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.FileUploadApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConfigApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="base-git-config" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.ConfigApp" />
@@ -306,6 +306,7 @@
       <workItem from="1609227684254" duration="11324000" />
       <workItem from="1609243207193" duration="17138000" />
       <workItem from="1609293465593" duration="5941000" />
+      <workItem from="1619408130293" duration="1306000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -349,7 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607603427512</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="essay 文件上传测试">
+      <created>1609227082873</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609227082873</updated>
+    </task>
+    <task id="LOCAL-00008" summary="essay 文件上传测试">
+      <created>1609227132342</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609227132342</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,6 +462,8 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="560" y="214" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1609260820183" />
+    <MESSAGE value="essay 文件上传测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="essay 文件上传测试" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
