@@ -38,6 +38,7 @@ public class EssayinfoServiceImpl implements EssayinfoService{
         return 0;
     }
 
+
     @Override
     public Map<String, Object> findEssayandCommentByEtype(EssayComment t)  {
         List<EssayComment> list =essayinfoMapper.findEssayandCommentByEtype(t.getTno());
@@ -72,8 +73,8 @@ public class EssayinfoServiceImpl implements EssayinfoService{
     }
 
     @Override
-    public int delete(Essayinfo t) {
-        return essayinfoMapper.deleteByPrimaryKey(t.getEno());
+    public int delete(Integer eno) {
+        return essayinfoMapper.deleteByPrimaryKey(eno);
     }
 
     @Override

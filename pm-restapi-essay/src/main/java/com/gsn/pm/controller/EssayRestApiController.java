@@ -261,7 +261,7 @@ public class EssayRestApiController {
         return CompletableFuture.supplyAsync(() -> {
             Essayinfo essayinfo=new Essayinfo();
             essayinfo.setEno(eno);
-            essayinfoService.delete(essayinfo);
+            essayinfoService.delete(eno);
 
             logger.info("删除->ID=" + essayinfo.getMno());
             Map<String, Object> map = new HashMap<>();

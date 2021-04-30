@@ -12,13 +12,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: Asd8711341
-    url: jdbc:mysql://101.200.216.156:3306/PhoneMark?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong
+    url: jdbc:mysql://1.15.83.26:3306/PhoneMark?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong
   cloud:    ##FeignClient超时设置
     loadbalancer.retry.enabled: true
     stream:
       kafka:
         binder:
-          brokers: 101.200.81.3
+          brokers: 121.5.167.32
   application:
     name: pm-web
 

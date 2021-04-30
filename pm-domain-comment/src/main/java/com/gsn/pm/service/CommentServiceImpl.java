@@ -85,8 +85,8 @@ public class CommentServiceImpl implements CommentService{
      * @return
      */
     @Override
-    public int delCom(Commentinfo t) {
-        return commentMapper.deleteByPrimaryKey(t.getCno());
+    public int delCom(Integer cno) {
+        return commentMapper.deleteByPrimaryKey(cno);
     }
 
     /**

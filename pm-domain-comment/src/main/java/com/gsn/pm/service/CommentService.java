@@ -48,7 +48,7 @@ public interface CommentService {
      * @param t
      * @return
      */
-    public int delCom(Commentinfo t);
+    public int delCom(Integer cno);
 
 
     /**

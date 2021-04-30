@@ -19,13 +19,13 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 101.200.81.3
+          brokers: 121.5.167.32
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: Asd8711341
-    url: jdbc:mysql://101.200.216.156:3306/PhoneMark?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong
+    url: jdbc:mysql://1.15.83.26:3306/PhoneMark?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong
     # 初始化大小，最小，最大
     initialSize: 5
     minIdle: 5
@@ -50,9 +50,8 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat=true
   redis:
-    host: 101.200.216.156
+    host: 1.15.83.26
     port: 6379
-    password: asd8711341
 #监控配置
 info:
   app.name: MICROSERVICE-PROVIDER-BASE

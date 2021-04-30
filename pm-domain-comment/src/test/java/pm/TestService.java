@@ -89,7 +89,7 @@ public class TestService {
         logger.info("调用testDelCom");
         Commentinfo commentinfo = new Commentinfo();
         commentinfo.setCno(65);
-        int i=commentService.delCom(commentinfo);
+        int i=commentService.delCom(commentinfo.getCno());
         System.out.println(i);
     }
 

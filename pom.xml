@@ -35,6 +35,7 @@
         <module>pm-domain-follow</module>
         <module>pm-restapi-follow</module>
         <module>pm-fileUpload</module>
+        <module>pm-restapi-backstage</module>
     </modules>
 
     <properties>

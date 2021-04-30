@@ -83,13 +83,13 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
     List<EssayList> findEssayList(@Param("mno") Integer mno);
 
 
-//    /**
-//     * 文章删除
-//     * @param eno
-//     * @return
-//     */
-//    @Delete("delete from essayinfo where eno=#{eno}")
-//    int delete(@Param("eno") Integer eno);
+    /**
+     * 文章删除
+     * @param eno
+     * @return
+     */
+    @Delete("delete from essayinfo where eno=#{eno}")
+    int delete(@Param("eno") Integer eno);
 
     /**
      * 后端文章状态值的修改(未测)

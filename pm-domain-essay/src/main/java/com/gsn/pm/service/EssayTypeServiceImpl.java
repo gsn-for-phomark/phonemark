@@ -66,8 +66,8 @@ public class EssayTypeServiceImpl implements EssayTypeService{
     }
 
     @Override
-    public int delete(EssayType t) {
-        return essayTypeMapper.deleteByPrimaryKey(t.getTno());
+    public int delete(Integer tno) {
+        return essayTypeMapper.deleteByPrimaryKey(tno);
     }
 
     @Override
