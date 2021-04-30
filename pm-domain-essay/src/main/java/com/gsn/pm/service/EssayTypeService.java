@@ -45,7 +45,7 @@ public interface EssayTypeService {
     /**
      * 文章类型删除
      */
-    public int delete(EssayType t);
+    public int delete(Integer tno);
 
     /**
      * 分页查询

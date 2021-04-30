@@ -19,7 +19,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 101.200.81.3
+          brokers: 121.5.167.32
 
   application:
     name: base-git-config

@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/pm-domain-follow/pm-domain-follow.iml" filepath="$PROJECT_DIR$/pm-domain-follow/pm-domain-follow.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-domain-pinfo/pm-domain-pinfo.iml" filepath="$PROJECT_DIR$/pm-domain-pinfo/pm-domain-pinfo.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-fileUpload/pm-fileUpload.iml" filepath="$PROJECT_DIR$/pm-fileUpload/pm-fileUpload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pm-restapi-backstage/pm-restapi-backstage.iml" filepath="$PROJECT_DIR$/pm-restapi-backstage/pm-restapi-backstage.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-restapi-comment/pm-restapi-comment.iml" filepath="$PROJECT_DIR$/pm-restapi-comment/pm-restapi-comment.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-restapi-essay/pm-restapi-essay.iml" filepath="$PROJECT_DIR$/pm-restapi-essay/pm-restapi-essay.iml" />
       <module fileurl="file://$PROJECT_DIR$/pm-restapi-follow/pm-restapi-follow.iml" filepath="$PROJECT_DIR$/pm-restapi-follow/pm-restapi-follow.iml" />

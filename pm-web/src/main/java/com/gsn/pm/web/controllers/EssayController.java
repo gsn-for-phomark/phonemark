@@ -22,16 +22,6 @@ public class EssayController {
     @Autowired
     private EssayFuture essayFuture;
 
-//    @RequestMapping(value = "/{id}")
-//    public CompletableFuture<String> findById(@PathVariable Integer id) {
-//        return piclibFuture.findById(id);
-//    }
-//
-//    @RequestMapping(value = "/findAll", method = RequestMethod.POST)
-//    public CompletableFuture<String> findAll(Integer page, Integer pageSize, String description) {
-//        return piclibFuture.findPage(page, pageSize, description);
-//    }
-
     @RequestMapping(value = "/findEinfo" ,method = RequestMethod.GET)
     public CompletableFuture<String> findEssayInfo(){
         return essayFuture.findEssayInfo();
