@@ -46,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public int delUser(Integer mno) {
-        return memberMapper.delete(mno);
+        return memberMapper.deleteMember(mno);
     }
 
     @Override

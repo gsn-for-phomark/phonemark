@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="essay 文件上传测试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/service/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/static/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/static/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +56,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\maven_jar" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../apache-maven-3.6.3" />
         <option name="userSettingsFile" value="D:\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -74,7 +77,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-web/src/main/resources/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,17 +92,17 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.gsn.pm.domain" />
-      <recent name="com.gsn.pm.dao" />
-      <recent name="com.gsn.pm.config" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\resources\static" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\java\com\gsn\pm\web\controllers" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\java\com\gsn\pm\controller" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-domain-essay\src\main\java\com\gsn\pm\service" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-client-base\src\main\java\com\gsn\pm\client" />
-      <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gsn.pm.domain" />
+      <recent name="com.gsn.pm.dao" />
+      <recent name="com.gsn.pm.config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -110,14 +113,29 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.FileUploadApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.BaseRestApiApp">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.BaseRestApiApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,6 +161,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="base-eureka-config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FileUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="pm-fileUpload" />
       <extension name="coverage">
@@ -156,19 +187,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FollowRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="pm-restapi-follow" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FollowRestApiApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HystrixDashboardApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="base-hystrix-dashboard" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.HystrixDashboardApp" />
@@ -176,22 +194,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PM_restapi_essay_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="pm-restapi-essay" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_essay_App" />
+    <configuration name="PM_restapi_backstage_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pm-restapi-backstage" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_backstage_App" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PM_restapi_pinfo_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="pm-restapi-pinfo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.gsn.pm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_pinfo_App" />
+    <configuration name="PM_restapi_essay_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pm-restapi-essay" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_essay_App" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -236,19 +248,20 @@
       <item itemvalue="Spring Boot.HystrixDashboardApp" />
       <item itemvalue="Spring Boot.TurbineApp" />
       <item itemvalue="Spring Boot.PM_restapi_essay_App" />
-      <item itemvalue="Spring Boot.FollowRestApiApp" />
-      <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
       <item itemvalue="Spring Boot.ZuulApp" />
       <item itemvalue="Spring Boot.PmWebApp" />
       <item itemvalue="Spring Boot.FileUploadApplication" />
+      <item itemvalue="Spring Boot.PM_restapi_backstage_App" />
+      <item itemvalue="Spring Boot.EurekaForHaConfig" />
+      <item itemvalue="Spring Boot.BaseRestApiApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.PmWebApp" />
+        <item itemvalue="Spring Boot.BaseRestApiApp" />
         <item itemvalue="Spring Boot.ZuulApp" />
+        <item itemvalue="Spring Boot.EurekaForHaConfig" />
+        <item itemvalue="Spring Boot.PmWebApp" />
         <item itemvalue="Spring Boot.FileUploadApplication" />
-        <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
-        <item itemvalue="Spring Boot.FollowRestApiApp" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +293,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Harswlgb\AppData\Roaming\Subversion</configuration>
   </component>
@@ -380,13 +393,12 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目初始化" />
@@ -400,70 +412,6 @@
     <MESSAGE value="essay 文件上传" />
     <MESSAGE value="文章上传 postman 成功" />
     <option name="LAST_COMMIT_MESSAGE" value="文章上传 postman 成功" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="301" y="64" key="#PmWebApp" timestamp="1609227881256">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="301" y="64" key="#PmWebApp/0.0.1536.824@0.0.1536.824" timestamp="1609227881256" />
-    <state x="361" y="74" key="#Project_Structure" timestamp="1609235983166">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="74" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1609235983166" />
-    <state x="616" y="304" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1609227565250">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="616" y="304" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1609227565250" />
-    <state x="513" y="279" width="509" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609233407982">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="513" y="279" width="509" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1609233407982" />
-    <state x="551" y="170" key="FileChooserDialogImpl" timestamp="1609227721346">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="551" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609227721346" />
-    <state width="1098" height="455" key="GridCell.Tab.0.bottom" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.0.center" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.0.left" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.0.right" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.1.bottom" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.1.center" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.1.left" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state width="1098" height="455" key="GridCell.Tab.1.right" timestamp="1609299119306">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1098" height="455" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609299119306" />
-    <state x="272" y="0" key="SettingsEditor" timestamp="1609293491069">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="272" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609293491069" />
-    <state x="560" y="214" key="git4idea.merge.GitMergeDialog" timestamp="1609260820183">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="560" y="214" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1609260820183" />
-    <MESSAGE value="essay 文件上传测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="essay 文件上传测试" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

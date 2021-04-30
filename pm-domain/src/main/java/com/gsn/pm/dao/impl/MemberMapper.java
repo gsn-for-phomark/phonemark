@@ -2,10 +2,7 @@ package com.gsn.pm.dao.impl;
 
 import com.gsn.pm.dao.MisBaseMapper;
 import com.gsn.pm.entity.Memberinfo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -71,13 +68,13 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
      * @param mno
      * @return
      */
-    @Select("<script>" +
+    @Delete("<script>" +
             "delete from memberinfo where" +
             "<if test='mno!=null'>"+
             " mno=#{mno}"+
             "</if>"+
             "</script>")
-    int delete(@Param("mno") Integer mno);
+    int deleteMember(@Param("mno") Integer mno);
 
     /**
      * 时间和名称的综合查询 总数
