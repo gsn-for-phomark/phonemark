@@ -24,12 +24,11 @@ public class EssayTypeServiceImpl implements EssayTypeService{
 //    }
 
     @Override
-    public int addTypeInEssay(EssayType t) {
+    public int addTypeEssay(EssayType t) {
         List<EssayType> list = essayTypeMapper.findByName(t.getTname());
-        if(list.size()==1){
+        if(list.size()>0){
             return list.get(0).getTno();
         }
-        t.setTypedesc("暂无描述");
         return essayTypeMapper.add(t.getTypedesc(),t.getTname());
     }
 
@@ -66,7 +65,7 @@ public class EssayTypeServiceImpl implements EssayTypeService{
     }
 
     @Override
-    public int delete(Integer tno) {
+    public int deleteEt(Integer tno) {
         return essayTypeMapper.deleteByPrimaryKey(tno);
     }
 

@@ -89,7 +89,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * @return
      */
     @Delete("delete from essayinfo where eno=#{eno}")
-    int delete(@Param("eno") Integer eno);
+    int deleteEssay(@Param("eno") Integer eno);
 
     /**
      * 后端文章状态值的修改(未测)
@@ -97,7 +97,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      *
      * @return
      */
-    @Update("update essayinfo set status=#{status}  where eno=#{eno] ")
+    @Update("update essayinfo set status=#{status}  where eno=#{eno} ")
     int updateStatus(@Param("status") Integer status,@Param("eno") Integer eno);
 
 
@@ -111,7 +111,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      */
     @Select("<script>" +
             "SELECT COUNT(*) from ( SELECT * from (" +
-            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,a1.eheat,a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from(" +
+            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,ifnull(a1.eheat,0),a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from(" +
             " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno " +
@@ -146,7 +146,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      */
     @Select("<script>" +
             "SELECT * from (" +
-            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,a1.eheat,a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from( " +
+            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,ifnull(a1.eheat,0),a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from( " +
             " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from ( " +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno" +
@@ -164,19 +164,20 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
             "concat('%',#{t},'%')" +
             " </if> " +
             " order by eno asc )a2  on a1.eno=a2.eno  " +
-            " <if test='num!=null and pageSize!=null'>" +
-            " limit    #{num},#{pageSize} " +
+            " <if test='num!=null and size!=null'>" +
+            " limit    #{num},#{size} " +
             " </if>" +
             ") a3 WHERE 1=1 and eno IS NOT NULL" +
             " </script>")
-    List<Essayinfo> findByDateAndAname(@Param("startDate") String startDate,@Param("endDate") String endDate,@Param("t") String t,@Param("num") Integer num,@Param("pageSize") Integer pageSize);
+    List<Essayinfo> findByDateAndAname(@Param("startDate") String startDate,@Param("endDate") String endDate,
+                                       @Param("t") String t,@Param("num") Integer num,@Param("size") Integer size);
 
     /**
      * 分页时总条数
      * @return
      */
     @Select(" SELECT COUNT(*) from (" +
-            " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
+            " SELECT eno,ename,d.nickName,`status`,edate,ifnull(eheat,0),epic,edser,tno,ecomcount,tname from (" +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno " +
             " )a left join( select eno,count(*)as ecomcount from commentinfo  group by eno)b on a.eno=b.eno" +
@@ -187,23 +188,23 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * 分页查询
      */
     @Select(" <script>" +
-            " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
+            " SELECT eno,ename,d.nickName,`status`,edate,ifnull(eheat,0),epic,edser,tno,ecomcount,tname from (" +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from ( " +
             " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno " +
             " )a left join( select eno,count(*)as ecomcount from commentinfo  group by eno)b on a.eno=b.eno" +
             " )c left join (SELECT mno,nickName from memberinfo)d on c.mno=d.mno " +
             " order by eno asc " +
-            " <if test='num!=null and pageSize!=null'>" +
-            " limit #{num},#{pageSize}" +
+            " <if test='num!=null and size!=null'>" +
+            " limit #{num},#{size}" +
             " </if>" +
             " </script>")
-    List<Essayinfo> findByPage(@Param("num") Integer num, @Param("pageSize") Integer pageSize);
+    List<Essayinfo> findByPage(@Param("num") Integer num, @Param("size") Integer size);
 
     /**
      * 首页查询
      * @return
      */
-    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,a.eheat, " +
+    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,ifnull(a.eheat,0), " +
             " a.nickName,a.mpic,b.commentcount from((select e.eno,e.ename,e.mno," +
             " e.status,e.epic,e.edate,e.eheat,m.nickName,m.mpic " +
             " from essayinfo e inner join memberinfo m " +
@@ -216,7 +217,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * 首页查询（按照热度）
      * @return
      */
-    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,a.eheat," +
+    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,ifnull(a.eheat,0)," +
             " a.nickName,a.mpic,b.commentcount from((select e.eno,e.ename,e.mno," +
             " e.status,e.epic,e.edate,e.eheat,m.nickName,m.mpic" +
             " from essayinfo e inner join memberinfo m " +
@@ -229,7 +230,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * 首页查询（按照时间）
      * @return
      */
-    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,a.eheat, " +
+    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,ifnull(a.eheat,0), " +
             " a.nickName,a.mpic,b.commentcount from((select e.eno,e.ename,e.mno, " +
             " e.status,e.epic,e.edate,e.eheat,m.nickName,m.mpic" +
             " from essayinfo e inner join memberinfo m" +
@@ -243,7 +244,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * Photrix精选查询
      * @return
      */
-    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,a.eheat, " +
+    @Select("select a.eno,a.ename,a.mno,a.status,a.epic,DATE_FORMAT(a.edate,'%m-%d')as edate,ifnull(a.eheat,0), " +
             " a.nickName,a.mpic,b.commentcount from((select e.eno,e.ename,e.mno," +
             " e.status,e.epic,e.edate,e.eheat,m.nickName,m.mpic " +
             " from essayinfo e inner join memberinfo m " +

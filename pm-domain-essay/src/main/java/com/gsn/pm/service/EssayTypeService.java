@@ -19,7 +19,7 @@ public interface EssayTypeService {
      * @return
      * @throws Exception
      */
-    public int addTypeInEssay(EssayType t);
+    public int addTypeEssay(EssayType t);
 
     /**
      * 根据tno查找文章类型表的所有内容
@@ -45,7 +45,7 @@ public interface EssayTypeService {
     /**
      * 文章类型删除
      */
-    public int delete(Integer tno);
+    public int deleteEt(Integer tno);
 
     /**
      * 分页查询

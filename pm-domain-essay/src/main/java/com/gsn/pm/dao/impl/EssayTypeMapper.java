@@ -64,10 +64,10 @@ public interface EssayTypeMapper extends MisBaseMapper<EssayType> {
     @Select(" <script>" +
             " select tno,typedesc,tname,eno,spare1,spare2 from essaytype where 1 = 1 " +
             " order by tno asc " +
-            " <if test='num!=null and pageSize!=null'>" +
-            " limit #{num} ,#{pageSize}" +
+            " <if test='num!=null and size!=null'>" +
+            " limit #{num} ,#{size}" +
             " </if>" +
             " </script>")
-    List<EssayType> findByPage(@Param("num") Integer num,@Param("pageSize") Integer pageSize);
+    List<EssayType> findByPage(@Param("num") Integer num,@Param("size") Integer size);
 
 }

@@ -54,7 +54,7 @@ public class UploadController {
             EssayType type = new EssayType();
             String tn = tname;
             type.setTname(tn);
-            int i=et.addTypeInEssay(type);
+            int i=et.addTypeEssay(type);
             if(i==-1){
                 List<EssayType> list = et.findByName(tname);
                 i = list.get(0).getTno();

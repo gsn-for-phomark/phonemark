@@ -106,8 +106,6 @@ public interface CommentMapper extends MisBaseMapper<Commentinfo> {
      * @param startDate
      * @param endDate
      * @param t         查询词缀
-     * @param pageNum
-     * @param pageSize
      * @return
      */
     @Select("SELECT * from (\n" +
@@ -128,12 +126,12 @@ public interface CommentMapper extends MisBaseMapper<Commentinfo> {
             "\t\t\t\t\t\t\t(select nickName,mno,tel,email from  memberinfo ) b on a.mno=b.mno\n" +
             "\t\t\t\t)f2 where  nickName like  concat('%',#{t},'%') \n" +
             "\n" +
-            ")f4 on f3.cno=f4.cno limit #{pageNum},#{pageSize} \n" +
+            ")f4 on f3.cno=f4.cno limit #{num},#{size} \n" +
             "\n" +
             ")f5 WHERE cno IS NOT NULL")
     List<Commentinfo> findByDateAndAname(
             @Param("startDate") String startDate, @Param("endDate") String endDate,
-            @Param("t") String t, @Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+            @Param("t") String t, @Param("num") Integer num, @Param("size") Integer size);
 
 
 
@@ -177,14 +175,12 @@ public interface CommentMapper extends MisBaseMapper<Commentinfo> {
 
     /**
      * 评论分页查询
-     * @param pageNum
-     * @param pageSize
      * @return
      */
     @Select("SELECT a.cno,b.nickName,b.tel,b.email,a.cdate,a.cdesr,a.ename,a.cstatus from\n" +
             "(SELECT c.cno,c.eno,c.mno,cdesr,cheat,cdate,cstatus,flag,e.ename from commentinfo as c LEFT join essayinfo as e on c.eno=e.eno)a\n" +
-            "left join (select nickName,mno,tel,email from  memberinfo ) b on a.mno=b.mno order by cno asc limit #{pageNum},#{pageSize}")
-    List<Commentinfo> findByPage(@Param("pageNum") Integer pageNum, @Param("pageSize") Integer pageSize);
+            "left join (select nickName,mno,tel,email from  memberinfo ) b on a.mno=b.mno order by cno asc limit #{num},#{size}")
+    List<Commentinfo> findByPage(@Param("num") Integer num, @Param("size") Integer size);
 
 
     /**

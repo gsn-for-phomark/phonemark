@@ -92,7 +92,7 @@ public interface EssayClient {
     String doFindEssayList(@RequestParam("mno") Integer mno);
 
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "/gsn-api/essay-proxy/essay/delete",
+    @RequestMapping(method = RequestMethod.GET,value = "/gsn-api/essay-proxy/essay/delete",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE
     )

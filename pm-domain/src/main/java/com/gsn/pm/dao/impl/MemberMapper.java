@@ -52,11 +52,12 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
      * @param mno
      * @return
      */
-    @Select("<script>"
+    @Update("<script>"
             +"update memberinfo set"
             +"<if test='status!=null'>"
             +" status=#{status}   "
-            +"</if> <if test='mno!=null'>"
+            +"</if> " +
+            "<if test='mno!=null'>"
             +" where mno=#{mno} "
             +"</if>"
             +"</script>")
@@ -108,11 +109,16 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
             " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2" +
             " from memberinfo  where spare1 BETWEEN #{startDate} AND #{endDate} )a " +
             " right join ( select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo where 1 = 1 and nickName like  " +
-            " concat('%',#{t},'%')  order by mno asc " +
-            " )b  on a.mno=b.mno limit #{pageNum},#{pageSize}" +
+            " concat('%'," +
+            "<if test='t!=null'>" +
+            "#{t}" +
+            "</if>" +
+            ",'%')  order by mno asc " +
+            " )b  on a.mno=b.mno limit #{num},#{size}" +
             " )c  WHERE 1=1 and mno IS NOT NULL" +
             "</script>")
-    List<Memberinfo> findByDateAndAname (@Param("startDate") String startDate,@Param("endDate") String endDate,@Param("t") String t,@Param("pageNum") Integer pageNum,@Param("pageSize") Integer pageSize);
+    List<Memberinfo> findByDateAndAname (@Param("startDate") String startDate,@Param("endDate") String endDate,
+                                         @Param("t") String t,@Param("num") Integer num,@Param("size") Integer size);
 
     /**
      * 按照时间查询总数
@@ -132,17 +138,16 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
      *  按照时间查询
      * @param startDate
      * @param endDate
-     * @param pageNum
-     * @param pageSize
      * @return
      */
     @Select("<script>" +
             " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo  " +
             " where spare1 BETWEEN #{startDate} and #{endDate}" +
             " order by mno asc " +
-            " limit #{pageNum},#{pageSize}" +
+            " limit #{num},#{size}" +
             "</script>")
-    List<Memberinfo> findByDate (@Param("startDate") String startDate,@Param("endDate") String endDate,@Param("pageNum") Integer pageNum,@Param("pageSize") Integer pageSize);
+    List<Memberinfo> findByDate (@Param("startDate") String startDate,@Param("endDate") String endDate,@Param("num") Integer num,
+                                 @Param("size") Integer size);
 
     /**
      * 模糊查询分页时总条数
@@ -159,16 +164,14 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
     /**
      * 根据用户名模糊查询
      * @param t
-     * @param pageNum
-     * @param pageSize
      * @return where 1 = 1 and
      */
     @Select("<script>" +
             " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo " +
             "  nickName like  concat('%',#{t},'%')  order by mno asc " +
-            " limit #{pageNum},#{pageSize}" +
+            " limit #{num},#{size}" +
             "</script>")
-    List<Memberinfo> findByAname (@Param("t") String t,@Param("pageNum") Integer pageNum,@Param("pageSize") Integer pageSize);
+    List<Memberinfo> findByAname (@Param("t") String t,@Param("num") Integer num,@Param("size") Integer size);
 
     /**
      * 分页时总条数
@@ -182,14 +185,11 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
 
     /**
      * 分页查询
-     * @param pageNum
-     * @param pageSize
+     *
      * @return where 1 = 1
      */
-    @Select("<script>" +
-            " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo " +
+    @Select(" select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo " +
             " order by mno asc " +
-            " limit #{pageNum},#{pageSize}" +
-            "</script>")
-    List<Memberinfo> findByPage (@Param("pageNum") Integer pageNum,@Param("pageSize")Integer pageSize);
+            "limit #{num},#{size} ")
+    List<Memberinfo> findByPage (@Param("num") Integer num,@Param("size") Integer size);
 }

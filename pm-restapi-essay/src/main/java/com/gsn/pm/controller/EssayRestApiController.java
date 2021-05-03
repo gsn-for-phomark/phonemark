@@ -181,7 +181,7 @@ public class EssayRestApiController {
     public CompletableFuture<String> addType(@RequestBody EssayType t) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
 
-            int i=et.addTypeInEssay(t);
+            int i=et.addTypeEssay(t);
             if(i==1){
                 Map<String, Object> map = new HashMap<>();
                 map.put("code", 1);
@@ -256,14 +256,12 @@ public class EssayRestApiController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public CompletableFuture<String> delete(Integer eno) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
-            Essayinfo essayinfo=new Essayinfo();
-            essayinfo.setEno(eno);
-            essayinfoService.delete(eno);
+            essayinfoService.deleteEssay(eno);
 
-            logger.info("删除->ID=" + essayinfo.getMno());
+            logger.info("删除->ID=" + eno);
             Map<String, Object> map = new HashMap<>();
             map.put("code", 1);
             map.put("msg","文章删除成功");
@@ -312,7 +310,7 @@ public class EssayRestApiController {
                 String tno =bean.getSpare2();
                 bean.setSpare2(null);
                 type.setTname(tno);
-                int i=et.addTypeInEssay(type);
+                int i=et.addTypeEssay(type);
                 if(i==-1){
                     List<EssayType> list = essayTypeMapper.findByTrem(Integer.parseInt(tno));
                     i = list.get(0).getTno();

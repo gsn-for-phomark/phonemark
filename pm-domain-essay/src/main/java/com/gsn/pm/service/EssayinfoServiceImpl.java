@@ -73,7 +73,7 @@ public class EssayinfoServiceImpl implements EssayinfoService{
     }
 
     @Override
-    public int delete(Integer eno) {
+    public int deleteEssay(Integer eno) {
         return essayinfoMapper.deleteByPrimaryKey(eno);
     }
 

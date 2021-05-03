@@ -48,7 +48,7 @@ public interface EssayinfoService {
      * 文章删除
      */
 
-    public int delete(Integer eno);
+    public int deleteEssay(Integer eno);
 
     /**
      * 后端文章状态值的修改

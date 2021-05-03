@@ -77,7 +77,7 @@ public class EssayController {
         return essayFuture.findUserList(mno);
     }
 
-    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public CompletableFuture<String> deleteEssay(Integer eno){
         return essayFuture.delete(eno);
     }

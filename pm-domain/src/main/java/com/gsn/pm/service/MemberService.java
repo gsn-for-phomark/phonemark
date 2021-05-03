@@ -33,7 +33,6 @@ public interface MemberService {
 
     /**
      * 用户删除
-     * @param t
      * @return
      * @throws Exception
      */

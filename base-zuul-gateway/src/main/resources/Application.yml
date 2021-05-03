@@ -53,7 +53,7 @@ zuul:
       sensitiveHeaders:
     pm-backstage:
       path: /backstage-proxy/**                   # 访问的路径
-      serviceId: BACKSTAGE-ADMIN
+      serviceId: MICROSERVICE-PROVIDER-BACKSTAGE
       sensitiveHeaders:
 
   ignored-services: "*"      # "*"代表隐藏所有的服务名，这样就不能通过zuul直接用服务名访问真实的服务了.

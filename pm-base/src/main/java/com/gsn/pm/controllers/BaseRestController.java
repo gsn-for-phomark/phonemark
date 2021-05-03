@@ -6,7 +6,6 @@ import com.gsn.pm.dao.impl.MemberMapper;
 import com.gsn.pm.domain.Token;
 import com.gsn.pm.entity.Memberinfo;
 import com.gsn.pm.service.MemberService;
-import com.gsn.pm.util.TokenUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

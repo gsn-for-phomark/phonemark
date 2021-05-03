@@ -8,26 +8,27 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="pm-domain-pinfo" />
+        <module name="pm-domain-backData" />
         <module name="eureka-config" />
-        <module name="base-hystrix-turbine" />
         <module name="pm-domain-follow" />
-        <module name="base-hystrix-dashboard" />
-        <module name="pm-restapi-backstage" />
         <module name="pm-base" />
-        <module name="pm-domain" />
         <module name="base-git-config3" />
-        <module name="pm-client-base" />
         <module name="pm-domain-essay" />
         <module name="base-git-config2" />
-        <module name="pm-web" />
         <module name="base-git-config" />
-        <module name="base-security" />
-        <module name="pm-restapi-pinfo" />
         <module name="pm-fileUpload" />
         <module name="base-zuul-gateway" />
+        <module name="pm-domain-comment" />
+        <module name="base-hystrix-turbine" />
+        <module name="base-hystrix-dashboard" />
+        <module name="pm-restapi-backstage" />
+        <module name="pm-domain" />
+        <module name="pm-client-base" />
+        <module name="pm-web" />
+        <module name="base-security" />
+        <module name="pm-restapi-pinfo" />
         <module name="pm-restapi-comment" />
         <module name="pm-util" />
-        <module name="pm-domain-comment" />
         <module name="base-eureka-config" />
         <module name="pm-restapi-essay" />
         <module name="pm-restapi-follow" />
@@ -47,17 +48,18 @@
       <module name="pm-base" target="8" />
       <module name="pm-client-base" target="1.8" />
       <module name="pm-domain" target="1.8" />
+      <module name="pm-domain-backData" target="8" />
       <module name="pm-domain-comment" target="7" />
-      <module name="pm-domain-essay" target="1.8" />
+      <module name="pm-domain-essay" target="8" />
       <module name="pm-domain-follow" target="1.8" />
-      <module name="pm-domain-pinfo" target="1.8" />
-      <module name="pm-fileUpload" target="1.8" />
-      <module name="pm-restapi-backstage" target="1.8" />
+      <module name="pm-domain-pinfo" target="8" />
+      <module name="pm-fileUpload" target="8" />
+      <module name="pm-restapi-backstage" target="8" />
       <module name="pm-restapi-comment" target="1.8" />
-      <module name="pm-restapi-essay" target="1.8" />
-      <module name="pm-restapi-follow" target="1.8" />
+      <module name="pm-restapi-essay" target="8" />
+      <module name="pm-restapi-follow" target="8" />
       <module name="pm-restapi-pinfo" target="1.8" />
-      <module name="pm-util" target="1.8" />
+      <module name="pm-util" target="8" />
       <module name="pm-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
