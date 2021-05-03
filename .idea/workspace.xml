@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="邮箱正则">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/base-zuul-gateway/src/main/resources/Application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/EssayClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-client-base/src/main/java/com/gsn/pm/client/EssayClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-comment/src/main/java/com/gsn/pm/dao/impl/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-comment/src/main/java/com/gsn/pm/dao/impl/CommentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayTypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/service/EssayinfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/pm-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/pm-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="dev_yyq" />
+    <option name="BRANCH" value="dev-51" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -197,6 +179,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FileUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pm-fileUpload" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FileUploadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HystrixDashboardApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="base-hystrix-dashboard" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.HystrixDashboardApp" />
@@ -264,13 +253,14 @@
       <item itemvalue="Spring Boot.PmWebApp" />
       <item itemvalue="Spring Boot.EurekaForHaConfig" />
       <item itemvalue="Spring Boot.BaseRestApiApp" />
+      <item itemvalue="Spring Boot.FileUploadApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.BaseRestApiApp" />
+        <item itemvalue="Spring Boot.EurekaForHaConfig" />
         <item itemvalue="Spring Boot.PmWebApp" />
         <item itemvalue="Spring Boot.ZuulApp" />
-        <item itemvalue="Spring Boot.EurekaForHaConfig" />
-        <item itemvalue="Spring Boot.BaseRestApiApp" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
