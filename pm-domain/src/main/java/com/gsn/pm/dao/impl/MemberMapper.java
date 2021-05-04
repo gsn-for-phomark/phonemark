@@ -152,11 +152,11 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
     /**
      * 模糊查询分页时总条数
      * @param t
-     * @return where 1 = 1 and
+     * @return
      */
     @Select("<script>" +
             " SELECT COUNT(*) from (" +
-            " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo " +
+            " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo where 1 = 1 and" +
             " nickName like  concat('%', #{t},'%')  )a" +
             "</script>")
     int findByAnameTotal(@Param("t") String t);
@@ -164,10 +164,10 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
     /**
      * 根据用户名模糊查询
      * @param t
-     * @return where 1 = 1 and
+     * @return
      */
     @Select("<script>" +
-            " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo " +
+            " select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo where 1 = 1 and " +
             "  nickName like  concat('%',#{t},'%')  order by mno asc " +
             " limit #{num},#{size}" +
             "</script>")
@@ -186,9 +186,9 @@ public interface MemberMapper  extends MisBaseMapper<Memberinfo> {
     /**
      * 分页查询
      *
-     * @return where 1 = 1
+     * @return
      */
-    @Select(" select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo " +
+    @Select(" select mno,nickName,msex,pwd,tel,email,`status`,mpic,msign,messaynums,eno,fno,cno,spare1,spare2 from memberinfo where 1 = 1" +
             " order by mno asc " +
             "limit #{num},#{size} ")
     List<Memberinfo> findByPage (@Param("num") Integer num,@Param("size") Integer size);

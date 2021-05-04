@@ -111,7 +111,7 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      */
     @Select("<script>" +
             "SELECT COUNT(*) from ( SELECT * from (" +
-            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,ifnull(a1.eheat,0),a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from(" +
+            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,a1.eheat,a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from(" +
             " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno " +
@@ -141,12 +141,11 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * @param endDate
      * @param t
      * @param num 页码
-     * @param pageSize
      * @return
      */
     @Select("<script>" +
             "SELECT * from (" +
-            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,ifnull(a1.eheat,0),a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from( " +
+            " SELECT a1.eno,a1.ename,a1.nickName,a1.`status`,a1.edate,a1.eheat,a1.epic,a1.edser,a1.tno,a1.ecomcount,a1.tname from( " +
             " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from ( " +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from (" +
             " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno" +
@@ -188,15 +187,13 @@ public interface EssayinfoMapper extends MisBaseMapper<Essayinfo> {
      * 分页查询
      */
     @Select(" <script>" +
-            " SELECT eno,ename,d.nickName,`status`,edate,ifnull(eheat,0),epic,edser,tno,ecomcount,tname from (" +
+            " SELECT eno,ename,d.nickName,`status`,edate,eheat,epic,edser,IFNULL(ecomcount,0) as ecomcount,tname from ( " +
             " SELECT a.eno,ename,mno,`status`,edate,eheat,epic,edser,tno,ecomcount,tname from ( " +
-            " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname from essayinfo as e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno " +
-            " )a left join( select eno,count(*)as ecomcount from commentinfo  group by eno)b on a.eno=b.eno" +
+            " SELECT e1.eno,ename,mno,`status`,edate,eheat,epic,edser,e1.tno,t1.tname as tname from essayinfo  e1 LEFT JOIN essaytype t1 on e1.tno=t1.tno   " +
+            " )a left join( select eno,count(*)as ecomcount from commentinfo  group by eno)b on a.eno=b.eno " +
             " )c left join (SELECT mno,nickName from memberinfo)d on c.mno=d.mno " +
-            " order by eno asc " +
-            " <if test='num!=null and size!=null'>" +
-            " limit #{num},#{size}" +
-            " </if>" +
+            " order by eno asc  " +
+            " limit  #{num} , #{size} " +
             " </script>")
     List<Essayinfo> findByPage(@Param("num") Integer num, @Param("size") Integer size);
 

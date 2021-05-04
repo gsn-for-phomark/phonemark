@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="邮箱正则">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="后台完成(登录待测)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/domain/EssayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/domain/EssayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/Essayinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/Essayinfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,8 +97,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayTypeMapper.java" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -104,9 +112,10 @@
       <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\java\com\gsn\pm\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gsn.pm.util" />
+      <recent name="com.gsn.pm.config" />
       <recent name="com.gsn.pm.domain" />
       <recent name="com.gsn.pm.dao" />
-      <recent name="com.gsn.pm.config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -117,20 +126,19 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PM_restapi_essay_App">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.PmWebApp">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/pm-restapi-pinfo/pm-web/static/back/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
     </configuration>
     <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="pm-base" />
@@ -166,22 +174,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaForHaConfig" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="base-eureka-config" />
+    <configuration name="FileUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pm-fileUpload" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FileUploadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FollowRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-restapi-follow" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.gsn.pm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.EurekaForHaConfig" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileUploadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="pm-fileUpload" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FileUploadApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.FollowRestApiApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -203,6 +211,19 @@
     <configuration name="PM_restapi_essay_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="pm-restapi-essay" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_essay_App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PM_restapi_pinfo_App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-restapi-pinfo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gsn.pm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.PM_restapi_pinfo_App" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -241,7 +262,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.index.html" />
       <item itemvalue="Spring Boot.ConfigApp" />
       <item itemvalue="Spring Boot.ConfigApp2" />
       <item itemvalue="Spring Boot.ConfigApp3" />
@@ -249,19 +269,20 @@
       <item itemvalue="Spring Boot.TurbineApp" />
       <item itemvalue="Spring Boot.PM_restapi_essay_App" />
       <item itemvalue="Spring Boot.PM_restapi_backstage_App" />
-      <item itemvalue="Spring Boot.ZuulApp" />
-      <item itemvalue="Spring Boot.PmWebApp" />
-      <item itemvalue="Spring Boot.EurekaForHaConfig" />
-      <item itemvalue="Spring Boot.BaseRestApiApp" />
       <item itemvalue="Spring Boot.FileUploadApplication" />
+      <item itemvalue="Spring Boot.ZuulApp" />
+      <item itemvalue="Spring Boot.BaseRestApiApp" />
+      <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
+      <item itemvalue="Spring Boot.FollowRestApiApp" />
+      <item itemvalue="Spring Boot.PmWebApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.BaseRestApiApp" />
-        <item itemvalue="Spring Boot.EurekaForHaConfig" />
         <item itemvalue="Spring Boot.PmWebApp" />
+        <item itemvalue="Spring Boot.FollowRestApiApp" />
+        <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
+        <item itemvalue="Spring Boot.BaseRestApiApp" />
         <item itemvalue="Spring Boot.ZuulApp" />
-        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -324,6 +345,7 @@
       <workItem from="1619859835822" duration="16938000" />
       <workItem from="1619964280232" duration="10420000" />
       <workItem from="1620036992565" duration="18063000" />
+      <workItem from="1620124587038" duration="8756000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
@@ -388,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619790171672</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="后台完成(登录待测)">
+      <created>1620055903290</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1620055903290</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +452,8 @@
     <MESSAGE value="essay 文件上传" />
     <MESSAGE value="文章上传 postman 成功" />
     <MESSAGE value="邮箱正则" />
-    <option name="LAST_COMMIT_MESSAGE" value="邮箱正则" />
+    <MESSAGE value="后台完成(登录待测)" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台完成(登录待测)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -32,4 +32,5 @@ public class Essayinfo {
     private String spare1;//备用字段1
     private String spare2;//备用字段2
     private String nickName;//作者名
+    private String tname;
 }
