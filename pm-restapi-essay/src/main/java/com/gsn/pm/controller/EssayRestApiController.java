@@ -158,6 +158,7 @@ public class EssayRestApiController {
     public CompletableFuture<String> addEssay(@RequestBody  Essayinfo t){
         return CompletableFuture.supplyAsync(() ->{
             int i=essayinfoService.add(t);
+            System.out.println("文章添加restApi");
             if(i==1){
                 Map<String, Object> map = new HashMap<>();
                 map.put("code", 1);

@@ -1,6 +1,7 @@
 package com.gsn.pm.controller;
 
 
+
 import com.gsn.pm.entity.EssayType;
 import com.gsn.pm.entity.Essayinfo;
 import com.gsn.pm.service.EssayTypeService;
@@ -65,6 +66,7 @@ public class UploadController {
             bean.setEpic(url);
             bean.setEdser(edser);
             int e =essayinfoService.add(bean);
+            System.out.println("文章添加");
             //toPrintJson(response, i);
             System.out.println("添加文章code:"+e);
 

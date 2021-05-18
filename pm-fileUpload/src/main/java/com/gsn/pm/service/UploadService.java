@@ -42,7 +42,8 @@ public class UploadService {
 
             // 保存到服务器,必须在D盘创建一个images文件夹
             //D:\Jtb\IDEA\phonemark\pm-web\src\main\resources\static\PhoneMark_images
-            file.transferTo(new File("D:\\IDEAspace\\phonemark\\pm-web\\src\\main\\resources\\static\\PhoneMark_images\\PhoneMark_images" + originalFilename));
+            //D:\Jtb\IDEA\phonemark\pm-web\src\main\resources\static
+            file.transferTo(new File("D:\\Jtb\\IDEA\\phonemark\\pm-web\\src\\main\\resources\\static\\PhoneMark_images\\PhoneMark_images" + originalFilename));
 
             // 生成url地址，返回
             return "../PhoneMark_images/PhoneMark_images" + originalFilename;

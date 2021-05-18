@@ -59,6 +59,7 @@ public class EssayController {
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public CompletableFuture<String> addEssay(@RequestBody Essayinfo t){
+        System.out.println("文章添加webcontroller");
         return essayFuture.addEssay(t);
     }
 

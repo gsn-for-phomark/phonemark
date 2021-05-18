@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="后台完成(登录待测)">
+    <list default="true" id="c0b4b099-2caa-4f6d-ac97-1dffae299343" name="Default Changelist" comment="后台完成Done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-base/src/main/java/com/gsn/pm/controllers/BaseRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/dao/impl/EssayinfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/domain/EssayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/domain/EssayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/Essayinfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain-essay/src/main/java/com/gsn/pm/entity/Essayinfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/dao/impl/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/controller/UploadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/service/UploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-fileUpload/src/main/java/com/gsn/pm/service/UploadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-restapi-essay/src/main/java/com/gsn/pm/controller/EssayRestApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/java/com/gsn/pm/web/controllers/EssayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm-web/src/main/resources/Application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/pm-web/src/main/resources/Application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev-51" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,7 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pm-domain/src/main/java/com/gsn/pm/entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../hh" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -105,11 +106,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\resources\static" />
+      <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\resources\static\PhoneMark_images" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-domain\src\main\java\com\gsn\pm\entity" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-domain-backData\src\main\resources" />
-      <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\resources\static" />
       <recent name="D:\Jtb\IDEA\phonemark\pm-web\src\main\java\com\gsn\pm\web\controllers" />
-      <recent name="D:\Jtb\IDEA\phonemark\pm-restapi-essay\src\main\java\com\gsn\pm\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.gsn.pm.util" />
@@ -126,29 +127,16 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PmWebApp">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BaseRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="pm-base" />
+  <component name="RunManager" selected="Spring Boot.ZuulApp">
+    <configuration name="CommentRestApiApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="pm-restapi-comment" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.gsn.pm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.BaseRestApiApp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gsn.pm.CommentRestApiApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -270,19 +258,19 @@
       <item itemvalue="Spring Boot.PM_restapi_essay_App" />
       <item itemvalue="Spring Boot.PM_restapi_backstage_App" />
       <item itemvalue="Spring Boot.FileUploadApplication" />
-      <item itemvalue="Spring Boot.ZuulApp" />
-      <item itemvalue="Spring Boot.BaseRestApiApp" />
-      <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
+      <item itemvalue="Spring Boot.CommentRestApiApp" />
       <item itemvalue="Spring Boot.FollowRestApiApp" />
+      <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
       <item itemvalue="Spring Boot.PmWebApp" />
+      <item itemvalue="Spring Boot.ZuulApp" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.PmWebApp" />
-        <item itemvalue="Spring Boot.FollowRestApiApp" />
-        <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
-        <item itemvalue="Spring Boot.BaseRestApiApp" />
         <item itemvalue="Spring Boot.ZuulApp" />
+        <item itemvalue="Spring Boot.PM_restapi_pinfo_App" />
+        <item itemvalue="Spring Boot.FollowRestApiApp" />
+        <item itemvalue="Spring Boot.CommentRestApiApp" />
       </list>
     </recent_temporary>
   </component>
@@ -346,6 +334,10 @@
       <workItem from="1619964280232" duration="10420000" />
       <workItem from="1620036992565" duration="18063000" />
       <workItem from="1620124587038" duration="8756000" />
+      <workItem from="1620644851435" duration="5182000" />
+      <workItem from="1620916428381" duration="229000" />
+      <workItem from="1621255680605" duration="592000" />
+      <workItem from="1621256758648" duration="4132000" />
     </task>
     <task id="LOCAL-00001" summary="项目初始化">
       <created>1606990991208</created>
